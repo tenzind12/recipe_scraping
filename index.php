@@ -1,32 +1,5 @@
 <?php include './inc/header.php' ?>
 
-<?php
-    if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
-        if(!empty($_POST['ingredient']) && !empty($_POST['range-input'])) {
-            $result = $recipes->getByNameAndTime($_POST['ingredient'], $_POST['range-input']);
-            if($result) {
-                while($rows = $result->fetch_assoc()) {
-                    echo '<pre>';
-                    var_dump($rows);
-                    echo '</pre>';
-
-                }
-            }
-            else echo 'no tre';
-        }
-    }
-
-?>
-
-<body>
-<!-- main container -->
-    <div class="container-fluid">
-        <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Home</a>
-        </div>
-        </nav>
-
         <!-- card start -->
         <div class="card mx-auto mt-2" id="card" >
             <?php
@@ -51,7 +24,7 @@
             <div class="card-body">
                 <h5 class="card-title text-center display-5">Search for Recipe <i class="fas fa-utensils"></i></h5>
                 <!-- form input -->
-                <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+                <form method="POST" action="recipeLists.php">
                     <div class="mb-3" id="input-ingredient">
                         <input name="ingredient" type="text" placeholder="Enter an ingredient" class="form-control px-5" />
                         <i class="fas fa-search" id="fa-magnifying-glass"></i>

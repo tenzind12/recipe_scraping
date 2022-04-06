@@ -1,12 +1,6 @@
-<?php
-    include_once __DIR__.'/../connection/Db.php';
-    include './helpers/Services.class.php';
-    $service = new Service();
-?>
+<?php include_once __DIR__.'/../connection/Db.php';?>
 
 <?php
-
-
 class Recipe {
     private $db;
 
@@ -23,7 +17,7 @@ class Recipe {
 
     // search recipe by name and time taken
     public function getByNameAndTime($name, $time) {
-        $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime = 35";
+        $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime = $time";
         $result = $this->db->select($query);
         return $result;
     }
