@@ -4,13 +4,7 @@
   box-sizing: border-box;
 }
 
-#navbar {
-  height: 100px;
-}
-
 body {
-  /* background-color: #bdd4e7;
-  background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%); */
   background-color: #537895;
   background-image: linear-gradient(315deg, #334858 0%, #09203f 74%);
   min-height: 100vh;
@@ -19,6 +13,10 @@ body {
 a {
   text-decoration: none;
   color: #000;
+}
+
+li {
+  list-style: none;
 }
 
 p {
@@ -33,8 +31,6 @@ img {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  /* background-color: #fff; */
-  background-color: #f1dfd1;
   background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -56,7 +52,7 @@ img {
 
 #fa-magnifying-glass {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 2%;
   color: grey;
 }
