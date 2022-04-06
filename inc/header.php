@@ -1,7 +1,11 @@
 <?php 
     include __DIR__.'/../classes/Recipe.class.php';
+    include __DIR__.'/../helpers/Format.class.php';
     $recipes = new Recipe();
+    $format = new Format();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,7 @@
 <body class="border">
     <!-- main container -->
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark border-bottom py-4" id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark border-bottom py-4 sticky-top" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/recipe-php/index.php">Recipie&nbsp;<img src="./assets/images/icons/pie.png" alt="pie icon" style="width:25px"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
