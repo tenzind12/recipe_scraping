@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+#card {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+#card-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 5px 5px 0 0;
+  height: 500px;
+  object-fit: cover;
+}
+
+#input-ingredient {
+  position: relative;
+}
+
+#fa-magnifying-glass {
+  position: absolute;
+  top: 35%;
+  left: 2%;
+  color: grey;
+}
+
+.range-slider {
+}
