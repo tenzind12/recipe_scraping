@@ -3,7 +3,7 @@
     $fm = new Format();
 ?>
 
-<div>
+<div >
     <?php
         if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
             if(!empty($_POST['ingredient'])) {
@@ -44,9 +44,15 @@
                     </div>
     <?php
                 }
-                echo '<p>There is nothing</p>';
             }
-            else echo '<h1>Nothing</h1>';
+            else {
+    ?>
+                <div class="d-flex flex-column mt-4">
+                    <p class="text-center text-light">Are you sure that you enter the field? Let's<a href="index.php" class="text-warning">&nbsp;go back</a> :)</p>
+                    <img src="./assets/images/found_nothing.png" alt="nothing found" id='nothing_image'/>
+                </div>
+    <?php
+            };
         }
 
     ?>

@@ -42,10 +42,21 @@ img {
   width: auto;
 }
 
+#search_card {
+  background-color: rgb(210, 208, 208);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
 #card {
+  width: 100%;
   width: 500px;
   margin: 0 auto;
-  background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+  background-color: rgb(210, 208, 208);
+  /* background-image: linear-gradient(315deg, #e0cca3 0%, #efd1b2 74%); */
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 30px 20px 20px 20px;
@@ -83,4 +94,12 @@ img {
 
 #recipe-list-cols {
   padding: 0 20px;
+}
+
+/* recipieList.php */
+#nothing_image {
+  max-height: 500px;
+  max-width: 500px;
+  margin: auto;
+  object-fit: cover;
 }
