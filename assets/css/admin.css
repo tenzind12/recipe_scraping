@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(../images/adminImages/login-bg.webp) no-repeat center center fixed;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.container form input {
+  display: block;
+  margin: 15px auto;
+  width: 32em;
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form button {
+  display: block;
+  margin: auto auto 15px auto;
+  width: 32em;
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #537895;
+  color: white;
+}

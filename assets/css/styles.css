@@ -16,7 +16,7 @@ a {
 }
 
 li {
-  list-style: none;
+  /* list-style: none; */
 }
 
 p {
@@ -31,23 +31,37 @@ img {
   background-color: rgba(13, 36, 66, 0.5);
 }
 
-#card {
+.img-container {
   width: 100%;
-  max-width: 800px;
+  background-color: #09203f;
+  border-radius: 300px;
+}
+
+#garlic {
+  max-height: 30vh;
+  width: auto;
+}
+
+#card {
+  width: 500px;
   margin: 0 auto;
   background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 30px 20px 20px 20px;
+  transition: all 0.3s ease-in-out;
 }
 
 #card-image {
   width: 100%;
   height: auto;
-  max-width: 100%;
+  max-height: 257px;
   border-radius: 5px 5px 0 0;
-  height: 500px;
   object-fit: cover;
+}
+
+#card-image:hover {
+  transform: scale(1.02);
 }
 
 #input-ingredient {
@@ -61,5 +75,12 @@ img {
   color: grey;
 }
 
-.range-slider {
+#submitBtn {
+  background-color: #537895;
+  padding: 10px;
+  transition: 0.1s;
+}
+
+#recipe-list-cols {
+  padding: 0 20px;
 }
