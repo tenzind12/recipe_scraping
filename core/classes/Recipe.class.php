@@ -30,6 +30,15 @@ class Recipe {
         $result = $this->db->select($query);
         return $result;
     }
+
+    // ADVANCED RECIPE SEARCH
+    public function getAdvancedSearchResults($name, $calorie, $fat, $protein, $time) {
+        $query1 = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime <= '$time' ";
+        $recipes = $this->db->select($query1);
+        while($rows = $recipes->fetch_assoc()){
+            return $rows['nutritionId'];
+        }
+    }
 }
 
 ?>

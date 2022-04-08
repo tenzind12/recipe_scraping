@@ -31,4 +31,26 @@ class Format {
         $hour = $minutes / 60;
         return (int)$hour.':'.strlen((string)$min) < 1 ? '0'.$min. ' mins': $min . ' mins';
     }
+
+    // rating star filled
+    public function generateStars($rating) {
+        $rating = round($rating);
+        for($i=0; $i<$rating; $i++) {
+            echo '<i class="fas fa-star text-warning"></i>';
+        }
+    }
+    // empty stars
+    public function emptyStars($rating) {
+        $count = 5 -  round($rating);
+        for($i=0; $i< $count; $i++) {
+            echo '<i class="far fa-star text-warning"></i>';
+        }
+    }
+
+    // text shortener
+    public function shortenText($string, $length = 400) {
+        $string = substr($string, 0, $length);
+        if(strlen($string) >= $length) $string = $string."...";
+        return $string;   
+    }
 }

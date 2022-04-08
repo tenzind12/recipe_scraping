@@ -1,41 +1,34 @@
 <?php 
     include './inc/header.php';
-    $fm = new Format();
 ?>
 
 <div >
     <?php
         if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
             if(!empty($_POST['ingredient'])) {
-                $name = $fm->validation($_POST['ingredient']);
+                $name = $format->validation($_POST['ingredient']);
                 $result = $recipes->getByName($name);
 
                 if($result) {
     ?>
-                    <h1 class="text-secondary text-center my-5">We give you every matching recipes</h1>
+                    <h1 class="text-light text-center my-5">Recipe results for "<?= $name ?>" <span class="badge bg-secondary"><?= mysqli_num_rows($result) ?> results</span></h1>
                     <div class="row m-auto" id="recipe-list-cols">
     <?php
                     while($rows = $result->fetch_assoc()) {
     ?>
-                        <div class="card col-md-4 mb-5 position-relative" id="card">
-                            <a href="<?= $rows['id'] ?>">
+                        <div class="card col-sm-4 mb-5 position-relative" id="card">
+                            <a href="?recipeId=<?= $rows['id'] ?>">
                                 <img class="card-img-top" id="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                             </a>
                             <div class="card-body">
                                 <!-- <div class="d-flex"> -->
-                                    <h5 class="card-title"><?= $rows['name'] ?></h5>
-                                    <!-- </div> -->
-                                    <ul class="card-text">
-                                        <?php 
-                                        $ingredients = json_decode($rows['recipeIngredient']);
-                                        foreach($ingredients as $value) {
-                                            ?>
-                                        <li><?= ucfirst($value) ?></li>
-                                        <?php
-                                        }
-                                        ?>
-                                        <small class="m-3 text-secondary position-absolute bottom-0 end-0">TOTAL TIME : <?= $fm->minToHour($rows['totalTime']) ?></small>
-                                </ul>
+                                <a href="?recipeId=<?= $rows['id'] ?>"><h5 class="card-title"><?= $rows['name'] ?></h5></a>
+                                <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
+                                <!-- </div> -->
+                                <div class="card-text">
+                                    <p><?= $format->shortenText($rows['description'], 200) ?></p>
+                                </div>
+                                <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= $rows['author'] ?></span></p>
                             </div>
                         </div>
     <?php

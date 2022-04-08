@@ -33,7 +33,7 @@ img {
 
 .img-container {
   width: 100%;
-  background-color: #09203f;
+  background-color: #e7eaed;
   border-radius: 300px;
 }
 
@@ -43,17 +43,18 @@ img {
 }
 
 #search_card {
-  background-color: rgb(210, 208, 208);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* background-color: rgb(210, 208, 208); */
+  background-color: transparent;
+  border: none;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
   padding: 20px;
   margin-top: 20px;
   max-width: 600px;
 }
 
 #card {
-  width: 100%;
-  width: 500px;
+  /* width: 100%; */
+  width: 400px;
   margin: 0 auto;
   background-color: rgb(210, 208, 208);
   /* background-image: linear-gradient(315deg, #e0cca3 0%, #efd1b2 74%); */
@@ -66,7 +67,7 @@ img {
 #card-image {
   width: 100%;
   height: auto;
-  max-height: 257px;
+  max-height: 201px;
   border-radius: 5px 5px 0 0;
   object-fit: cover;
 }
