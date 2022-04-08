@@ -33,11 +33,31 @@ class Recipe {
 
     // ADVANCED RECIPE SEARCH
     public function getAdvancedSearchResults($name, $calorie, $fat, $protein, $time) {
+
+        // fetch all recipe matching name and time to get nutritionId
         $query1 = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime <= '$time' ";
         $recipes = $this->db->select($query1);
+        $id = [];
         while($rows = $recipes->fetch_assoc()){
-            return $rows['nutritionId'];
+            $id[] = $rows['nutritionId'];
         }
+
+        // fetch inner join recipes and nutrition matching the nutritionId
+        $result = [];
+        for($i=0; $i<count($id); $i++) {
+            $finalQuery = "SELECT recipes.*, nutrition.* 
+                FROM recipes 
+                INNER JOIN nutrition 
+                ON recipes.nutritionId = nutrition.id
+                WHERE nutritionId = '$id[$i]' 
+                AND nutrition.calories <= $calorie 
+                AND nutrition.fat <= $fat 
+                AND nutrition.protein <= $protein 
+                ORDER BY nutritionId DESC";
+            $resData = $this->db->select($finalQuery);
+            $result[] = $resData;
+        }
+        return $result;
     }
 }
 

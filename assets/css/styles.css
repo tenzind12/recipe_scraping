@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #537895;
-  background-image: linear-gradient(315deg, #334858 0%, #09203f 74%);
+  background-color: #b9bcbe;
+  /* background-image: linear-gradient(315deg, #334858 0%, #09203f 74%); */
   min-height: 100vh;
 }
 
@@ -103,4 +103,9 @@ img {
   max-width: 500px;
   margin: auto;
   object-fit: cover;
+}
+
+/* advanced search */
+#advanced-search-container {
+  max-width: 600px;
 }

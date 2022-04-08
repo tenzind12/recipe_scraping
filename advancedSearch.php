@@ -1,25 +1,7 @@
 <?php include './inc/header.php'; ?>
 
-<?php 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST['submit'])) {
-            $name = $format->validation($_POST['name_input']);
-            $calorie = $_POST['calorie-input'];
-            $fat = $_POST['fat-input'];
-            $protein = $_POST['protein-input'];
-            $time = $_POST['time-input'];
-
-            $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
-            var_dump($result);
-        }
-    }
-
-
-?>
-
-
-<div class="container w-50 mt-5">
-    <form action="" method="POST">
+<div class="container mt-5 mx-auto" id="advanced-search-container">
+    <form action="advancedSearchList.php" method="POST">
         <input type="text" class="form-control" placeholder="Enter an ingredient, name ..." name="name_input">
 
 
@@ -60,9 +42,9 @@
         </div>
 
         <div class="row">
-            <label for="timetaken" class="col-4 text-light">Total time to finish</label>
+            <label for="timetaken" class="col-sm-4 text-light">Total time to finish</label>
 
-            <select name="time-input" id="timetaken" class="col-8">
+            <select name="time-input" id="timetaken" class="col-sm-7 rounded text-secondary">
                 <option value="less30">Less than 30 mins</option>
                 <option value="less60">Less than 60 mins</option>
                 <option value="more60">More than 1 hour</option>
