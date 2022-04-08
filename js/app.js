@@ -22,6 +22,7 @@ const getUrlData = (url) => {
         );
         if (targetScript) {
           const resData = targetScript[0].innerText;
+          // console.log(resData);
           const bodyData = JSON.stringify({ resData, inputUrl: url });
           fetch('http://localhost:7000/recipes/store', {
             method: 'POST',

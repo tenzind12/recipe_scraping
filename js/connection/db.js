@@ -25,10 +25,12 @@ mysqlConnection.connect((err) => {
 
 // P O S T   F E T C H   A P I
 app.post('/recipes/store', (req, res, next) => {
-  const reqData = JSON.parse(req.body.resData); // data content
+  const dataObj = JSON.parse(req.body.resData); // data content
+  const reqData = checkReqData(dataObj);
 
   /* ======= N U T R I T I O N   V A L U E S ======= */
   const nutriData = reqData.nutrition;
+  console.log(reqData.author);
   // prettier-ignore
   const nutritionInfo = [nutriData.calories, nutriData.fatContent, nutriData.saturatedFatContent, nutriData.cholesterolContent, nutriData.sodiumContent, nutriData.carbohydrateContent, nutriData.fiberContent, nutriData.sugarContent, nutriData.proteinContent ];
 
@@ -47,11 +49,11 @@ app.post('/recipes/store', (req, res, next) => {
 
       // 3. inserting to  R E C I P E S - T A B L E  with foreign key (nutrition id)
       // prettier-ignore
-      const data = [reqData.author, reqData.name, extractNumber(reqData.cookTime), reqData.datePublished, reqData.description, reqData.image, nutriId, reqData.recipeCategory,reqData.recipeIngredient,reqData.recipeInstructions,reqData.recipeYield,req.body.inputUrl,extractNumber(reqData.totalTime)];
+      const data = [extractAuthor(reqData.author),reqData.name,extractNumber(reqData.cookTime),reqData.datePublished,reqData.description,reqData.image,nutriId,reqData.recipeCategory,reqData.recipeIngredient,reqData.recipeInstructions,reqData.recipeYield,req.body.inputUrl,extractNumber(reqData.totalTime),reqData.aggregateRating.ratingValue,reqData.aggregateRating.reviewCount || reqData.aggregateRating.ratingCount,];
       const jsonData = data.map((el) => (typeof el === 'object' ? JSON.stringify(el) : el));
 
       mysqlConnection.query(
-        'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutritionId`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutritionId`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`, `rating`, `reviewCount`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         jsonData,
         (err, result, fields) => {
           !err ? res.json(result) : res.json(err);
@@ -78,7 +80,11 @@ app.listen(7000, () => {
   console.log(`Express listening at localhost:7000`);
 });
 
-// EXTRACT NUMBER FROM STRING FUNCTION
+/**                                                              //
+ * S O M E   H E L P E R   F U N C T I O N S   B E L O W   :::  //
+ *                                                             */
+
+// EXTRACT NUMBER FROM STRING
 const extractNumber = (str) => {
   const nums = '1234567890';
   let result = '';
@@ -91,4 +97,23 @@ const extractNumber = (str) => {
     }
   }
   return result;
+};
+
+// FIND THE RIGHT OBJECT
+const checkReqData = (reqData) => {
+  let result;
+  if (reqData.length >= 1) {
+    result = reqData[1];
+  } else {
+    result = reqData;
+  }
+  return result;
+};
+
+// E X T R A C T   A U T H O R   N A M E   F R O M   O B J E C T
+const extractAuthor = (authorName) => {
+  if (typeof authorName !== 'string') {
+    return authorName[0].name;
+  }
+  return authorName;
 };
