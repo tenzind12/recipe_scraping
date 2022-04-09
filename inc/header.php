@@ -4,8 +4,6 @@
     $recipes = new Recipe();
     $format = new Format();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
