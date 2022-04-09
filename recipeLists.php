@@ -20,7 +20,7 @@
     ?>
                         <div class="position-relative bg-white row rounded each-card" id="">
                             <a href="?recipeId=<?= $rows['id'] ?>" class="col-sm-4 p-0">
-                                <img id="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
+                                <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                             </a>
                             <div class="card-body col-sm-8">
                                 <!-- <div class="d-flex"> -->

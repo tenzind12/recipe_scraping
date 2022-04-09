@@ -44,7 +44,7 @@ img {
 
 /* ====== end of global styles ===== */
 
-/* index.php */
+/* index.php  (first search card) */
 .img-container {
   width: 100%;
   background-color: #e7eaed;
@@ -52,6 +52,7 @@ img {
 }
 
 #garlic {
+  /* garlic gif image*/
   max-height: 30vh;
   width: auto;
 }
@@ -65,32 +66,6 @@ img {
   width: 100%;
 }
 
-#card {
-  width: 400px;
-  margin: 0 auto;
-  /* background-color: rgb(210, 208, 208);
-  background-image: linear-gradient(315deg, #e0cca3 0%, #efd1b2 74%); */
-  background-color: #b3cdd1;
-  background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
-
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 30px 20px 20px 20px;
-  transition: all 0.3s ease-in-out;
-}
-
-#card-image {
-  padding: 5px;
-  height: 100%;
-  max-height: 201px;
-  border-radius: 5px 5px 0 0;
-  object-fit: cover;
-}
-
-#card-image:hover {
-  transform: scale(1.02);
-}
-
 #input-ingredient {
   position: relative;
 }
@@ -102,24 +77,41 @@ img {
   color: grey;
 }
 
-#submitBtn {
-  background-color: #537895;
-  padding: 10px;
-  transition: 0.1s;
+/* end of index.php  (first search card) */
+
+#card {
+  /* width: 400px;
+  margin: 0 auto;
+  background-color: #b3cdd1;
+  background-image: linear-gradient(315deg, #b3cdd1 0%, #0b1557 74%);
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px 20px 20px;
+  transition: all 0.3s ease-in-out; */
 }
 
-#recipe-list-cols {
-  padding: 0 20px;
+/* result list card box */
+.card-image {
+  padding: 5px;
+  height: 100%;
+  max-height: 201px;
+  border-radius: 5px 5px 0 0;
+  object-fit: cover;
 }
 
-/* recipieList.php */
+#card-image:hover {
+  transform: scale(1.02);
+}
+
+/* IMAGE FOR NO RESULT FOUND */
 #nothing_image {
   max-height: 500px;
   max-width: 500px;
   margin: 0 auto;
 }
 
-/* advanced search */
+/* ADVANCED SEARCH INPUT FIELDS */
 #advanced-search-container {
   max-width: 600px;
 }
@@ -136,6 +128,16 @@ img {
   /* color: grey; */
 }
 
+#submitBtn {
+  background-color: #537895;
+  padding: 10px;
+  transition: 0.1s;
+}
+
+#recipe-list-cols {
+  /* padding: 0 20px; */
+}
+
 /* new list style */
 .each-card {
   max-width: 60em;
@@ -145,4 +147,22 @@ img {
 #recipe-list__container {
   background: url(../images/bg-subtle.webp) fixed;
   box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
+}
+
+/* ============================== L O G I N   P A G E ============================== */
+#login-image__container {
+  background-color: red;
+  min-height: calc(100vh - 94px);
+}
+
+#password-__container {
+  position: relative;
+}
+#password-eye__icon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  color: grey;
+  cursor: pointer;
 }
