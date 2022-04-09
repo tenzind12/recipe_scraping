@@ -9,10 +9,8 @@
         </div>
         
         <div class="range-slider my-3 shadow shadow-lg p-3">
-            <label for="customRange2" class="form-label text-light">
-                &#x3389;&nbsp;Calorie content
-            </label>
-            <output class="badge bg-danger">550</output>&nbsp;
+            <label for="customRange2" class="form-label text-light">Calorie&nbsp; &#x3389;</label>
+            <output class="badge bg-danger">550</output>
             <input name="calorie-input" type="range" class="form-range" min="50" max="1000" step="50" oninput="this.previousElementSibling.value = this.value" />
             <div class="d-flex justify-content-between">
                 <i class="fa-solid fa-carrot text-light">&nbsp;50</i>
@@ -21,9 +19,7 @@
         </div>
 
         <div class="range-slider my-3 shadow shadow-lg p-3">
-            <label for="customRange2" class="form-label text-light">
-                <i class="fas fa-hourglass-start"></i>&nbsp;&nbsp;&nbsp;Fat
-            </label>
+            <label for="customRange2" class="form-label text-light">Fat</label>
             <output class="badge bg-danger">45</output>&nbsp;
             <input name="fat-input" type="range" class="form-range" min="10" max="80" step="5" oninput="this.previousElementSibling.value = this.value" />
             <div class="d-flex justify-content-between">
@@ -33,9 +29,7 @@
         </div>
 
         <div class="range-slider my-3 shadow shadow-lg p-3">
-            <label for="customRange2" class="form-label text-light">
-                <i class="fas fa-hourglass-start"></i>&nbsp;&nbsp;&nbsp;Protein
-            </label>
+            <label for="customRange2" class="form-label text-light">Protein</label>
             <output class="badge bg-danger">55</output>&nbsp;
             <input name="protein-input" type="range" class="form-range" min="10" max="100" step="5" oninput="this.previousElementSibling.value = this.value" />
             <div class="d-flex justify-content-between">
@@ -54,7 +48,7 @@
             </select>
         </div>
 
-        <input type="submit" value="Submit" name="submit" class="btn btn-secondary mt-3 w-100">
+        <input type="submit" value="Submit" name="submit" class="btn btn-outline-info mt-3 w-100">
     </form>
 </div>
 

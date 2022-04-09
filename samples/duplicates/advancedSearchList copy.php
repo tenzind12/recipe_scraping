@@ -10,20 +10,19 @@
             $time = $_POST['time-input'];
             $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
 ?>
-            <div class="card-container">
+            <div class="row m-auto">
                 <h2 class="text-light mt-2">Filtered result</h2>
 <?php
-            $no_matching_recipe = false;
             if($result) {
                 foreach($result as $res) {
                     if($res) {
                         while($rows = $res->fetch_assoc()) {
 ?>
-                            <div class="position-relative bg-white row rounded each-card" id="">
-                                <a href="?recipeId=<?= $rows['id'] ?>" class="col-sm-4 p-0">
+                            <div class="card col-sm-4 mb-5 position-relative" id="card">
+                                <a href="?recipeId=<?= $rows['id'] ?>">
                                     <img id="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                                 </a>
-                                <div class="card-body col-sm-8">
+                                <div class="card-body">
                                     <!-- <div class="d-flex"> -->
                                     <a href="?recipeId=<?= $rows['id'] ?>"><h5 class="card-title"><?= $rows['name'] ?></h5></a>
                                     <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
@@ -37,17 +36,9 @@
 <?php
                         }
                     }else {
-                        $no_matching_recipe = true;
+                        // echo '<script>window.location="advancedSearch.php"</script>';
                     }
                 }
-                if($no_matching_recipe) {
-                    echo "
-                    <div class=\"d-flex flex-column pt-4 pb-5\">
-                        <p class=\"text-center text-light\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
-                        <img src=\"./assets/images/error.gif\" alt=\"nothing found\" id='nothing_image' class='rounded'/>
-                    </div>
-                    ";
-                };
 ?>
             </div>
 <?php
