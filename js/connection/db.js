@@ -9,6 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// connecting to database
 const mysqlConnection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -28,9 +29,10 @@ app.post('/recipes/store', (req, res, next) => {
   const dataObj = JSON.parse(req.body.resData); // data content
   const reqData = checkReqData(dataObj);
 
+  // console.log(reqData);
+
   /* ======= N U T R I T I O N   V A L U E S ======= */
   const nutriData = reqData.nutrition;
-  console.log(reqData.author);
   // prettier-ignore
   const nutritionInfo = [nutriData.calories, nutriData.fatContent, nutriData.saturatedFatContent, nutriData.cholesterolContent, nutriData.sodiumContent, nutriData.carbohydrateContent, nutriData.fiberContent, nutriData.sugarContent, nutriData.proteinContent ];
 
@@ -43,7 +45,7 @@ app.post('/recipes/store', (req, res, next) => {
   // 2. fetching  N U T R I T I O N  - T A B L E for foreign key
   const test = mysqlConnection.query(
     'SELECT id FROM nutrition ORDER BY id DESC LIMIT 1',
-    (err, result, fields) => {
+    (err, result) => {
       if (err) throw err;
       const nutriId = result[0].id;
 
@@ -55,27 +57,15 @@ app.post('/recipes/store', (req, res, next) => {
       mysqlConnection.query(
         'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutritionId`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`, `rating`, `reviewCount`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         jsonData,
-        (err, result, fields) => {
+        (err, result) => {
           !err ? res.json(result) : res.json(err);
         }
       );
     }
   );
-
-  // const data = [reqData.author,reqData.name,extractNumber(reqData.cookTime),reqData.datePublished,reqData.description,reqData.image,reqData.nutrition,reqData.recipeCategory,reqData.recipeIngredient,reqData.recipeInstructions,reqData.recipeYield,req.body.inputUrl,extractNumber(reqData.totalTime)];
-  // // console.log(data);
-  // // converting array and objects to string json
-  // const jsonData = data.map((el) => (typeof el === 'object' ? JSON.stringify(el) : el));
-
-  // mysqlConnection.query(
-  //   'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutrition`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-  //   jsonData,
-  //   (err, result, fields) => {
-  //     !err ? res.json(result) : res.json(err);
-  //   }
-  // );
 });
 
+// A P P  <--> L I S T E N
 app.listen(7000, () => {
   console.log(`Express listening at localhost:7000`);
 });
@@ -89,14 +79,18 @@ const extractNumber = (str) => {
   const nums = '1234567890';
   let result = '';
 
-  for (let i = 0; i < str.length; i++) {
-    for (let j = 0; j < nums.length; j++) {
-      if (str[i] == nums[j]) {
-        result += str[i];
+  if (str) {
+    for (let i = 0; i < str.length; i++) {
+      for (let j = 0; j < nums.length; j++) {
+        if (str[i] == nums[j]) {
+          result += str[i];
+        }
       }
     }
+    return result;
+  } else {
+    return null;
   }
-  return result;
 };
 
 // FIND THE RIGHT OBJECT
@@ -117,3 +111,17 @@ const extractAuthor = (authorName) => {
   }
   return authorName;
 };
+
+// ====  O L D   M E T H O D S   ==== //
+// const data = [reqData.author,reqData.name,extractNumber(reqData.cookTime),reqData.datePublished,reqData.description,reqData.image,reqData.nutrition,reqData.recipeCategory,reqData.recipeIngredient,reqData.recipeInstructions,reqData.recipeYield,req.body.inputUrl,extractNumber(reqData.totalTime)];
+// // console.log(data);
+// // converting array and objects to string json
+// const jsonData = data.map((el) => (typeof el === 'object' ? JSON.stringify(el) : el));
+
+// mysqlConnection.query(
+//   'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutrition`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+//   jsonData,
+//   (err, result, fields) => {
+//     !err ? res.json(result) : res.json(err);
+//   }
+// );
