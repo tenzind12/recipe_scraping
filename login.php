@@ -9,9 +9,9 @@
                     <div class="form-group">
                         <input type="text" placeholder="Enter your email" class="form-control rounded-pill my-3">
                     </div>
-                    <div class="form-group" id="password-__container">
+                    <div class="form-group" id="password__container">
                         <input type="password" placeholder="*********" class="form-control rounded-pill my-3">
-                        <i class="fa-solid fa-eye" id="password-eye__icon"></i>
+                        <i class="fa-solid fa-eye-slash" id="password-eye__icon"></i>
                     </div>
                     
                     <button type="submit" class="btn btn-success rounded-pill w-50">Sign In</button>

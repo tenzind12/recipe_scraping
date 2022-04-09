@@ -155,7 +155,7 @@ img {
   min-height: calc(100vh - 94px);
 }
 
-#password-__container {
+#password__container {
   position: relative;
 }
 #password-eye__icon {
