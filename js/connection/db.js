@@ -29,8 +29,6 @@ app.post('/recipes/store', (req, res, next) => {
   const dataObj = JSON.parse(req.body.resData); // data content
   const reqData = checkReqData(dataObj);
 
-  // console.log(reqData);
-
   /* ======= N U T R I T I O N   V A L U E S ======= */
   const nutriData = reqData.nutrition;
   // prettier-ignore
@@ -54,6 +52,7 @@ app.post('/recipes/store', (req, res, next) => {
       const data = [extractAuthor(reqData.author),reqData.name,extractNumber(reqData.cookTime),reqData.datePublished,reqData.description,reqData.image,nutriId,reqData.recipeCategory,reqData.recipeIngredient,reqData.recipeInstructions,reqData.recipeYield,req.body.inputUrl,extractNumber(reqData.totalTime),reqData.aggregateRating.ratingValue,reqData.aggregateRating.reviewCount || reqData.aggregateRating.ratingCount,];
       const jsonData = data.map((el) => (typeof el === 'object' ? JSON.stringify(el) : el));
 
+      console.log(reqData.name);
       mysqlConnection.query(
         'INSERT INTO `recipes`(`author`, `name`, `cookTime`, `datePublished`, `description`, `image`, `nutritionId`, `recipeCategory`, `recipeIngredient`, `recipeInstructions`, `recipeYield`, `url`, `totalTime`, `rating`, `reviewCount`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         jsonData,
@@ -106,6 +105,9 @@ const checkReqData = (reqData) => {
 
 // E X T R A C T   A U T H O R   N A M E   F R O M   O B J E C T
 const extractAuthor = (authorName) => {
+  if (authorName.name) {
+    return authorName.name;
+  }
   if (typeof authorName !== 'string') {
     return authorName[0].name;
   }
