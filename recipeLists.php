@@ -28,7 +28,7 @@
                                 <div class="card-text">
                                     <p><?= $format->shortenText($rows['description'], 200) ?></p>
                                 </div>
-                                <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= $rows['author'] ?></span></p>
+                                <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>
                             </div>
                         </div>
     <?php

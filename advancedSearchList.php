@@ -8,8 +8,11 @@
             $fat = $_POST['fat-input'];
             $protein = $_POST['protein-input'];
             $time = $_POST['time-input'];
-
             $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
+?>
+            <div class="row m-auto">
+                <h2 class="text-light mt-2">Filtered result</h2>
+<?php
             if($result) {
                 foreach($result as $res) {
                     if($res) {
@@ -17,7 +20,7 @@
 ?>
                             <div class="card col-sm-4 mb-5 position-relative" id="card">
                                 <a href="?recipeId=<?= $rows['id'] ?>">
-                                    <img class="card-img-top" id="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
+                                    <img id="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                                 </a>
                                 <div class="card-body">
                                     <!-- <div class="d-flex"> -->
@@ -27,15 +30,18 @@
                                     <div class="card-text">
                                         <p><?= $format->shortenText($rows['description'], 200) ?></p>
                                     </div>
-                                    <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= $rows['author'] ?></span></p>
+                                    <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>
                                 </div>
                             </div>
 <?php
                         }
                     }else {
-                        echo '<script>window.location="advancedSearch.php"</script>';
+                        // echo '<script>window.location="advancedSearch.php"</script>';
                     }
                 }
+?>
+            </div>
+<?php
             } 
         }
     }

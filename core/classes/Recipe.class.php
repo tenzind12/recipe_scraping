@@ -33,6 +33,9 @@ class Recipe {
 
     // ADVANCED RECIPE SEARCH
     public function getAdvancedSearchResults($name, $calorie, $fat, $protein, $time) {
+        if(empty($name)) {
+            echo '<script>window.location="advancedSearch.php"</script>';
+        }
 
         // fetch all recipe matching name and time to get nutritionId
         $query1 = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime <= '$time' ";
