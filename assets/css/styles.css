@@ -186,3 +186,13 @@ img {
 #login-main__container {
   min-height: calc(100vh - 94px);
 }
+
+/* ============================== P R O F I L E  P A G E ============================== */
+#profile-page__photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
