@@ -1,8 +1,11 @@
 <?php include './inc/header.php' ?>
 <?php 
     // L O G I N 
-    if(isset($_POST['login-btn'])) {
-        echo '<script>alert("login")</script>';
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login-btn'])) {
+        $email = $format->validation($_POST['email']);
+        $password = $format->validation($_POST['password']);
+
+        $login = $user->login($email, $password);
     }
 
     // R E G I S T R A T I O N 
@@ -11,9 +14,8 @@
         $email = $format->validation($_POST['email']);
         $password = $format->validation($_POST['password']);
         $country = $format->validation($_POST['country']);
-        $image = $_FILES;
 
-        $signup = $user->register($name, $email, $password, $country, $image);
+        $signup = $user->register($name, $email, $password, $country, $_FILES);
 
     }
 ?>
@@ -22,13 +24,14 @@
         <!-- form column -->
         <div class="col-md-7 justify-content-center">
             <h2 class="text-light text-center mt-5">Login to your Account</h2>
+            <?= isset($login) ? $login : '' ?>
             <div class="m-auto my-5" id="login-form">
                 <form action="" method="POST">
                     <div class="form-group">
-                        <input type="text" placeholder="Enter your email" class="form-control rounded-pill my-3">
+                        <input type="text" name="email" placeholder="Enter your email" class="form-control rounded-pill my-3">
                     </div>
                     <div class="form-group" id="password__container">
-                        <input type="password" placeholder="*********" class="form-control rounded-pill my-3">
+                        <input type="password" name="password" placeholder="*********" class="form-control rounded-pill my-3">
                         <i class="fa-solid fa-eye-slash" id="password-eye__icon"></i>
                     </div>
                     
@@ -79,15 +82,16 @@
                             <!-- image upload -->
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Profile Picture (optional)</label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control" name="image" type="file" id="formFile">
                             </div>
 
                             <!-- country section -->
                             <select class="form-select" name="country" aria-label="Default select example">
                                 <option selected>Country</option>
-                                <option value="1">France</option>
-                                <option value="2">Germany</option>
-                                <option value="3">Switzerland</option>
+                                <option value="france">France</option>
+                                <option value="germany">Germany</option>
+                                <option value="switwerland">Switzerland</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
                         <div class="modal-footer">

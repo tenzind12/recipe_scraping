@@ -53,4 +53,6 @@ class Format {
         if(strlen($string) >= $length) $string = $string."...";
         return $string;   
     }
+
+    
 }

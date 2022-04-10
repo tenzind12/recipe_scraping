@@ -1,11 +1,18 @@
 <?php 
+    include __DIR__.'/../core/connection/Session.php';
     include __DIR__.'/../core/classes/Recipe.class.php';
     include __DIR__.'/../core/classes/User.class.php';
     include __DIR__.'/../core/helpers/Format.class.php';
-    define('BASE_URL', '/recipe-php');
+    
+    Session::init();
     $recipes = new Recipe();
     $user = new User();
     $format = new Format();
+
+    // L O G O U T   F U N C T I O N
+    if(isset($_GET['logout'])) {
+        Session::destroy();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +38,26 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./login.php">Connection</a>
+
+                        <!-- user / guest profile -->
+                        <li class="nav-item d-flex">
+                            <img src="./assets/images/icons/guest.jpg" alt="profile picture icon" id="profile_icon">
+                            <a href="./profile.php" class="nav-link"><?= Session::get('userName') ? ucfirst(Session::get('userName')) : 'Guest' ?></a>
                         </li>
+
+                        <!-- connection / logout -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <?php
+                                echo Session::get('userLogin') ? '<a class="nav-link" href="?logout=true">Logout</a>' :'';
+                            ?>
                         </li>
+
+                        <!-- contact page -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Contact</a>
+                        </li>
+
+                        <!-- about us -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>

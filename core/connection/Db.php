@@ -9,7 +9,6 @@ class ConnectionDB {
     private $db_name = DB_NAME;
 
     private $con;
-    private $error;
 
     public function __construct() {
         $this->connect();
@@ -22,17 +21,21 @@ class ConnectionDB {
             $this->error = "Connectiont failed ". mysqli_connect_errno();
             return false;
         }
-
-        // mysqli_close($this->con);
     }
 
-    // get data 
+    // S E L E C T
     public function select($query) {
         $result = $this->con->query($query);
         if($result) {
             if($result->num_rows > 0) return $result;
         }
         else return false;
+    }
+
+    // I N S E R T 
+    public function insert($query) {
+        $result = $this->con->query($query);
+        return $result;
     }
 
 
