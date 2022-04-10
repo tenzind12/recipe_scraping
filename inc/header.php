@@ -1,8 +1,10 @@
 <?php 
     include __DIR__.'/../core/classes/Recipe.class.php';
+    include __DIR__.'/../core/classes/User.class.php';
     include __DIR__.'/../core/helpers/Format.class.php';
     define('BASE_URL', '/recipe-php');
     $recipes = new Recipe();
+    $user = new User();
     $format = new Format();
 ?>
 <!DOCTYPE html>

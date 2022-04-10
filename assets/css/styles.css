@@ -150,9 +150,13 @@ img {
 }
 
 /* ============================== L O G I N   P A G E ============================== */
+
+#login-form {
+  max-width: 600px;
+}
+
 #login-image__container {
-  background-color: red;
-  min-height: calc(100vh - 94px);
+  background: url(../images/bg-pacman.jpg) no-repeat center/cover;
 }
 
 #password__container {
@@ -165,4 +169,8 @@ img {
   transform: translateY(-50%);
   color: grey;
   cursor: pointer;
+}
+
+#login-main__container {
+  min-height: calc(100vh - 94px);
 }
