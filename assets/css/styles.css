@@ -6,8 +6,10 @@
 }
 
 body {
-  background-color: #86888a;
-  background-image: linear-gradient(315deg, #334858 0%, #09203f 74%);
+  /* background-color: #86888a;
+  background-image: linear-gradient(315deg, #334858 0%, #09203f 74%); */
+  background: url(../images/background/bg-subtle.webp) fixed;
+  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
   min-height: 100vh;
 }
 
@@ -154,11 +156,6 @@ img {
 .each-card {
   max-width: 60em;
   margin: 20px auto;
-}
-
-#recipe-list__container {
-  background: url(../images/background/bg-subtle.webp) fixed;
-  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
 }
 
 /* ============================== L O G I N   P A G E ============================== */

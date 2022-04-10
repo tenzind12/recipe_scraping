@@ -2,7 +2,6 @@
     include './inc/header.php';
 ?>
 
-<div id="recipe-list__container">
     <?php
         if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
             if(!empty($_POST['ingredient'])) {
@@ -51,7 +50,6 @@
         }
 
     ?>
-</div>
 
 
 
