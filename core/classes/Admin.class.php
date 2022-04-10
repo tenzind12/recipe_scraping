@@ -19,7 +19,8 @@ class Admin {
         $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
         $result = $this->db->select($query);
         if($result) {
-            echo 'good';
+
+            echo '<script>location.href="./index.php"</script>';
         }else {
             echo 'no result';
         }
