@@ -90,6 +90,8 @@ class User {
             Session::set('userId', $user_data['id']);
             Session::set('userName', $user_data['name']);
             Session::set('userPhoto', $user_data['image']);
+            Session::set('userEmail', $user_data['email']);
+            Session::set('userCountry', $user_data['country']);
             echo "<script>location.href='profile.php'</script>";
         }else {
             $msg = $this->class_helper->alertMessage('danger', 'User not found !', 'Please make sure email and password are correct');

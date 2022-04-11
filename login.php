@@ -44,63 +44,65 @@
         <!-- end of form column -->
 
         <!-- SIGN UP column -->
-        <div class="col-md-5" id="login-image__container">
-            <h2 class="text-white display-5">New here?</h2>
-            <p class="text-white">Sign up and unlock more features</p>
-            
-            <!-- Button trigger modal -->
-            <?= isset($signup) ? $signup : '' ?>
-            <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Sign Up
-            </button>
+        <div class="col-md-5" id="login-image__container" style="display: grid; place-items: center">
+            <div>
+                <h2 class="text-white display-5">New here?</h2>
+                <p class="text-white">Sign up and unlock more features</p>
+                
+                <!-- Button trigger modal -->
+                <?= isset($signup) ? $signup : '' ?>
+                <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Sign Up
+                </button>
+            </div>
 
-            <!-- Modal -->
+            <!-- S I G N   U P  Modal -->
             <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                    <div class="modal-header bg-dark text-light">
-                        <h5 class="modal-title" id="exampleModalLabel">Register with you email</h5>
-                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <!-- sign up form -->
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <!-- name input -->
-                            <div> 
-                                <input type="text" name="username" class="form-control" placeholder="Enter name" >
-                            </div>
-
-                            <!-- email input -->
-                            <div> 
-                                <input type="email" name="email" class="form-control" placeholder="Enter your email" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                            </div>
-
-                            <!-- password input -->
-                            <div class="mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Enter password" id="exampleInputPassword1">
-                            </div>
-                            
-                            <!-- image upload -->
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Profile Picture (optional)</label>
-                                <input class="form-control" name="image" type="file" id="formFile">
-                            </div>
-
-                            <!-- country section -->
-                            <select class="form-select" name="country" aria-label="Default select example">
-                                <option selected>Country</option>
-                                <option value="france">France</option>
-                                <option value="germany">Germany</option>
-                                <option value="switwerland">Switzerland</option>
-                                <option value="other">Other</option>
-                            </select>
+                        <div class="modal-header bg-dark text-light">
+                            <h5 class="modal-title" id="exampleModalLabel">Register with you email</h5>
+                            <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-footer">
-                            <button name="signup-btn" type="submit" class="btn btn-success rounded-pill">Sign up</button>
-                        </div>
-                    </form>
-                    <!-- end of sign up form -->
+                        <!-- sign up form -->
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="modal-body" id="signup--form">
+                                <!-- name input -->
+                                <div class="mb-3"> 
+                                    <input type="text" name="username" class="form-control" placeholder="Enter name" >
+                                </div>
+
+                                <!-- email input -->
+                                <div class="mb-3"> 
+                                    <input type="email" name="email" class="form-control" placeholder="Enter your email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text text-dark">We'll never share your email with anyone else.</div>
+                                </div>
+
+                                <!-- password input -->
+                                <div class="mb-3">
+                                    <input type="password" name="password" class="form-control" placeholder="Enter password" id="exampleInputPassword1">
+                                </div>
+                                
+                                <!-- image upload -->
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label text-dark fs-3">Profile Picture (optional)</label>
+                                    <input class="form-control" name="image" type="file" id="formFile">
+                                </div>
+
+                                <!-- country section -->
+                                <select class="form-select" name="country" aria-label="Default select example">
+                                    <option selected>Country</option>
+                                    <option value="france">France</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="switwerland">Switzerland</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button name="signup-btn" type="submit" class="btn btn-success rounded-pill">Sign up</button>
+                            </div>
+                        </form>
+                        <!-- end of sign up form -->
                     </div>
                 </div>
             </div>

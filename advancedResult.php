@@ -47,14 +47,14 @@
                         $no_matching_recipe = true;
                     }
                 }
-                if($no_matching_recipe) {
-                    echo "
-                    <div class=\"d-flex flex-column pt-4 pb-5\">
-                        <p class=\"text-center text-light\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
-                        <img src=\"./assets/images/error.gif\" alt=\"nothing found\" id='nothing_image' class='rounded'/>
-                    </div>
-                    ";
-                };
+                // if($no_matching_recipe) {
+                //     echo "
+                //     <div class=\"d-flex flex-column pt-4 pb-5\">
+                //         <p class=\"text-center text-light\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
+                //         <img src=\"./assets/images/error.gif\" alt=\"nothing found\" id='nothing_image' class='rounded'/>
+                //     </div>
+                //     ";
+                // };
 ?>
             </div>
 <?php

@@ -184,6 +184,11 @@ img {
   min-height: calc(100vh - 94px);
 }
 
+/* singup form modal */
+#signup--form input {
+  border: 1px solid black;
+}
+
 /* ============================== P R O F I L E  P A G E ============================== */
 #profile-page__photo {
   width: 200px;

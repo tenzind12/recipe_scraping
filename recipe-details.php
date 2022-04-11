@@ -6,7 +6,6 @@
             $result = $recipes->getById($id);
             if($result) {
                 while($rows = $result->fetch_assoc()) {
-                    var_dump($rows);
     ?>
                     <div class="m-auto my-5" style="max-width: 800px">
                         <h2 class="p-4 text-light text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
@@ -22,6 +21,7 @@
                             <p class="col border-end text-light">READY IN <span class="badge bg-secondary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                             <div class="col">
                                 <p class=" text-light ms-3">SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span></p>
+                                <i class="fa-regular fa-bookmark"></i>
                             </div>
                         </div>
                         
