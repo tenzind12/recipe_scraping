@@ -18,6 +18,8 @@
         $signup = $user->register($name, $email, $password, $country, $_FILES);
 
     }
+
+    if(Session::get('userLogin')) echo '<script>location.href="profile.php"</script>';
 ?>
 
     <div class="row m-0 " id="login-main__container">

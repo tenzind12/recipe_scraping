@@ -1,6 +1,7 @@
 <?php include './inc/header.php' ?>
 
 <?php
+Session::checkAdminLogin();
 include __DIR__.'/../core/classes/Admin.class.php';
 $admin = new Admin();
 

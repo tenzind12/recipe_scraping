@@ -63,7 +63,7 @@
                 </form>
 
                 <!-- menu buttons -->
-                <h2 class="bg-dark text-secondary p-3 rounded mt-3">Main navigation</h2>
+                <a class="btn btn-dark w-100 text-secondary p-3 rounded mt-3 text-light" href="index.php">Add New Recipe ?</a>
 
                 <!-- menu lists -->
                 <div class="accordion accordion-flush" id="accordionFlushExample">

@@ -20,9 +20,8 @@ class Session {
         if(!self::get('adminlogin')) self::destroy();
     }
 
-    public static function checkLogin() {
-        self::init();
-        if(self::get('adminlogin')) header('Location: catList.php');
+    public static function checkAdminLogin() {
+        if(self::get('adminLogin')) echo '<script>location.href="index.php"</script>';
     }
 
     public static function destroy() {
