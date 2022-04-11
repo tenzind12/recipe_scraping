@@ -193,3 +193,34 @@ img {
   margin: 0 auto;
   display: block;
 }
+
+/* ============================= R E C I P E   D E T A I L S ============================= */
+#recipe-details__image {
+  max-height: 400px;
+  object-fit: cover;
+  border: 2px solid white;
+  padding: 5px;
+}
+
+#recipe-details__timecontainer {
+  border-bottom: 1px dashed white;
+  font-size: 26px;
+}
+
+#recipe-details__printContainer {
+  font-size: 32px;
+  padding: 20px;
+}
+
+#recipe-details__printContainer a {
+  color: white;
+}
+
+#recipe-details__printContainer a:hover {
+  color: #537895;
+  text-decoration: underline;
+}
+
+#recipe-details__description {
+  font-size: 22px;
+}
