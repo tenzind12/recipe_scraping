@@ -165,7 +165,8 @@ img {
 }
 
 #login-image__container {
-  background: url(../images/background/bg-pacman.jpg) no-repeat center/cover;
+  background: url(../images/background/sign-up.jpg) no-repeat center/cover;
+  box-shadow: inset 0 0 0 1000px rgba(47, 47, 48, 0.5);
 }
 
 #password__container {
