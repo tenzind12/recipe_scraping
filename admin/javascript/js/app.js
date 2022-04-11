@@ -31,9 +31,25 @@ const getUrlData = (url) => {
           })
             .then((response) => {
               console.log(response);
+              if (response.ok) {
+                document.getElementById('server-message').innerHTML = messageGenerate(
+                  'success',
+                  'New recipe added successfully'
+                );
+                ('New recipe added successfuly');
+              } else {
+                document.getElementById('server-message').innerHTML = messageGenerate(
+                  'danger',
+                  'Something went wrong'
+                );
+              }
             })
             .catch((error) => {
-              console.log(error);
+              document.getElementById('server-message').innerHTML = messageGenerate(
+                'danger',
+                'Something went wrong. Please try another link'
+              );
+              console.log(error.message);
             });
         } else {
           console.log('no such thing');
@@ -43,4 +59,10 @@ const getUrlData = (url) => {
   } catch (error) {
     alert('error occured: ', error.message());
   }
+};
+
+const messageGenerate = (type, message) => {
+  return `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+    ${message}<button type="button" class="btn-close" data-bs-dismiss="alert" 
+    aria-label="Close"></button></div>`;
 };

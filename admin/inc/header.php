@@ -1,3 +1,10 @@
+<?php include_once __DIR__.'/../../core/connection/Session.php' ?>
+<?php 
+    Session::init();
+
+    if(isset($_GET['logout'])) Session::destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +25,7 @@
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
                 <form class="d-flex" id="admin__search--bar">
@@ -27,3 +35,71 @@
             </div>
         </div>
     </nav>
+
+    <div class="row m-0" id="admin-dashboard">
+
+        <!-- hide the admin sidebar if not logged in -->
+
+        <?php if(Session::get('adminLogin')) { ?>
+            <div class="col-lg-4" id="admin-sidebar">
+                <!-- admin icon and name -->
+                <div class="row mt-3">
+                    <div class="col-3 m-auto">
+                        <img class="bg-light" src="../assets/images/adminImages/admin.png" id="admin-profile-icon" alt="admin photo">
+                    </div>
+                    <div class="col-8">
+                        <h4 class="text-light"><?= Session::get('adminName') ?></h4>
+                        <p class="text-light"><span id="online-symbol">&#128994;</span> Online</p>
+                    </div>
+                </div>
+
+                <!-- logout buttn -->
+                <a class="link-danger w-100 ms-3" href="?logout=true">Logout</a>
+
+                <!-- search bar -->
+                <form method="POST" id="admin-search">
+                    <input type="text" name="search-users" class="form-control mt-2">
+                    <i class="fa-solid fa-magnifying-glass" id="admin-search-magnifying_glass"></i>
+                </form>
+
+                <!-- menu buttons -->
+                <h2 class="bg-dark text-secondary p-3 rounded mt-3">Main navigation</h2>
+
+                <!-- menu lists -->
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Accordion Item #1
+                        </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Accordion Item #2
+                        </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Accordion Item #3
+                        </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?> 
+            <div class="col-lg-8">
+
+        

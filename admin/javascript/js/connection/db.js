@@ -29,6 +29,8 @@ app.post('/recipes/store', (req, res, next) => {
   const dataObj = JSON.parse(req.body.resData); // data content
   const reqData = checkReqData(dataObj);
 
+  console.log(reqData);
+
   /* ======= N U T R I T I O N   V A L U E S ======= */
   const nutriData = reqData.nutrition;
   // prettier-ignore
