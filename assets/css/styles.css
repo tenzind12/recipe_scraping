@@ -165,13 +165,22 @@ img {
 }
 
 #login-image__container {
+  min-height: calc(100vh - 94px);
+  background: url(../images/background/login.jpg) no-repeat top/cover;
+  box-shadow: inset 0 0 0 1000px rgba(47, 47, 48, 0.5);
+}
+
+#signup-image__container {
   background: url(../images/background/sign-up.jpg) no-repeat center/cover;
   box-shadow: inset 0 0 0 1000px rgba(47, 47, 48, 0.5);
+  display: grid;
+  place-items: center;
 }
 
 #password__container {
   position: relative;
 }
+
 #password-eye__icon {
   position: absolute;
   top: 50%;
@@ -179,10 +188,6 @@ img {
   transform: translateY(-50%);
   color: grey;
   cursor: pointer;
-}
-
-#login-main__container {
-  min-height: calc(100vh - 94px);
 }
 
 /* singup form modal */

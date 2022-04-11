@@ -22,7 +22,7 @@
     if(Session::get('userLogin')) echo '<script>location.href="profile.php"</script>';
 ?>
 
-    <div class="row m-0 " id="login-main__container">
+    <div class="row m-0 " id="login-image__container">
         <!-- form column -->
         <div class="col-md-7 justify-content-center">
             <h2 class="text-light text-center mt-5">Login to your Account</h2>
@@ -44,7 +44,7 @@
         <!-- end of form column -->
 
         <!-- SIGN UP column -->
-        <div class="col-md-5" id="login-image__container" style="display: grid; place-items: center">
+        <div class="col-md-5" id="signup-image__container">
             <div>
                 <h2 class="text-white display-5">New here?</h2>
                 <p class="text-white">Sign up and unlock more features</p>

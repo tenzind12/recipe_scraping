@@ -1,4 +1,6 @@
-<?php include './inc/header.php'; ?>
+<?php include './inc/header.php';
+header('Cache-Control: no cache'); //no cache
+// session_cache_limiter('private_no_expire'); // works ?>
 
 <?php 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {

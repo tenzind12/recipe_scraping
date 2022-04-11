@@ -1,4 +1,18 @@
-<?php include './inc/header.php' ?>
+<?php 
+include './inc/header.php';
+header('Cache-Control: no cache');
+ ?>
+
+<?php
+    if(isset($_GET['bookmarkId'])) {
+        if(!Session::get('userLogin')) echo '<script>location.href="login.php"</script>';
+
+        $recipeId = $format->validation($_GET['bookmarkId']);
+    }
+
+
+
+?>
 
     <?php
         if(isset($_GET['id'])) {
@@ -19,9 +33,12 @@
                 
                         <div class="row m-0 p-3" id="recipe-details__timecontainer">
                             <p class="col border-end text-light">READY IN <span class="badge bg-secondary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
-                            <div class="col">
-                                <p class=" text-light ms-3">SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span></p>
-                                <i class="fa-regular fa-bookmark"></i>
+                            <div class="col pe-0">
+                                <p class=" text-light ms-3">
+                                    SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span>
+                                    <span class="float-end">Save Recipe <a href="?bookmarkId=<?= $rows['id'] ?>"><i class="fa-regular fa-star text-warning"></i></a></span>
+                                </p>
+                                
                             </div>
                         </div>
                         
@@ -56,27 +73,27 @@
                                                         <tbody id="nutrition_table">
                                                             <tr>
                                                                 <th>Calories</th>
-                                                                <td><?= $rows['calories'] ?></td>
+                                                                <td><?= floatval($rows['calories']) ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Choleserol</th>
-                                                                <td><?= $rows['cholesterol'] ?> mg</td>
+                                                                <td><?= floatval($rows['cholesterol']) ?> mg</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Sodium</th>
-                                                                <td><?= $rows['sodium'] ?> mg</td>
+                                                                <td><?= floatval($rows['sodium']) ?> mg</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Carbohydrate</th>
-                                                                <td><?= $rows['carbohydrate'] ?> g</td>
+                                                                <td><?= floatval($rows['carbohydrate']) ?> g</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Sugar</th>
-                                                                <td><?= $rows['sugar'] ?> g</td>
+                                                                <td><?= floatval($rows['sugar']) ?> g</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Protein</th>
-                                                                <td><?= $rows['protein'] ?> g</td>
+                                                                <td><?= floatval($rows['protein']) ?> g</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
