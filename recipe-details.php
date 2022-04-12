@@ -1,49 +1,62 @@
 <?php 
 include './inc/header.php';
-header('Cache-Control: no cache');
+// header('Cache-Control: no cache');
  ?>
 
 <?php
-    if(isset($_GET['bookmarkId'])) {
+    if(isset($_GET['recipeId'])) {
+        // if not logged in, redirect to login.php
         if(!Session::get('userLogin')) echo '<script>location.href="login.php"</script>';
+        
+        $recipeId = $format->validation($_GET['recipeId']);
 
-        $recipeId = $format->validation($_GET['bookmarkId']);
+        // insert into bookmarks table
+        $bookmarkSaved = $bookmark->insert($recipeId, Session::get('userId'));
     }
-
-
-
 ?>
 
     <?php
+
+        // get request from recipe-list.php
         if(isset($_GET['id'])) {
             $id = $format->validation($_GET['id']);
             $result = $recipes->getById($id);
             if($result) {
                 while($rows = $result->fetch_assoc()) {
+
     ?>
                     <div class="m-auto my-5" style="max-width: 800px">
+                        <!-- recipe name -->
                         <h2 class="p-4 text-light text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
                 
+                        <!-- author and rating -->
                         <div class="d-flex justify-content-between m-4">
                             <h3 class=" text-light">Recipe By: <span><?= ucfirst($rows['author']) ?></span></h3>
                             <div class=" text-light"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
                         </div>
                 
+                        <!-- image -->
                         <img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>" id="recipe-details__image">
                 
+                        <!-- time and bookmark -->
                         <div class="row m-0 p-3" id="recipe-details__timecontainer">
                             <p class="col border-end text-light">READY IN <span class="badge bg-secondary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                             <div class="col pe-0">
                                 <p class=" text-light ms-3">
                                     SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span>
-                                    <span class="float-end">Save Recipe <a href="?bookmarkId=<?= $rows['id'] ?>"><i class="fa-regular fa-star text-warning"></i></a></span>
+                                    <!-- bookmark -->
+                                    <span class="float-end">
+                                        Bookmark 
+                                        <a href="?recipeId=<?= $_GET['id'] ?>">
+                                            <i class="fa-<?php if($bookmark->check_if_exists($_GET['id'], Session::get('userId')) == true) echo "solid"; else echo "regular " ?> fa-bookmark text-warning"></i>
+                                        </a>
+                                    </span>
                                 </p>
-                                
                             </div>
                         </div>
                         
                         <!-- description -->
-                        <p class="text-light mt-3" id="recipe-details__description"><?= $rows['description'] ?></p>
+                        <p class="text-light p-3" id="recipe-details__description"><?= $rows['description'] ?></p>
 
 
                         <!-- print icon -->
@@ -56,7 +69,7 @@ header('Cache-Control: no cache');
                         <div class="row m-0">
                             <div class="col-md-6 border">
                                 <div class="d-flex justify-content-between">
-                                    <h1 class="text-light">Ingredients</h1>
+                                    <h1 class="text-warning">Ingredients</h1>
 
                                     <a href="#" class="link-warning text-uppercase"  data-bs-toggle="modal" data-bs-target="#exampleModal"><u>Nutrition</u></a>
                                     
@@ -114,7 +127,6 @@ header('Cache-Control: no cache');
                                     }
                                 ?>
                                 </ul>
-
                             </div>
                             <div class="col-md-6 bg-warning">
                                 <h1>Directions</h1>

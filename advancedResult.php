@@ -23,7 +23,7 @@ header('Cache-Control: no cache'); //no cache
                         while($rows = $res->fetch_assoc()) {
 ?>
                             <div class="position-relative bg-white row rounded each-card" id="">
-                                <a href="?recipeId=<?= $rows['id'] ?>" class="col-sm-4 p-0">
+                                <a href="recipe-details.php?id=<?= $rows['id'] ?>" class="col-sm-4 p-0">
                                     <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                                 </a>
                                 <div class="card-body col-sm-8">

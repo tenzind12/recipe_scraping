@@ -1,10 +1,5 @@
 <?php 
     include './inc/header.php';
-    
-
-    // if(isset($_GET['recipeId'])) {
-    //     echo $_GET['recipeId'];
-    // }
 ?>
 
     <?php

@@ -3,11 +3,14 @@
     include __DIR__.'/../core/classes/Recipe.class.php';
     include __DIR__.'/../core/classes/User.class.php';
     include __DIR__.'/../core/helpers/Format.class.php';
+    include __DIR__.'/../core/classes/Bookmark.class.php';
+
     
     Session::init();
     $recipes = new Recipe();
     $user = new User();
     $format = new Format();
+    $bookmark = new Bookmark();
 
     // L O G O U T   F U N C T I O N
     if(isset($_GET['logout'])) {
