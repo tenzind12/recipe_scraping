@@ -2,6 +2,14 @@
 <?php 
     $is_login = Session::get('userLogin');
     if(!$is_login) header('Location: login.php');
+
+    // delete handler (bookmark)
+    if(isset($_GET['userId']) && isset($_GET['delRecipe'])) {
+        $userId = $format->validation($_GET['userId']);
+        $recipeId = $format->validation($_GET['delRecipe']);
+
+        $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
+    }
 ?>
 
 <div class="row mx-0 mt-5">
@@ -33,7 +41,8 @@
 
     <!-- recipe list section -->
     <div class="col-lg-8">
-        <h2 class="text-light display-4">Your saved recipes</h2>
+        <h2 class="text-light display-4 mb-3">Your saved recipes</h2>
+        <?= isset($delete_bookmark) ? $delete_bookmark : '' ?>
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
             <?php 
@@ -48,7 +57,9 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $i ?>" aria-expanded="false" aria-controls="flush-collapse<?= $i ?>">
                                 <div class="d-flex justify-content-between py-1 w-100">
                                     <h5><?= $rows['name'] ?> - by <b><?= ucfirst($rows['author']) ?></b></h5>
-                                    <h5 class="me-5"><a href="#"><i class="fa-regular fa-trash-can"></a></i> </h5>
+
+                                    <!-- delete bookmark from profile -->
+                                    <h5 class="me-5"><a onclick="return confirm('Are you sure to delete?')" href="?userId=<?= $rows['userId'] ?>&delRecipe=<?= $rows['recipeId'] ?>"><i class="fa-solid fa-square-xmark text-secondary"></a></i> </h5>
                                 </div>
                             </button>
                             </h2>
@@ -57,7 +68,7 @@
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name']?>"  class="card-image">
+                                            <a href="recipe-details.php?id=<?= $rows['recipeId'] ?>"><img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name']?>"  class="card-image"></a>
                                         </div>
                                         <div class="col-sm-8">
                                             <!-- rating -->
@@ -114,6 +125,8 @@
                                                 </div>
                                             </div>
                                             <!-- end of modal window -->
+
+                                            <p class="mt-3">Category : <a class="link-primary" href="#"><u><?= $format->extractCategory($rows['recipeCategory'])?></u></a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +139,7 @@
             ?>
         </div>
     </div>
-                
+
 </div>
 
 

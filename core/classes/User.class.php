@@ -1,6 +1,6 @@
 <?php
     include_once __DIR__.'/../connection/Db.php';
-    include './core/helpers/HelperClass.class.php';
+    include_once './core/helpers/HelperClass.class.php';
 
 
 class User {
