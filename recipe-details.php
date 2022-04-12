@@ -45,9 +45,8 @@ include './inc/header.php';
                                     SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span>
                                     <!-- bookmark -->
                                     <span class="float-end">
-                                        Bookmark 
-                                        <a href="?recipeId=<?= $_GET['id'] ?>">
-                                            <i class="fa-<?php if($bookmark->check_if_exists($_GET['id'], Session::get('userId')) == true) echo "solid"; else echo "regular " ?> fa-bookmark text-warning"></i>
+                                        <a href="?recipeId=<?= $_GET['id'] ?>" class="text-success">
+                                            <u><i class="fa-solid fa-floppy-disk"></i> Save</u>
                                         </a>
                                     </span>
                                 </p>

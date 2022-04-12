@@ -5,7 +5,9 @@
     <?php
         if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
             if(!empty($_POST['ingredient'])) {
+                
                 $name = $format->validation($_POST['ingredient']);
+
                 $result = $recipes->getByName($name);
 
                 if($result) {
@@ -30,6 +32,7 @@
                                     <p><?= $format->shortenText($rows['description'], 200) ?></p>
                                 </div>
                                 <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>
+                                <!-- test --> <input type="hidden" name="refresh">
                             </div>
                         </div>
     <?php

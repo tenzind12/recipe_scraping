@@ -14,20 +14,21 @@ class Bookmark {
 
     // insert into bookmarks table
     public function insert($recipeId, $userId) {
-        $already_exist = $this->check_if_exists($recipeId, $userId);
+        // $already_exist = $this->check_if_exists($recipeId, $userId);
+        $query1 = "SELECT * FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId'";
+        $already_exist = $this->db->select($query1);
         if(!$already_exist) {
             $query = "INSERT INTO bookmarks (userId, recipeId) VALUES ('$userId', $recipeId)";
-            $this->db->insert($query);
+            $result = $this->db->insert($query);
+            if($result) {
+                $msg = $this->class_helper->alertMessage('success','Success !', 'Bookmark saved ');
+                return $msg;
+            } else {
+                $msg = $this->class_helper->alertMessage('danger','Danger !', 'Bookmark not saved ');
+                return $msg;
+            }
         }
-        echo '<script>window.location="recipe-details.php?id='.$recipeId .'"</script>';
-    }
-
-    // check if already saved in bookmark
-    function check_if_exists($recipeId, $userId) {
-        $query = "SELECT * FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId'";
-        $result = $this->db->select($query);
-        if($result) return true;
-        return false;
+        echo '<script>Location.href="recipe-details.php?id='.$recipeId .'"</script>';
     }
 
     // profile.php => display all users bookmark
