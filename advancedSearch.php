@@ -2,7 +2,7 @@
 
 <div class="container mt-5 mx-auto" id="advanced-search-container">
     <!-- form starts -->
-    <form action="./advancedResult.php" method="POST">
+    <form action="./advancedResult.php" method="GET">
 
         <!-- ingredient name input -->
         <div id="name-input__adv">

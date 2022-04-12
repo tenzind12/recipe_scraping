@@ -3,10 +3,10 @@
 ?>
 
     <?php
-        if($_SERVER['REQUEST_METHOD']  == "POST" && isset($_POST['submit'])) {
-            if(!empty($_POST['ingredient'])) {
+        if($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
+            if(!empty($_GET['ingredient'])) {
                 
-                $name = $format->validation($_POST['ingredient']);
+                $name = $format->validation($_GET['ingredient']);
 
                 $result = $recipes->getByName($name);
 

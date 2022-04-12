@@ -8,7 +8,7 @@
                 <h5 class="card-title text-center display-5 my-3 text-white">Search for Recipe <i class="fas fa-utensils"></i></h5>
 
                 <!-- form start -->
-                <form method="POST" action="recipeLists.php">
+                <form method="GET" action="recipeLists.php">
                     <div class="mb-4" id="input-ingredient">
                         <input name="ingredient" type="text" placeholder="Enter an ingredient" class="form-control px-5" />
                         <i class="fas fa-search" id="fa-magnifying-glass"></i>

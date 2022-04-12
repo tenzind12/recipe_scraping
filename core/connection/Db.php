@@ -30,14 +30,12 @@ class ConnectionDB {
             if($result->num_rows > 0) return $result;
         }
         else return false;
-        $this->con->close();
     }
 
     // I N S E R T 
     public function insert($query) {
         $result = $this->con->query($query);
         return $result;
-        $this->con->close();
     }
 
 

@@ -1,20 +1,17 @@
 <?php include './inc/header.php';?>
 
 <?php 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST['submit'])) {
-            $name = $format->validation($_POST['name_input']);
-            $calorie = $_POST['calorie-input'];
-            $fat = $_POST['fat-input'];
-            $protein = $_POST['protein-input'];
-            $time = $_POST['time-input'];
-            echo $time;
-            $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
+    if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['submit'])) {
+        $name = $format->validation($_GET['name_input']);
+        $calorie = $_GET['calorie-input'];
+        $fat = $_GET['fat-input'];
+        $protein = $_GET['protein-input'];
+        $time = $_GET['time-input'];
+        $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
 ?>
-            <div class="card-container">
-                <h2 class="text-light mt-2">Filtered result</h2>
+        <div class="card-container">
+            <h2 class="text-light mt-2">Filtered result</h2>
 <?php
-            $no_matching_recipe = false;
             if($result && gettype($result) !== 'string') {
                 foreach($result as $res) {
                     if($res) {
@@ -43,18 +40,8 @@
                             </div>
 <?php
                         }
-                    }else {
-                        $no_matching_recipe = true;
                     }
                 }
-                // if($no_matching_recipe) {
-                //     echo "
-                //     <div class=\"d-flex flex-column pt-4 pb-5\">
-                //         <p class=\"text-center text-light\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
-                //         <img src=\"./assets/images/error.gif\" alt=\"nothing found\" id='nothing_image' class='rounded'/>
-                //     </div>
-                //     ";
-                // };
 ?>
             </div>
 <?php
@@ -66,7 +53,6 @@
                 </div>
                 ";
             }
-        }
     }
 
 
