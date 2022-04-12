@@ -6,8 +6,13 @@
     include __DIR__.'/../core/classes/Bookmark.class.php';
 
     // for the page back issue
-    header('Cache-Control: no cache'); //no cache
-    session_cache_limiter('private_no_expire'); //works
+    // header('Cache-Control: no cache'); //no cache
+    // session_cache_limiter('private_no_expire'); //works
+    header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
 
     
     Session::init();
@@ -17,9 +22,11 @@
     $bookmark = new Bookmark();
 
     // L O G O U T   F U N C T I O N
-    if(isset($_GET['logout'])) {
-        Session::destroy();
+    if(isset($_GET['logoutId'])) {
+        session_destroy();
+        echo "<script>window.location='login.php';</script>"; 
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,14 +55,14 @@
 
                         <!-- user / guest profile -->
                         <li class="nav-item d-flex">
-                            <img src="./assets/images/icons/guest.jpg" alt="profile picture icon" id="profile_icon">
+                            <img src="./assets/images/users/<?= Session::get('userPhoto') != null ? Session::get('userPhoto') : 'guest-profile.jpg' ?>" alt="profile picture icon" id="profile_icon">
                             <a href="./profile.php" class="nav-link"><?= Session::get('userName') ? ucfirst(Session::get('userName')) : 'Guest' ?></a>
                         </li>
 
                         <!-- connection / logout -->
                         <li class="nav-item">
                             <?php
-                                echo Session::get('userLogin') ? '<a class="nav-link" href="?logout=true">Logout</a>' :'';
+                                echo Session::get('userLogin') ? '<a class="nav-link" href="?logoutId="'. Session::get('userId') . '">Logout</a>' :'';
                             ?>
                         </li>
 

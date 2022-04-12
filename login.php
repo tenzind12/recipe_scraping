@@ -1,5 +1,6 @@
 <?php include './inc/header.php' ?>
 <?php 
+    if(Session::get('userLogin')) echo '<script>location.href="profile.php"</script>';
     // L O G I N 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login-btn'])) {
         $email = $format->validation($_POST['email']);
@@ -18,17 +19,17 @@
         $signup = $user->register($name, $email, $password, $country, $_FILES);
 
     }
-
-    if(Session::get('userLogin')) echo '<script>location.href="profile.php"</script>';
 ?>
 
     <div class="row m-0 " id="login-image__container">
-        <!-- form column -->
+        <!-- form column L O G I N  -->
         <div class="col-md-7 justify-content-center">
             <h2 class="text-light text-center mt-5">Login to your Account</h2>
-            <?= isset($login) ? $login : '' ?>
+            
+            <!-- error message if any -->
+            <?= isset($login) ? $login : '' ?> 
             <div class="m-auto my-5" id="login-form">
-                <form action="" method="POST">
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="form-group">
                         <input type="text" name="email" placeholder="Enter your email" class="form-control rounded-pill my-3">
                     </div>

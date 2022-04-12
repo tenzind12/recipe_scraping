@@ -82,6 +82,8 @@ class User {
             $msg = $this->class_helper->alertMessage('danger', 'Email error !', 'Email format is not supported');
             return $msg;
         }
+
+        
         $query = "SELECT * FROM users WHERE email = '$email' AND password = md5('$password')";
         $result = $this->db->select($query);
         if($result) {
@@ -93,7 +95,7 @@ class User {
             Session::set('userEmail', $user_data['email']);
             Session::set('userCountry', $user_data['country']);
             echo "<script>location.href='profile.php'</script>";
-        }else {
+        } else {
             $msg = $this->class_helper->alertMessage('danger', 'User not found !', 'Please make sure email and password are correct');
             return $msg;
         }

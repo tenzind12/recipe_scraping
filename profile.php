@@ -10,6 +10,8 @@
 
         $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
     }
+
+    // var_dump($_SESSION);
 ?>
 
 <div class="row mx-0 mt-5">
@@ -133,7 +135,7 @@
                                 <!-- end of body content -->
                             </div>
                         </div>
-            <?php
+            <?php echo $rows['recipeCategory'];
                     }
                 }
             ?>

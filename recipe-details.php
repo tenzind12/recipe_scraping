@@ -23,7 +23,6 @@ include './inc/header.php';
             $result = $recipes->getById($id);
             if($result) {
                 while($rows = $result->fetch_assoc()) {
-
     ?>
                     <div class="m-auto my-5" style="max-width: 800px">
                         <!-- recipe name -->
