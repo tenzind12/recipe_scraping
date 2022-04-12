@@ -25,4 +25,17 @@ class Bookmark {
         if($result) return true;
         return false;
     }
+
+    // profile.php => display all users bookmark
+    public function get_bookmarks($userId) {
+        $query = "SELECT bookmarks.*, recipes.*, nutrition.* 
+            FROM recipes 
+            INNER JOIN bookmarks 
+            ON recipes.id = bookmarks.recipeId 
+            INNER JOIN nutrition 
+            ON recipes.nutritionId = nutrition.id
+            WHERE bookmarks.userId = '$userId' ";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }

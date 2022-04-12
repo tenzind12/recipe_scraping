@@ -5,6 +5,10 @@
     include __DIR__.'/../core/helpers/Format.class.php';
     include __DIR__.'/../core/classes/Bookmark.class.php';
 
+    // for the page back issue
+    header('Cache-Control: no cache'); //no cache
+    session_cache_limiter('private_no_expire'); //works
+
     
     Session::init();
     $recipes = new Recipe();
