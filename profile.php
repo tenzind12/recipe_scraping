@@ -10,33 +10,88 @@
 
         $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
     }
+    
+    // update handler
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_edit'])) {
+        $update_userinfo = $user->update_user($_POST, $_FILES, Session::get('userId'));
+        if($update_userinfo) echo '<script>location.href="profile.php"</script>';
+    }
+
+    // delete handler
+    if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['delete-user'])) {
+        $userId = $format->validation($_GET['delete-user']);
+        $user->delete_user($userId);
+    }
 ?>
 
 <div class="row mx-0 mt-5">
     <div class="col-lg-4">
+        <?= isset($update_userinfo) ? $update_userinfo : '' ?>
         <img src="./assets/images/users/<?= Session::get('userPhoto') != null ? Session::get('userPhoto') : 'guest-profile.jpg' ?>" id="profile-page__photo" alt="user picture">
         
         <!-- user information -->
-        <table >
-            <tr class="text-light">
-                <th class="px-3">Name: </th>
-                <td class="fs-3"><?= ucfirst(Session::get('userName')) ?></td>
-            </tr>
-            <tr class="text-light">
-                <th class="px-3">Email: </th>
-                <td class="fs-3 text-break"><?= Session::get('userEmail') ?></td>
-            </tr>
-            <tr class="text-light">
-                <th class="px-3">Country: </th>
-                <td class="fs-3"><?= ucfirst(Session::get('userCountry')) ?></td>
-            </tr>
-        </table>
+        
+        <?php
+                if(isset($_GET['edit'])) {
+        ?>
+                <form action="" method="POST" enctype="multipart/form-data" class="mt-2">
+                    <table >
+                        <tr class="text-light">
+                            <th class="px-3">Name: </th>
+                            <td class="fs-3 text-break"><input type="text" name="userName" class="form-control" value="<?= ucfirst(Session::get('userName')) ?>"/></td>
+                        </tr>
+                        <tr class="text-light">
+                            <th class="px-3">Email: </th>
+                            <td class="fs-3 text-break"><input type="email" name="email" class="form-control" value="<?= Session::get('userEmail') ?>"/></td>
+                        </tr>
+                        <tr class="text-light">
+                            <th class="px-3">New Image?</th>
+                            <td class="fs-3 text-break"><input type="file" name="image" class="form-control"/></td>
+                        </tr>
+                        <tr class="text-light">
+                            <th class="px-3">Country: </th>
+                            <td class="fs-3">
+                                <select class="form-select" name="country">
+                                    <option selected value="<?= Session::get('userCountry') ?>"><?= ucfirst(Session::get('userCountry')) ?></option>
+                                    <option value="france">France</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="switwerland">Switzerland</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Confirm change" name="submit_edit" class="btn-sm btn-primary w-25 mt-3 ms-5 rounded-pill"/>
+                    <input type="submit" value="Cancel change" name="cancel_edit" class="btn-sm btn-outline-danger w-25 mt-3 ms-5 rounded-pill"/>
+                </form>
+            <?php
+                } else {
+           ?>
+                <table>
+                    <tr class="text-light">
+                        <th class="px-3">Name: </th>
+                        <td class="fs-3"><?= ucfirst(Session::get('userName')) ?></td>
+                    </tr>
+                    <tr class="text-light">
+                        <th class="px-3">Email: </th>
+                        <td class="fs-3 text-break"><?= Session::get('userEmail') ?></td>
+                    </tr>
+                    <tr class="text-light">
+                        <th class="px-3">Country: </th>
+                        <td class="fs-3"><?= ucfirst(Session::get('userCountry')) ?></td>
+                    </tr>
+                </table>
+                <!-- buttons -->
+                <div class="d-flex mt-3">
+                    <a href="?edit=<?= Session::get('userId') ?>" class="btn btn-sm btn-success border w-50">Edit Information</a>
+                    <a href="?delete-user=<?= Session::get('userId') ?>" class="btn btn-sm btn-danger border w-50">Delete Account</a>
+                </div>
+            <?php
+                }
 
-        <!-- buttons -->
-        <div class="d-flex mt-3">
-            <a href="#" class="btn btn-sm btn-success border w-50">Edit Information</a>
-            <a href="#" class="btn btn-sm btn-danger border w-50">Delete Account</a>
-        </div>
+            ?>
+
+
     </div>
 
     <!-- recipe list section -->

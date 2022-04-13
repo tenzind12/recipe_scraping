@@ -12,7 +12,7 @@ class User {
         $this->class_helper = new HelperClass();
     }
 
-    // R E G I S T E R   U S E R 
+    // ========== R E G I S T E R   U S E R ================ //
     public function register($name, $email, $password, $country, $file) {
         if(empty($name) ||empty($email) || empty($password) || empty($country)) {
             $msg = $this->class_helper->alertMessage('danger','Sign up failed !', 'Only image field is optional');
@@ -71,7 +71,7 @@ class User {
     }
 
 
-    // L O G I N   U S E R
+    // ================ L O G I N   U S E R ================ //
     public function login($email, $password) {
         if(empty($email) || empty($password)) {
             $msg = $this->class_helper->alertMessage('danger', 'Empty field !', 'Please fill all fields');
@@ -99,5 +99,98 @@ class User {
             $msg = $this->class_helper->alertMessage('danger', 'User not found !', 'Please make sure email and password are correct');
             return $msg;
         }
+    }
+
+    // ================ U P D A T E   U S E R ============== //
+    public function update_user($data, $file, $userId) {
+        $userName = $data['userName'];
+        $email = $data['email'];
+        $country = $data['country'];
+
+        if(empty($userName) || empty($email) || empty($country)) {
+            $msg = $this->class_helper->alertMessage('danger', 'Empty field !', 'All fields must be filled');
+            return $msg;
+        }
+
+        // getting image details
+        $image_name = $file['image']['name'];
+        $image_tmp = $file['image']['tmp_name'];
+        $image_size = $file['image']['size'];
+
+        /// getting image extention name
+        $explode_img_name = explode('.', $image_name);
+        $image_extention = strtolower(end($explode_img_name));
+
+        // defining allowed image extentions
+        $allowed_images = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
+
+        // IF NEW IMAGE 
+        if($image_size > 0) {
+            // image unlink form folder
+            $image_query = "SELECT * from users where id = '$userId'";
+            $image_result = $this->db->select($image_query);
+            // unlink if image is not null
+            if($image_result)
+                while($rows = $image_result->fetch_assoc())
+                    if($rows['image'] != null)
+                        unlink('./assets/images/users/'.$rows['image']);
+
+
+            if(!in_array($image_extention, $allowed_images)) {
+                $msg = $this->class_helper->alertMessage('danger','Image not supported', 'Supported files: png, jpg, jpeg, gif, webp');
+                return $msg;
+            }
+
+            // assign new name
+            $image_new_name = substr(md5(time()), 0, 10) . '.' . $image_extention;
+            $image_new_location = 'assets/images/users/' . $image_new_name;
+            move_uploaded_file($image_tmp, $image_new_location);
+
+            $query = "UPDATE users SET 
+                        name='$userName', 
+                        email='$email', 
+                        image='$image_new_name', 
+                        country='$country' 
+                    WHERE id='$userId' ";
+            $updateUser = $this->db->insert($query);
+
+
+            if($updateUser) {
+                Session::set('userPhoto', $image_new_name);
+                return true;
+            } else {
+                $msg = $this->class_helper->alertMessage('danger','Update failed !', 'Something went wrong.');
+                return $msg;
+            }
+        }
+
+        // IF NO NEW IMAGE
+        $query = "UPDATE users SET 
+                        `name`='$userName', 
+                        email='$email', 
+                        country='$country' 
+                    WHERE id='$userId' ";
+        $updateUser = $this->db->insert($query);
+
+        if ($updateUser) echo "<script>window.location = 'profile.php'; </script>"; 
+        else {
+            $msg = $this->class_helper->alertMessage('danger','Update failed !', 'Something went wrong.');
+            return $msg;
+        }
+    }
+
+    // ================ D E L E T E   U S E R ================ //
+    public function delete_user($userId) {
+
+        // image delete query
+        $img_query = "SELECT image FROM users WHERE id='$userId'";
+        $img_result = $this->db->select($img_query);
+        unlink('./assets/images/users/'.$img_result->fetch_assoc()['image']);
+
+        // user delete query
+        $query = "DELETE FROM users WHERE id='$userId'";
+        $delete_result = $this->db->insert($query);
+        if($delete_result) Session::destroy();
+        else echo 'somehting went wrong';
     }
 }
