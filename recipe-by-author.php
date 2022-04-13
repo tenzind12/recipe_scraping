@@ -1,17 +1,17 @@
-<?php include './inc/header.php'; ?>
-<?php
-    // FETCH RECIPES BY CATEGORY
-    if(isset($_GET['category'])) {
-        $category = $format->validation($_GET['category']);
-        $recipesByCategory = $recipes->get_recipes_by_category($category);
+<?php include './inc/header.php' ?>
 
-        if($recipesByCategory) {
+<?php
+    if(isset($_GET['author'])) {
+        $author = $format->validation($_GET['author']);
+        $recipes_by_author = $recipes->get_recipes_by_author($author);
+
+        if($recipes_by_author) {
 ?>
-             <h1 class="text-light text-center py-5"><i class="fa-solid fa-bowl-rice"></i>&nbsp; 
-                Recipe results for the category "<?= $category ?>" <span class="badge bg-secondary"><?= mysqli_num_rows($recipesByCategory) ?> results</span>
+            <h1 class="text-light text-center py-5"><i class="fa-solid fa-pen-fancy"></i>&nbsp; 
+                Recipe results for the Author " <?= $author ?> " <span class="badge bg-secondary"><?= mysqli_num_rows($recipes_by_author) ?> results</span>
             </h1>
 <?php
-            while($rows = $recipesByCategory->fetch_assoc()) {
+            while($rows = $recipes_by_author->fetch_assoc()) {
 ?>
                 <div class="position-relative bg-white row rounded each-card" id="">
                     <a href="recipe-details.php?id=<?= $rows['id'] ?>" class="col-sm-4 p-0">
@@ -36,3 +36,4 @@
 ?>
 
 <?php include './inc/footer.php'; ?>
+            

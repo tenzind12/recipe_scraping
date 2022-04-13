@@ -15,7 +15,7 @@ class Bookmark {
     // CHECK IF ALREADY BOOKMARKED
     public function check_if_bookmarked($recipeId, $userId) {
         $query = "SELECT * FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId'";
-        $already_exist = $this->db->select($query);
+        $already_exist = $this->db->query($query);
         if($already_exist) return true;
         return false;
     }
@@ -39,7 +39,7 @@ class Bookmark {
             ON recipes.nutritionId = nutrition.id
             WHERE bookmarks.userId = '$userId' 
             ORDER BY bookmarks.id DESC";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
         return $result;
     }
 

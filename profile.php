@@ -96,7 +96,7 @@
 
     <!-- recipe list section -->
     <div class="col-lg-8">
-        <h2 class="text-light display-4 mb-3">Your saved recipes</h2>
+        <h2 class="text-light display-4 mb-4"><i class="fa-solid fa-folder-closed text-secondary"></i> Your saved recipes </h2>
         <?= isset($delete_bookmark) ? $delete_bookmark : '' ?>
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -129,7 +129,7 @@
                                             <!-- rating -->
                                             <div class="d-flex justify-content-between">
                                                 <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
-                                                <p class="border-end float-end">READY IN <span class="badge bg-primary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                                                <p class="border-end float-end">READY IN <span class="badge bg-primary fs-3"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                                             </div>
                                             <!-- </div> -->
                                             <div class="card-text">

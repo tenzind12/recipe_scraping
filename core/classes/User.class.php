@@ -70,7 +70,6 @@ class User {
         }
     }
 
-
     // ================ L O G I N   U S E R ================ //
     public function login($email, $password) {
         if(empty($email) || empty($password)) {
@@ -85,7 +84,7 @@ class User {
 
         
         $query = "SELECT * FROM users WHERE email = '$email' AND password = md5('$password')";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
         if($result) {
             $user_data = $result->fetch_assoc();
             Session::set('userLogin', true);
@@ -128,7 +127,7 @@ class User {
         if($image_size > 0) {
             // image unlink form folder
             $image_query = "SELECT * from users where id = '$userId'";
-            $image_result = $this->db->select($image_query);
+            $image_result = $this->db->query($image_query);
             // unlink if image is not null
             if($image_result)
                 while($rows = $image_result->fetch_assoc())
@@ -181,10 +180,9 @@ class User {
 
     // ================ D E L E T E   U S E R ================ //
     public function delete_user($userId) {
-
         // image delete query
         $img_query = "SELECT image FROM users WHERE id='$userId'";
-        $img_result = $this->db->select($img_query);
+        $img_result = $this->db->query($img_query);
         unlink('./assets/images/users/'.$img_result->fetch_assoc()['image']);
 
         // user delete query

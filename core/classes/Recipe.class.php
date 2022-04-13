@@ -13,14 +13,14 @@ class Recipe {
     // get all recipes
     // public function getAllRecipes() {
     //     $query = "SELECT * FROM recipes";
-    //     $result = $this->db->select($query);
+    //     $result = $this->db->query($query);
     //     return $result;
     // }
 
     // get recipes by name like
     public function getByName($name) {
         $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' ";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
         return $result;
     }
 
@@ -31,7 +31,7 @@ class Recipe {
             INNER JOIN nutrition 
             ON recipes.nutritionId = nutrition.id 
             WHERE recipes.id = '$id' ";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
         return $result;
     }
 
@@ -43,7 +43,7 @@ class Recipe {
 
         // fetch all recipe matching name and time to get nutritionId
         $query1 = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime <= $time";
-        $recipes = $this->db->select($query1);
+        $recipes = $this->db->query($query1);
         if(!$recipes) {
             $msg = '';
             return $msg;
@@ -65,7 +65,7 @@ class Recipe {
                 AND nutrition.fat <= $fat 
                 AND nutrition.protein <= $protein 
                 ORDER BY nutritionId DESC";
-            $resData = $this->db->select($finalQuery);
+            $resData = $this->db->query($finalQuery);
             $result[] = $resData;
         }
         return $result;
@@ -74,7 +74,14 @@ class Recipe {
     // GET RECIPE BY CATEGORY NAME
     public function get_recipes_by_category($category) {
         $query = "SELECT * FROM recipes WHERE recipeCategory LIKE '%$category%' ";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    // GET RECIPE BY AUTHOR NAME
+    public function get_recipes_by_author($author) {
+        $query = "SELECT * FROM recipes WHERE author LIKE '%$author%' ";
+        $result = $this->db->query($query);
         return $result;
     }
 }

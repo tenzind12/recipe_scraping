@@ -24,7 +24,7 @@ class ConnectionDB {
     }
 
     // S E L E C T
-    public function select($query) {
+    public function query($query) {
         $result = $this->con->query($query);
         if($result) {
             if($result->num_rows > 0) return $result;

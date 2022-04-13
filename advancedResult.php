@@ -10,7 +10,7 @@
         $result = $recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time);
 ?>
         <div class="card-container">
-            <h2 class="text-light mt-2">Filtered result</h2>
+            <h2 class="text-light mt-2 ms-4">Filtered result</h2>
 <?php
             if($result && gettype($result) !== 'string') {
                 foreach($result as $res) {
@@ -22,7 +22,7 @@
                                     <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                                 </a>
                                 <div class="card-body col-sm-8">
-                                    <a href="?recipeId=<?= $rows['id'] ?>"><h5 class="card-title"><?= $rows['name'] ?></h5></a>
+                                    <a href="?recipeId=<?= $rows['id'] ?>"><h4 class="card-title"><?= $rows['name'] ?></h4></a>
                                     <p>
                                         <span><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']);?> </span>    
                                         <span>&nbsp;<?= $rows['reviewCount'] ?> reviews</span>
@@ -30,9 +30,9 @@
                                     <div class="card-text">
                                         <p><?= $format->shortenText($rows['description'], 100) ?></p>
                                         <div class="d-flex">
-                                            <p class="badge bg-primary mx-1">Calories <?= $rows['calories'] ?></p>
-                                            <p class="badge bg-warning mx-1">Fats <?= $rows['fat']?></p>
-                                            <p class="badge bg-danger mx-1">Protein <?= $rows['protein'] ?></p>
+                                            <p class="fs-5 badge bg-success mx-1">Calories <?= $rows['calories'] ?></p>
+                                            <p class="fs-5 badge bg-warning mx-1">Fats <?= $rows['fat']?></p>
+                                            <p class="fs-5 badge bg-danger mx-1">Protein <?= $rows['protein'] ?></p>
                                         </div>
                                     </div>
                                     <p class="position-absolute end-0 bottom-0 m-2">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>

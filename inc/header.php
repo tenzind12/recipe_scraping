@@ -15,9 +15,9 @@
     // header("Cache-Control: post-check=0, pre-check=0", false);
     // header("Pragma: no-cache");
 
-    header("Expires: Thu, 19 Nov 1981 08:52:00 GMT"); //Date in the past
-    header("Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); //HTTP/1.1
-    header("Pragma: no-cache");
+    // header("Expires: Thu, 19 Nov 1981 08:52:00 GMT"); //Date in the past
+    // header("Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); //HTTP/1.1
+    // header("Pragma: no-cache");
 
     
     Session::init();

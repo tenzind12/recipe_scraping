@@ -19,7 +19,7 @@ class Admin {
         }
 
         $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
-        $result = $this->db->select($query);
+        $result = $this->db->query($query);
         if($result) {
             Session::set('adminLogin', true);
             Session::set('adminName', $result->fetch_assoc()['name']);
