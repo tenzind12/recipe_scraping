@@ -25,7 +25,6 @@ include './inc/header.php';
 ?>
 
     <?php
-
         // get request from recipe-list.php
         if(isset($_GET['id'])) {
             $id = $format->validation($_GET['id']);

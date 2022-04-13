@@ -7,7 +7,6 @@
             if(!empty($_GET['ingredient'])) {
                 
                 $name = $format->validation($_GET['ingredient']);
-
                 $result = $recipes->getByName($name);
 
                 if($result) {

@@ -70,6 +70,13 @@ class Recipe {
         }
         return $result;
     }
+
+    // GET RECIPE BY CATEGORY NAME
+    public function get_recipes_by_category($category) {
+        $query = "SELECT * FROM recipes WHERE recipeCategory LIKE '%$category%' ";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 
 ?>

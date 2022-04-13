@@ -10,8 +10,6 @@
 
         $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
     }
-
-    // var_dump($_SESSION);
 ?>
 
 <div class="row mx-0 mt-5">
@@ -128,16 +126,20 @@
                                             </div>
                                             <!-- end of modal window -->
 
-                                            <p class="mt-3">Category : <a class="link-primary" href="#"><u><?= $format->extractCategory($rows['recipeCategory'])?></u></a></p>
+                                            <p class="mt-3">Category : 
+                                                <a class="link-primary" href="recipe-by-category.php?category=<?= $rows['recipeCategory'] ?>" >
+                                                    <u><?= $format->extractCategory($rows['recipeCategory'])?></u> 
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- end of body content -->
                             </div>
                         </div>
-            <?php echo $rows['recipeCategory'];
+            <?php
                     }
-                }
+                } else echo '<p class="text-light">no recipe</p>';
             ?>
         </div>
     </div>
@@ -145,4 +147,4 @@
 </div>
 
 
-<?php include './inc/footer.php' ?>
+<?php include './inc/footer.php'; ?>
