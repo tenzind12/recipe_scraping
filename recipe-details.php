@@ -4,6 +4,7 @@ include './inc/header.php';
  ?>
 
 <?php
+    // BOOKMARK RECIPE
     if(isset($_GET['recipeId'])) {
         // if not logged in, redirect to login.php
         if(!Session::get('userLogin')) echo '<script>location.href="login.php"</script>';
@@ -12,6 +13,14 @@ include './inc/header.php';
 
         // insert into bookmarks table
         $bookmarkSaved = $bookmark->insert($recipeId, Session::get('userId'));
+        echo "<script>(()=>history.go(-1))()</script>";
+    }
+
+    // DELETE BOOKMARK
+    if(isset($_GET['delRecipeId'])) {
+        $delRecipeId = $format->validation($_GET['delRecipeId']);
+        $deleteRecipe = $bookmark->deleteBookmark(Session::get('userId'), $delRecipeId);
+        echo "<script>(()=>history.go(-1))()</script>";
     }
 ?>
 
@@ -38,6 +47,7 @@ include './inc/header.php';
                         <img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>" id="recipe-details__image">
                 
                         <!-- time and bookmark -->
+                        <?= isset($bookmarkSaved) ? $bookmarkSaved : ''  ?>
                         <div class="row m-0 p-3" id="recipe-details__timecontainer">
                             <p class="col border-end text-light">READY IN <span class="badge bg-secondary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                             <div class="col pe-0">
@@ -45,9 +55,26 @@ include './inc/header.php';
                                     SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span>
                                     <!-- bookmark -->
                                     <span class="float-end">
-                                        <a href="?recipeId=<?= $_GET['id'] ?>" class="text-success">
-                                            <u><i class="fa-solid fa-floppy-disk"></i> Save</u>
-                                        </a>
+                                        <?php 
+                                        // check if already bookmarked or not 
+                                        if(isset($_GET['id'])) {
+                                            $check_recipe_id = $format->validation($_GET['id']);
+                                            $already_bookmarked = $bookmark->check_if_bookmarked($check_recipe_id, Session::get('userId'));
+                                            if($already_bookmarked) {
+                                        ?>
+                                            <a href="?delRecipeId=<?= $_GET['id'] ?>" class="text-white">
+                                                <span style="font-size: 16px;">Delete bookmark </span><i class="fa-solid fa-bookmark text-warning"></i>
+                                            </a>
+                                        <?php
+                                            } else {
+                                        ?>
+                                            <a href="?recipeId=<?= $_GET['id'] ?>" class="text-white">
+                                                <span style="font-size: 16px;">Bookmark recipe </span><i class="fa-regular fa-bookmark text-warning"></i>
+                                            </a>
+                                        <?php
+                                            }
+                                        } 
+                                        ?>
                                     </span>
                                 </p>
                             </div>

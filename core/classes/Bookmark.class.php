@@ -12,26 +12,24 @@ class Bookmark {
         $this->class_helper = new HelperClass();
     }
 
-    // insert into bookmarks table
-    public function insert($recipeId, $userId) {
-        // $already_exist = $this->check_if_exists($recipeId, $userId);
-        $query1 = "SELECT * FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId'";
-        $already_exist = $this->db->select($query1);
-        if(!$already_exist) {
-            $query = "INSERT INTO bookmarks (userId, recipeId) VALUES ('$userId', $recipeId)";
-            $result = $this->db->insert($query);
-            if($result) {
-                $msg = $this->class_helper->alertMessage('success','Success !', 'Bookmark saved ');
-                return $msg;
-            } else {
-                $msg = $this->class_helper->alertMessage('danger','Danger !', 'Bookmark not saved ');
-                return $msg;
-            }
-        }
-        echo '<script>Location.href="recipe-details.php?id='.$recipeId .'"</script>';
+    // CHECK IF ALREADY BOOKMARKED
+    public function check_if_bookmarked($recipeId, $userId) {
+        $query = "SELECT * FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId'";
+        $already_exist = $this->db->select($query);
+        if($already_exist) return true;
+        return false;
     }
 
-    // profile.php => display all users bookmark
+    // INSERT INTO BOOKMARKS TABLE
+    public function insert($recipeId, $userId) {
+        $already_exist = $this->check_if_bookmarked($recipeId, $userId);
+        if(!$already_exist) {
+            $query = "INSERT INTO bookmarks (userId, recipeId) VALUES ('$userId', $recipeId)";
+            $this->db->insert($query);
+        } 
+    }
+
+    // GET ALL RECIPE SAVED BY userId profile.php
     public function get_bookmarks($userId) {
         $query = "SELECT bookmarks.*, recipes.*, nutrition.* 
             FROM recipes 
@@ -45,7 +43,7 @@ class Bookmark {
         return $result;
     }
 
-    // delete bookmark from profile
+    // DELETE BOOKMARK
     public function deleteBookmark($userId, $recipeId) {
         $query = "DELETE FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId' ";
         $result = $this->db->insert($query);

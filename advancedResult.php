@@ -7,7 +7,7 @@
         $fat = $_GET['fat-input'];
         $protein = $_GET['protein-input'];
         $time = $_GET['time-input'];
-        $result = ($recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time));
+        $result = $recipes->getAdvancedSearchResults($name, $calorie, $fat, $protein, $time);
 ?>
         <div class="card-container">
             <h2 class="text-light mt-2">Filtered result</h2>
