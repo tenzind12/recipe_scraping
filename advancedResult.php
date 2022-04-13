@@ -16,14 +16,13 @@
                 foreach($result as $res) {
                     if($res) {
                         while($rows = $res->fetch_assoc()) {
-
 ?>
                             <div class="position-relative bg-white row rounded each-card" id="">
-                                <a href="recipe-details.php?id=<?= $rows['id'] ?>" class="col-sm-4 p-0">
+                                <a href="recipe-details.php?id=null&name=<?= $rows['name'] ?>" class="col-sm-4 p-0">
                                     <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                                 </a>
                                 <div class="card-body col-sm-8">
-                                    <a href="recipe-details.php?id=<?= $rows['id'] ?>"><h4 class="card-title"><?= $rows['name'] ?></h4></a>
+                                    <a href="recipe-details.php?id=null&name=<?= $rows['name'] ?>"><h4 class="card-title"><?= $rows['name'] ?></h4></a>
                                     <p>
                                         <span><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']);?> </span>    
                                         <span>&nbsp;<?= $rows['reviewCount'] ?> reviews</span>

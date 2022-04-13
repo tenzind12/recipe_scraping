@@ -25,13 +25,25 @@ class Recipe {
     }
 
     // get recipes by id (recipe details.php)
-    public function getById($id) {
-        $query = "SELECT recipes.*, nutrition.* 
-            FROM recipes 
-            INNER JOIN nutrition 
-            ON recipes.nutritionId = nutrition.id 
-            WHERE recipes.id = '$id'";
-        $result = $this->db->query($query);
+    public function getByIdOrName($id, $name) {
+        if($id && $name == 'null') {
+            $query = "SELECT recipes.*, nutrition.* 
+                FROM recipes 
+                INNER JOIN nutrition 
+                ON recipes.nutritionId = nutrition.id 
+                WHERE recipes.id = '$id'";
+            $result = $this->db->query($query);
+            // return $result;
+        }
+        if($id == 'null') {
+            $query = "SELECT recipes.*, nutrition.* 
+                FROM recipes 
+                INNER JOIN nutrition 
+                ON recipes.nutritionId = nutrition.id 
+                WHERE recipes.name = '$name' 
+                LIMIT 1";
+            $result = $this->db->query($query);
+        }
         return $result;
     }
 

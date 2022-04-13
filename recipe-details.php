@@ -25,9 +25,10 @@ include './inc/header.php';
 
     <?php
         // get request from recipe-list.php
-        if(isset($_GET['id'])) {
+        if(isset($_GET['id']) && isset($_GET['name'])) {
             $id = $format->validation($_GET['id']);
-            $result = $recipes->getById($id);
+            $name = $format->validation($_GET['name']);
+            $result = $recipes->getByIdOrName($id, $name);
             if($result) {
                 while($rows = $result->fetch_assoc()) {
     ?>
