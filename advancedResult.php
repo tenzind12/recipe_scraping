@@ -30,9 +30,9 @@
                                     <div class="card-text">
                                         <p><?= $format->shortenText($rows['description'], 100) ?></p>
                                         <div class="d-flex">
-                                            <p class="fs-5 badge bg-success mx-1">Calories <?= $rows['calories'] ?></p>
-                                            <p class="fs-5 badge bg-warning mx-1">Fats <?= $rows['fat']?></p>
-                                            <p class="fs-5 badge bg-danger mx-1">Protein <?= $rows['protein'] ?></p>
+                                            <p class="fs-5 badge bg-success mx-1">Calories <?= floatval($rows['calories']) ?></p>
+                                            <p class="fs-5 badge bg-warning mx-1">Fats <?= floatval($rows['fat'])?></p>
+                                            <p class="fs-5 badge bg-danger mx-1">Protein <?= floatval($rows['protein']) ?></p>
                                         </div>
                                     </div>
                                     <p class="position-absolute end-0 bottom-0 m-2">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>

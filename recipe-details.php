@@ -59,7 +59,7 @@ include './inc/header.php';
                                         if(isset($_GET['id'])) {
                                             $check_recipe_id = $format->validation($_GET['id']);
                                             $already_bookmarked = $bookmark->check_if_bookmarked($check_recipe_id, Session::get('userId'));
-                                            if($already_bookmarked) {
+                                            if($already_bookmarked && Session::get('userId')) {
                                         ?>
                                             <a href="?delRecipeId=<?= $_GET['id'] ?>" class="text-white">
                                                 <span style="font-size: 16px;">Delete bookmark </span><i class="fa-solid fa-bookmark text-warning"></i>

@@ -123,7 +123,7 @@
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <a href="recipe-details.php?id=<?= $rows['recipeId'] ?>"><img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name']?>"  class="card-image"></a>
+                                            <a href="recipe-details.php?id=<?= $rows['recipeId'] ?>&name=null"><img src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name']?>"  class="card-image"></a>
                                         </div>
                                         <div class="col-sm-8">
                                             <!-- rating -->

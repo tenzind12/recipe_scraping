@@ -10,9 +10,11 @@
 
                 if($result) {
     ?>
-                    <h1 class="text-light text-center py-5"><i class="fa-solid fa-kitchen-set"></i>&nbsp; 
-                        Recipe results for "<?= $name ?>" <span class="badge bg-danger"><?= mysqli_num_rows($result) ?> results</span>
+                    <h1 class="text-light text-center py-5"><i class="fa-solid fa-kitchen-set text-warning"></i>&nbsp; 
+                        Recipe results for <b class="text-warning"><?= $name ?></b> 
+                        <span class="badge bg-danger"><?= mysqli_num_rows($result) ?> results</span>
                     </h1>
+                    
                     <div class="card-container">
     <?php
                     while($rows = $result->fetch_assoc()) {
@@ -23,14 +25,14 @@
                             </a>
                             <div class="card-body col-sm-8">
                                 <!-- <div class="d-flex"> -->
-                                <a href=recipe-details.php?id=<?= $rows['id'] ?>&name=null"><h2 class="card-title"><?= $rows['name'] ?></h2></a>
+                                <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null"><h2 class="card-title"><?= $rows['name'] ?></h2></a>
                                 <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
                                 <!-- </div> -->
                                 <div class="card-text">
-                                    <p><?= $format->shortenText($rows['description'], 200) ?></p>
+                                    <p><?= $format->shortenText($rows['description'], 150) ?></p>
                                 </div>
                                 <!-- test --> <input type="hidden" name="refresh">
-                                <p class="position-absolute end-0 bottom-0 m-4">By 
+                                <p class="position-absolute end-0 bottom-0 m-3">By 
                                     <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="fw-bold"><?= ucfirst($rows['author']) ?></a>
                                 </p>
                             </div>
