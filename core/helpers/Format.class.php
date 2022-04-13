@@ -56,11 +56,10 @@ class Format {
 
     // extract category name
     public function extractCategory($category) {
-        if(gettype($category) == 'string') return $category;
-        else {
-            $category = json_decode($category);
-            return $category[0];
-        }
+        // 1. decode the json //2. if null, return original input // 3. else return first element in array
+        $category1 = json_decode($category);
+        if($category1 == null) return $category;
+        else return $category1[0];
     }
     
 }

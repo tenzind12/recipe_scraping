@@ -182,7 +182,7 @@
                                             <!-- end of modal window -->
 
                                             <p class="mt-3">Category : 
-                                                <a class="link-primary" href="recipe-by-category.php?category=<?= $rows['recipeCategory'] ?>" >
+                                                <a class="link-primary" href="recipe-by-category.php?category=<?= $format->extractCategory($rows['recipeCategory']) ?>" >
                                                     <u><?= $format->extractCategory($rows['recipeCategory'])?></u> 
                                                 </a>
                                             </p>
@@ -194,7 +194,7 @@
                         </div>
             <?php
                     }
-                } else echo '<p class="text-light">no recipe</p>';
+                } else echo '<p class="text-light">Looks like you don\'t have any saved recipes. <span class="text-warning display-6">¯\_(ツ)_/¯</span></p>';
             ?>
         </div>
     </div>
