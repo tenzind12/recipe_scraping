@@ -30,7 +30,7 @@ class Recipe {
             FROM recipes 
             INNER JOIN nutrition 
             ON recipes.nutritionId = nutrition.id 
-            WHERE recipes.id = '$id' ";
+            WHERE recipes.id = '$id'";
         $result = $this->db->query($query);
         return $result;
     }
@@ -63,8 +63,7 @@ class Recipe {
                 WHERE nutritionId = '$id[$i]' 
                 AND nutrition.calories <= $calorie 
                 AND nutrition.fat <= $fat 
-                AND nutrition.protein <= $protein 
-                ORDER BY nutritionId DESC";
+                AND nutrition.protein <= $protein";
             $resData = $this->db->query($finalQuery);
             $result[] = $resData;
         }

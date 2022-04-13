@@ -50,7 +50,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark border-bottom py-4 sticky-top" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/recipe-php/index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" style="width:25px"/>&nbsp;Recipie</a>
+                <a class="navbar-brand ms-3" href="/recipe-php/index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" id="site-logo"/> &nbsp;Recipie</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,7 +72,7 @@
 
                         <!-- contact page -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Contact</a>
+                            <a class="nav-link" aria-current="page" href="./contact.php">Contact</a>
                         </li>
 
                         <!-- about us -->

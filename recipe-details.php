@@ -1,7 +1,6 @@
 <?php 
 include './inc/header.php';
-// header('Cache-Control: no cache');
- ?>
+?>
 
 <?php
     // BOOKMARK RECIPE
