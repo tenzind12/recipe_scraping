@@ -171,7 +171,7 @@ class User {
                     WHERE id='$userId' ";
         $updateUser = $this->db->insert($query);
 
-        if ($updateUser) echo "<script>window.location = 'profile.php'; </script>"; 
+        if ($updateUser) return true; 
         else {
             $msg = $this->class_helper->alertMessage('danger','Update failed !', 'Something went wrong.');
             return $msg;

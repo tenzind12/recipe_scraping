@@ -48,8 +48,8 @@
 <body class="border" id="bootstrap-overrides">
     <!-- main container -->
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark border-bottom py-4 sticky-top" id="navbar">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark border-bottom sticky-top p-0">
+            <div class="container-fluid py-4" id="navbar">
                 <a class="navbar-brand ms-3" href="/recipe-php/index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" id="site-logo"/> &nbsp;Recipie</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -68,6 +68,11 @@
                             <?php
                                 echo Session::get('userLogin') ? '<a class="nav-link" href="?logoutId="'. Session::get('userId') . '">Logout</a>' :'';
                             ?>
+                        </li>
+
+                        <!-- donation page -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="./donation.php">Make a donation</a>
                         </li>
 
                         <!-- contact page -->

@@ -32,7 +32,7 @@ include './inc/header.php';
             if($result) {
                 while($rows = $result->fetch_assoc()) {
     ?>
-                    <div class="m-auto my-5" style="max-width: 800px">
+                    <div class="m-auto my-5" style="max-width: 800px" id="recipe-details">
                         <!-- recipe name -->
                         <h2 class="p-4 text-light text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
                 
@@ -85,12 +85,13 @@ include './inc/header.php';
 
                         <!-- print icon -->
                         <div id="recipe-details__printContainer">
-                            <a href="#"><i class="fa-solid fa-print"></i> Print Recipe</a>
+                            <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
                         </div>
 
                 
                         <!-- two cols for ingredients and directions -->
-                        <div class="row m-0">
+                        <div class="row m-0" id="recipe-details__ingredient_direction">
+                            <!-- ingredients section -->
                             <div class="col-md-6 border">
                                 <div class="d-flex justify-content-between">
                                     <h1 class="text-warning">Ingredients</h1>
@@ -140,31 +141,37 @@ include './inc/header.php';
                                         </div>
                                     </div>
                                     <!-- end of modal window -->
-
                                 </div>
-                                <ul class="list-group list-group-flush pb-3">
-                                <?php 
-                                    $ingredients = json_decode($rows['recipeIngredient']);
-                                    foreach($ingredients as $value) {
-                                ?>
-                                    <li class="list-group-item"><?= ucfirst($value) ?></li>
-                                <?php
-                                    }
-                                ?>
-                                </ul>
+                                <ol class="list-group list-group-numbered  pb-3">
+                                    <?php 
+                                        $ingredients = json_decode($rows['recipeIngredient']);
+                                        foreach($ingredients as $value) {
+                                    ?>
+                                        <li class="list-group-item"><?= ucfirst($value) ?></li>
+                                    <?php
+                                        }
+                                    ?>
+                                </ol>
                             </div>
-                            <div class="col-md-6 bg-warning">
+                            <!-- end of ingredients section -->
+
+                            <!-- direction section -->
+                            <div class="col-md-6 bg-warning" id="recipe-details__direction">
                                 <h1>Directions</h1>
                                 <?php 
                                     $instructions = json_decode($rows['recipeInstructions']);
                                     foreach($instructions as $instruction) {
                                 ?>
-                                        <li class="list-group-item"><?= ucfirst($instruction->text) ?></li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1"type="checkbox">
+                                            <span><?= ucfirst($instruction->text) ?></span>
+                                        </li>
                                 <?php
                                     }
                                     
                                 ?>
                             </div>
+                            <!-- end of direction section -->
                         </div>
                     </div>
     <?php

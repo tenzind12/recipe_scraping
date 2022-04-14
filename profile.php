@@ -3,7 +3,7 @@
     $is_login = Session::get('userLogin');
     if(!$is_login) header('Location: login.php');
 
-    // delete handler (bookmark)
+    // delete bookmark handler
     if(isset($_GET['userId']) && isset($_GET['delRecipe'])) {
         $userId = $format->validation($_GET['userId']);
         $recipeId = $format->validation($_GET['delRecipe']);
@@ -11,13 +11,13 @@
         $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
     }
     
-    // update handler
+    // profile info update handler
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_edit'])) {
         $update_userinfo = $user->update_user($_POST, $_FILES, Session::get('userId'));
         if($update_userinfo) echo '<script>location.href="profile.php"</script>';
     }
 
-    // delete handler
+    // Account delete handler
     if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['delete-user'])) {
         $userId = $format->validation($_GET['delete-user']);
         $user->delete_user($userId);
@@ -30,7 +30,6 @@
         <img src="./assets/images/users/<?= Session::get('userPhoto') != null ? Session::get('userPhoto') : 'guest-profile.jpg' ?>" id="profile-page__photo" alt="user picture">
         
         <!-- user information -->
-        
         <?php
                 if(isset($_GET['edit'])) {
         ?>
@@ -62,7 +61,7 @@
                         </tr>
                     </table>
                     <input type="submit" value="Confirm change" name="submit_edit" class="btn-sm btn-primary w-25 mt-3 ms-5 rounded-pill"/>
-                    <input type="submit" value="Cancel change" name="cancel_edit" class="btn-sm btn-outline-danger w-25 mt-3 ms-5 rounded-pill"/>
+                    <a href="./profile.php" name="cancel_edit" class="btn-sm btn-outline-danger border w-25 mt-3 ms-5 rounded-pill">Cancel change</a>
                 </form>
             <?php
                 } else {
