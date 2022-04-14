@@ -194,6 +194,11 @@ img {
 }
 
 /* ============================= R E C I P E   D E T A I L S ============================= */
+
+#star-container {
+  line-height: 40px;
+}
+
 #recipe-details__image {
   max-height: 400px;
   object-fit: cover;
@@ -233,7 +238,7 @@ img {
   text-indent: -1.5em;
 }
 
-/* ============================= C O N T A C T   D E T A I L S ============================= */
+/* ============================= C O N T A C T   P A G E ============================= */
 .contact_form input {
   border: none;
   border-bottom: 1px solid grey;
@@ -252,12 +257,15 @@ img {
 /* ============================= D O N A T I O N   P A G E ============================= */
 #donation-container {
   min-height: calc(100vh - 92px);
-  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.7);
+  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.9);
   background: url(../images/background/donation.jpg) no-repeat center/cover;
+}
+
+#donation-body {
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   color: aliceblue;
 }
 

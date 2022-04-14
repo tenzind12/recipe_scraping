@@ -2,7 +2,7 @@
 
     <div class="row m-0">
         <div class="col-sm-5 p-4 d-none d-sm-block">
-            <img src="./assets/images/found_nothing.png" alt="">
+            <img src="./assets/images/contact.png" alt="" />
         </div>
         <div class="col-sm-7">
             <h2 class="text-light display-3 mt-4">Contact Us</h2>
@@ -12,10 +12,10 @@
                     <input class="text-light" type="text" name="fullname" placeholder="Full Name"/>
                     <input class="text-light" type="email" name="email" placeholder="E-mail"/>
                     <input class="text-light" type="text" name="message" placeholder="Message"/>
-                    <button type="submit" class="btn btn-outline-primary w-50 mt-5 rounded-pill">Confirm Send</button>
+                    <button type="submit" class="btn btn-outline-primary w-50 mt-5 rounded-pill">Send</button>
                 </form>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-3">
                     <h4 class="text-light">Email</h4> 
                     <p class="text-secondary"><a href="mailto:someone@bourges.com" class="link-secondary"> <i class="fa-solid fa-envelope"></i> someone@bourges.com</a></p>
 

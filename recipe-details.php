@@ -39,7 +39,7 @@ include './inc/header.php';
                         <!-- author and rating -->
                         <div class="d-flex justify-content-between m-4">
                             <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
-                            <div class=" text-light"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
+                            <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
                         </div>
                 
                         <!-- image -->
@@ -174,11 +174,39 @@ include './inc/header.php';
                             <!-- end of direction section -->
                         </div>
                     </div>
+                    <script type="application/ld+json">
+                        {
+                        "@context": "https://schema.org",
+                        "@type": "Recipe",
+                        "author": "<?= $rows['author'] ?>",
+                        "cookTime": "<?= $rows['cookTime'] ?> minutes",
+                        "datePublished": "<?= $rows['datePublished'] ?>",
+                        "description": "<?= $rows['description'] ?>",
+                        "image": "<?= $rows['image'] ?>",
+                        "recipeIngredient": `. $rows['recipeIngredient']. `,
+                        "name": "<?= $rows['name'] ?>",
+                        "nutrition": {
+                            "@type": "NutritionInformation",
+                            "calories": "<?= $rows['calories'] ?>",
+                            "fatContent": "<?= $rows['fat'] ?>",
+                            "saturatedFatContent": "<?= $rows['saturatedFat'] ?>",
+                            "cholesterolContent": "<?= $rows['cholesterol'] ?>",
+                            "sodiumContent": "<?= $rows['sodium'] ?>",
+                            "carbohydrateContent": "<?= $rows['carbohydrate'] ?>",
+                            "fiberContent": "<?= $rows['fiber'] ?>",
+                            "sugarContent": "<?= $rows['sugar'] ?>",
+                            "proteinContent": "<?= $rows['protein'] ?>"
+                        },
+                        "totalTime": "<?= $rows['totalTime'] ?> minutes",
+                        "recipeInstructions": "<?= $rows['recipeInstructions'] ?>",
+                        "recipeYield": "<?= $rows['recipeYield'] ?>",
+                        "url": "<?= $rows['url'] ?>",
+                        }
+                    </script>
     <?php
                 }
             }
         }
     ?>
-
 
 <?php include './inc/footer.php' ?>
