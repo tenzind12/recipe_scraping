@@ -8,7 +8,7 @@
         if($recipes_by_author) {
 ?>
             <h1 class="text-light text-center py-5"><i class="fa-solid fa-pen-fancy"></i>&nbsp; 
-                Recipe results for the Author " <?= $author ?> " <span class="badge bg-secondary"><?= mysqli_num_rows($recipes_by_author) ?> results</span>
+                Recipe results for the Author <span class="text-warning"><?= $author ?></span> <span class="badge bg-secondary"><?= mysqli_num_rows($recipes_by_author) ?> results</span>
             </h1>
 <?php
             while($rows = $recipes_by_author->fetch_assoc()) {

@@ -136,10 +136,11 @@
                                                 <p><?= $format->shortenText($rows['description'], 200) ?></p>
                                             </div>
 
-                                            <a href="#" class="link-primary text-uppercase"  data-bs-toggle="modal" data-bs-target="#exampleModal"><u>Nutrition</u></a>
+                                            <!-- nutrition modal button  -->
+                                            <a href="#" class="link-primary text-uppercase"  data-bs-toggle="modal" data-bs-target="#exampleModal<?= $i ?>"><u>Nutrition</u></a>
                                     
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <!-- Nutrition Modal -->
+                                            <div class="modal fade" id="exampleModal<?= $i ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header" style="background-color: cadetblue;">
@@ -179,7 +180,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- end of modal window -->
+                                            <!-- end of nutrition modal -->
 
                                             <p class="mt-3">Category : 
                                                 <a class="link-primary" href="recipe-by-category.php?category=<?= $format->extractCategory($rows['recipeCategory']) ?>" >

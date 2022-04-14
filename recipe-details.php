@@ -38,7 +38,7 @@ include './inc/header.php';
                 
                         <!-- author and rating -->
                         <div class="d-flex justify-content-between m-4">
-                            <h3 class=" text-light">Recipe By: <span><?= ucfirst($rows['author']) ?></span></h3>
+                            <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
                             <div class=" text-light"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
                         </div>
                 
