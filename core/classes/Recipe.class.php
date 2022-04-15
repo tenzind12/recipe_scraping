@@ -11,11 +11,11 @@ class Recipe {
     }
 
     // get all recipes
-    // public function getAllRecipes() {
-    //     $query = "SELECT * FROM recipes";
-    //     $result = $this->db->query($query);
-    //     return $result;
-    // }
+    public function getAllRecipes() {
+        $query = "SELECT * FROM recipes";
+        $result = $this->db->query($query);
+        return $result;
+    }
 
     // get recipes by name like
     public function getByName($name) {
@@ -97,11 +97,11 @@ class Recipe {
     }
 
     // GET ALL THE CATEGORIES
-    public function get_all_categories() {
-        $query = "SELECT DISTINCT recipeCategory FROM recipes";
-        $allCats = $this->db->insert($query);
-        return $allCats;
-    }
+    // public function get_all_categories() {
+    //     $query = "SELECT DISTINCT recipeCategory FROM recipes";
+    //     $allCats = $this->db->insert($query);
+    //     return $allCats;
+    // }
 }
 
 ?>

@@ -3,10 +3,11 @@ const button = document.getElementById('submit');
 
 const parser = new DOMParser();
 
-button.addEventListener('click', () => {
-  getUrlData(input.value);
-  input.value = '';
-});
+if (button)
+  button.addEventListener('click', () => {
+    getUrlData(input.value);
+    input.value = '';
+  });
 
 // getting jsonld data and saving them in database mysql
 const getUrlData = (url) => {

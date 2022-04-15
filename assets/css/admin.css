@@ -75,7 +75,7 @@ nav {
 }
 
 /* =======================  C L I E N T   L I S T (/admin/client-list.php) ======================= */
-#admin-usertable__image {
+.admin-table__images {
   width: 45px;
   height: 45px;
   object-fit: cover;

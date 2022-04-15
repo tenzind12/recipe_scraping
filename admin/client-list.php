@@ -29,7 +29,7 @@
                     <tr>
                         <th scope="row"><?= ucfirst($rows['name']) ?></th>
                         <td><?= $rows['email'] ?></td>
-                        <td class="d-none d-lg-block"><img src="../assets/images/users/<?= isset($rows['image']) ? $rows['image'] : 'guest-profile.jpg' ?>" alt="<?= $rows['name']?>" id="admin-usertable__image"/></td>
+                        <td class="d-none d-lg-block"><img src="../assets/images/users/<?= isset($rows['image']) ? $rows['image'] : 'guest-profile.jpg' ?>" alt="<?= $rows['name']?>" class="admin-table__images"/></td>
                         <td><?= ucfirst($rows['country']) ?></td>
                         <td><?= $rows['created_at'] ?></td>
                         <td><?= $rows['updated_at'] ?></td>
