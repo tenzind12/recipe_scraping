@@ -38,7 +38,10 @@ include './inc/header.php';
                 
                         <!-- author and rating -->
                         <div class="d-flex justify-content-between m-4">
-                            <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
+                            <div class="d-flex flex-column">
+                                <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
+                                <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>
+                            </div>
                             <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
                         </div>
                 
@@ -82,12 +85,10 @@ include './inc/header.php';
                         <!-- description -->
                         <p class="text-light p-3" id="recipe-details__description"><?= $rows['description'] ?></p>
 
-
                         <!-- print icon -->
                         <div id="recipe-details__printContainer">
                             <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
                         </div>
-
                 
                         <!-- two cols for ingredients and directions -->
                         <div class="row m-0" id="recipe-details__ingredient_direction">
@@ -168,7 +169,6 @@ include './inc/header.php';
                                         </li>
                                 <?php
                                     }
-                                    
                                 ?>
                             </div>
                             <!-- end of direction section -->
@@ -183,7 +183,7 @@ include './inc/header.php';
                         "datePublished": "<?= $rows['datePublished'] ?>",
                         "description": "<?= $rows['description'] ?>",
                         "image": "<?= $rows['image'] ?>",
-                        "recipeIngredient": `. $rows['recipeIngredient']. `,
+                        "recipeIngredient": "<?= $rows['recipeIngredient'] ?>",
                         "name": "<?= $rows['name'] ?>",
                         "nutrition": {
                             "@type": "NutritionInformation",

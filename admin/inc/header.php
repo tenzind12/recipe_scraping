@@ -41,7 +41,7 @@
         <!-- hide the admin sidebar if not logged in -->
 
         <?php if(Session::get('adminLogin')) { ?>
-            <div class="col-lg-4" id="admin-sidebar">
+            <div class="col-md-4" id="admin-sidebar">
                 <!-- admin icon and name -->
                 <div class="row mt-3">
                     <div class="col-3 m-auto">
@@ -100,6 +100,6 @@
                 </div>
             </div>
         <?php } ?> 
-            <div class="col-lg-8">
+            <div class="col-md-8">
 
         

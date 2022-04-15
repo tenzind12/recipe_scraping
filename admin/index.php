@@ -4,7 +4,6 @@
 ?>
 
     <!-- message from server side EXPRESS JS -->
-
     <div id="server-message"></div>
 
     <h2 class="text-light my-5 text-center">Upload a new recipe?</h2>
