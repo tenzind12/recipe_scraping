@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light border-bottom p-4">
         <div class="container-fluid">
-            <a class="navbar-brand text-light" href="#"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" style="width:25px"/> Recipie</a>
+            <a class="navbar-brand text-light" href="index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" style="width:25px"/> Recipie</a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +41,7 @@
         <!-- hide the admin sidebar if not logged in -->
 
         <?php if(Session::get('adminLogin')) { ?>
-            <div class="col-md-4" id="admin-sidebar">
+            <div class="col-md-3" id="admin-sidebar">
                 <!-- admin icon and name -->
                 <div class="row mt-3">
                     <div class="col-3 m-auto">
@@ -62,11 +62,16 @@
                     <i class="fa-solid fa-magnifying-glass" id="admin-search-magnifying_glass"></i>
                 </form>
 
-                <!-- menu buttons -->
-                <a class="btn btn-dark w-100 text-secondary p-3 rounded mt-3 text-light" href="index.php">Add New Recipe ?</a>
-
+                <!-- <p class="w-100 "><a class="bg-light text-secondary p-3 rounded mt-3" href="add-recipe.php">Add New Recipe</a></p> -->
+                
                 <!-- menu lists -->
                 <div class="accordion accordion-flush" id="accordionFlushExample">
+                    
+                    <!-- add new recipe -->
+                    <a href="add-recipe.php" class="text-secondary text-decoration-none text-dark">
+                        <div class="bg-light p-3 border-bottom mt-3">Add new recipe</div>
+                    </a>
+
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -100,6 +105,6 @@
                 </div>
             </div>
         <?php } ?> 
-            <div class="col-md-8">
+            <div class="col-md-9">
 
         

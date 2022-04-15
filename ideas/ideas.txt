@@ -1,1 +1,2 @@
 1. button to change theme of site
+2. track donation: progression bar
