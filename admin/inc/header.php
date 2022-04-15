@@ -1,9 +1,20 @@
-<?php include_once __DIR__.'/../../core/connection/Session.php' ?>
 <?php 
-    Session::init();
+    include_once __DIR__.'/../../core/connection/Session.php';
+    include_once __DIR__.'/../../core/helpers/Format.class.php';
 
-    if(isset($_GET['logout'])) Session::destroy();
+
+    // auto loading classes
+    spl_autoload_register(function($class) {
+        include_once (__DIR__."/../../core/classes/" .$class .".class.php");
+    });
+
+    $admin = new Admin();
+    $users = new User();
+    $format = new Format();
+    $recipes = new Recipe();
+    Session::init();
 ?>
+<?php if(isset($_GET['logout'])) Session::destroy(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +23,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.css"/ >
     <link rel="stylesheet" href="../assets/css/admin.css">
@@ -62,47 +75,13 @@
                     <i class="fa-solid fa-magnifying-glass" id="admin-search-magnifying_glass"></i>
                 </form>
 
-                <!-- <p class="w-100 "><a class="bg-light text-secondary p-3 rounded mt-3" href="add-recipe.php">Add New Recipe</a></p> -->
-                
-                <!-- menu lists -->
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    
-                    <!-- add new recipe -->
-                    <a href="add-recipe.php" class="text-secondary text-decoration-none text-dark">
-                        <div class="bg-light p-3 border-bottom mt-3">Add new recipe</div>
-                    </a>
+                <div class="list-group mt-3">
+                    <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe</a>
+                    <a href="client-list.php" class="list-group-item list-group-item-action">Client List</a>
+                    <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List</a>
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Accordion Item #1
-                        </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Accordion Item #2
-                        </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Accordion Item #3
-                        </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                        </div>
-                    </div>
                 </div>
+
             </div>
         <?php } ?> 
             <div class="col-md-9">

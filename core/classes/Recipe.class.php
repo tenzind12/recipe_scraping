@@ -95,6 +95,13 @@ class Recipe {
         $result = $this->db->query($query);
         return $result;
     }
+
+    // GET ALL THE CATEGORIES
+    public function get_all_categories() {
+        $query = "SELECT DISTINCT recipeCategory FROM recipes";
+        $allCats = $this->db->insert($query);
+        return $allCats;
+    }
 }
 
 ?>

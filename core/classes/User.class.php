@@ -1,6 +1,6 @@
 <?php
     include_once __DIR__.'/../connection/Db.php';
-    include_once './core/helpers/HelperClass.class.php';
+    include_once __DIR__.'/../helpers/HelperClass.class.php';
 
 
 class User {
@@ -191,4 +191,46 @@ class User {
         if($delete_result) Session::destroy();
         else echo 'somehting went wrong';
     }
+
+    /**
+     *  +++++++++++++++++++ ADMIN PART  +++++++++++++++
+     */
+    // ================ G E T  A L L  U S E R ================ //
+    public function get_all_users() {
+        $query = "SELECT * FROM users";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    // ============= ADMIN D E L E T E S  USER =============== //
+    public function delete_user_by_admin($userId) {
+        $check_user_query = "SELECT * FROM users WHERE id ='$userId'";
+        $user_exist = $this->db->query($check_user_query);
+        if($user_exist) {
+            // image delete query
+            $img_query = "SELECT image FROM users WHERE id='$userId'";
+            $img_result = $this->db->query($img_query);
+            $img_name = $img_result->fetch_assoc()['image'];
+            if($img_name) unlink('../assets/images/users/'.$img_name);
+    
+            // user delete query
+            $query = "DELETE FROM users WHERE id='$userId'";
+            $delete_result = $this->db->insert($query);
+
+            if($delete_result) {
+                unset($_SESSION['userLogin']);
+                unset($_SESSION['userId']);
+                unset($_SESSION['userName']);
+                unset($_SESSION['userPhoto']);
+                unset($_SESSION['userEmail']);
+                unset($_SESSION['userCountry']);
+                $msg = $this->class_helper->alertMessage('success','Success!', 'User has been deleted');
+                return $msg;
+            } else {
+                $msg = $this->class_helper->alertMessage('danger','Failed !', 'User not deleted. Please try again');
+                return $msg;
+            }
+        }
+    }
+
 }
