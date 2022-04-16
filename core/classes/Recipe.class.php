@@ -19,7 +19,7 @@ class Recipe {
 
     // get recipes by name like
     public function getByName($name) {
-        $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' ";
+        $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' GROUP BY name ORDER BY id DESC";
         $result = $this->db->query($query);
         return $result;
     }
@@ -102,6 +102,7 @@ class Recipe {
     //     $allCats = $this->db->insert($query);
     //     return $allCats;
     // }
+
 }
 
 ?>
