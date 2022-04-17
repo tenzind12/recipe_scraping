@@ -2,7 +2,7 @@ paypal
   .Buttons({
     style: {
       shape: 'pill',
-      color: 'gold',
+      color: 'blue',
     },
 
     createOrder: function (data, actions) {
@@ -10,6 +10,7 @@ paypal
         purchase_units: [
           {
             amount: {
+              // change id to the id of the amount input
               value: parseFloat(document.getElementById('amount').textContent).toFixed(2),
             },
           },
