@@ -6,6 +6,18 @@
             <h2 class="display-6 mt-4">DONATE FOR THE POOR CHILDREN</h2>
             <p class="text-center my-4 text-light">Hundreds of thousands of children experiencing or witnessing assault and other gender-based violence.</p>
     
+            <!-- donation dropdown input -->
+            <select class="form-select w-25 mb-3" aria-label="Default select example" onchange="donationHandler();" id="test1">
+                <option selected disabled>Select a donation amount</option>
+                <option value="5">5€</option>
+                <option value="10">10€</option>
+                <option value="20">20€</option>
+                <option value="30">30€</option>
+            </select>
+            <!-- value to be transfered -->
+            <input type="hidden" id="amount">
+
+            <!-- container to render the paypal button -->
             <div id="paypal-button"></div>
 
         </div>

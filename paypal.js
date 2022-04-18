@@ -25,3 +25,9 @@ paypal
     },
   })
   .render('#paypal-button');
+
+// onChange value of the amount input
+function donationHandler() {
+  const value = document.getElementById('test1').value;
+  document.getElementById('amount').textContent = value;
+}
