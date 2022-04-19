@@ -13,7 +13,7 @@ body {
 
 /* =======================  A D M I N   N A V B A R ======================= */
 nav {
-  background-color: rgba(13, 36, 66, 0.5);
+  /* background-color: rgba(13, 36, 66, 0.5); */
 }
 
 /* move nav to the right */
@@ -61,7 +61,7 @@ nav {
 @media (min-width: 770px) {
   #admin-sidebar {
     min-height: calc(100vh - 90px);
-    background-color: rgba(13, 36, 66, 0.76);
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
 

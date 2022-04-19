@@ -3,11 +3,10 @@
     $is_login = Session::get('userLogin');
     if(!$is_login) header('Location: login.php');
 
-    // delete bookmark handler
+    // D E L E T E   B O O K M A R K 
     if(isset($_GET['userId']) && isset($_GET['delRecipe'])) {
         $userId = $format->validation($_GET['userId']);
         $recipeId = $format->validation($_GET['delRecipe']);
-
         $delete_bookmark = $bookmark->deleteBookmark($userId, $recipeId);
     }
     

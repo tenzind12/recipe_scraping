@@ -38,5 +38,11 @@ class ConnectionDB {
         return $result;
     }
 
+    // D E L E T E
+    public function delete($query) {
+        $result = $this->con->query($query);
+        return $result;
+    }
+
 
 }

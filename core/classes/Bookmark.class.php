@@ -46,7 +46,7 @@ class Bookmark {
     // DELETE BOOKMARK
     public function deleteBookmark($userId, $recipeId) {
         $query = "DELETE FROM bookmarks WHERE userId = '$userId' AND recipeId = '$recipeId' ";
-        $result = $this->db->insert($query);
+        $result = $this->db->delete($query);
         if($result) {
             $msg = $this->class_helper->alertMessage('success','Success !', 'Bookmark deleted ');
             return $msg;

@@ -1,13 +1,16 @@
 <?php 
     include_once __DIR__.'/../connection/Db.php';
+    include_once __DIR__.'/../helpers/HelperClass.class.php';
 ?>
 
 <?php
 class Recipe {
     private $db;
+    private $class_helper;
 
     public function __construct() {
         $this->db = new ConnectionDB();
+        $this->class_helper = new HelperClass();
     }
 
     // get all recipes
@@ -96,12 +99,16 @@ class Recipe {
         return $result;
     }
 
-    // GET ALL THE CATEGORIES
-    // public function get_all_categories() {
-    //     $query = "SELECT DISTINCT recipeCategory FROM recipes";
-    //     $allCats = $this->db->insert($query);
-    //     return $allCats;
-    // }
+    // DELETE RECIPE BY ID
+    public function delete_recipe($id) {
+        $query = "DELETE FROM recipes WHERE id = '$id' ";
+        $deletedRecipe = $this->db->delete($query);
+        if($deletedRecipe) {
+            return $this->class_helper->alertMessage('success', 'Success !', 'Recipe successfully deleted');
+        }else {
+            return $this->class_helper->alertMessage('danger', 'Failed !', 'Recipe couldn\'t be deleted, please try again.');
+        }
+    }
 
 }
 
