@@ -15,7 +15,7 @@
     Session::init();
 ?>
 <?php 
-    if(isset($_POST['logout'])) Session::destroy(); 
+    if(isset($_GET['logout'])) Session::destroy(); 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
         header('Location: search.php?search='.$_POST['search']);
     }
