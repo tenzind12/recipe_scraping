@@ -14,7 +14,12 @@
     $recipes = new Recipe();
     Session::init();
 ?>
-<?php if(isset($_GET['logout'])) Session::destroy(); ?>
+<?php 
+    if(isset($_POST['logout'])) Session::destroy(); 
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
+        header('Location: search.php?search='.$_POST['search']);
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +46,9 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="d-flex" id="admin__search--bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn" name="search" id="admin__search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form method="POST" class="d-flex" id="admin__search--bar">
+                    <input name="search" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn" id="admin__search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>
@@ -70,10 +75,10 @@
                 <a class="link-danger w-100 ms-3" href="?logout=true">Logout</a>
 
                 <!-- search bar -->
-                <form method="POST" id="admin-search">
+                <!-- <form method="POST" id="admin-search">
                     <input type="text" name="search-users" class="form-control mt-2">
                     <i class="fa-solid fa-magnifying-glass" id="admin-search-magnifying_glass"></i>
-                </form>
+                </form> -->
 
                 <div class="list-group mt-3">
                     <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe</a>

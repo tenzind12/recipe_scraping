@@ -14,12 +14,12 @@
             while($rows = $recipes_by_author->fetch_assoc()) {
 ?>
                 <div class="position-relative bg-white row rounded each-card" id="">
-                    <a href="recipe-details.php?id=<?= $rows['id'] ?>" class="col-sm-4 p-0">
+                    <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
                         <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                     </a>
                     <div class="card-body col-sm-8">
                         <!-- <div class="d-flex"> -->
-                        <a href="?recipeId=<?= $rows['id'] ?>"><h5 class="card-title"><?= $rows['name'] ?></h5></a>
+                        <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null"><h5 class="card-title"><?= $rows['name'] ?></h5></a>
                         <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
                         <!-- </div> -->
                         <div class="card-text">

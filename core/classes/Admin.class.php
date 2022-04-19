@@ -12,6 +12,7 @@ class Admin {
         $this->helper = new HelperClass();
     }
 
+    // A D M I N   L O G I N 
     public function adminLogin($username, $password) {
         if(empty($username) || empty($password)) {
             $msg = 'Please fill both fields';
@@ -28,5 +29,18 @@ class Admin {
             $msg = $this->helper->alertMessage('danger', 'Login error !', 'This account is not recognised');
             return $msg;
         }
+    }
+
+    // A D M I N   S E A R C H
+    public function admin_search($value) {
+        // searching recipes table
+        $recipe_query = "SELECT * FROM recipes WHERE name LIKE '%$value%' OR recipeCategory LIKE '%$value%' ";
+        $recipe_result = $this->db->query($recipe_query);
+        if($recipe_result) return $recipe_result;
+
+        // searching users table
+        $user_query = "SELECT * FROM users WHERE name LIKE '%$value%' OR email LIKE '%$value%' ";
+        $user_result = $this->db->query($user_query);
+        if($user_result) return $user_result;
     }
 }
