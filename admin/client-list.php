@@ -33,7 +33,7 @@
                         <td><?= ucfirst($rows['country']) ?></td>
                         <td><?= $rows['created_at'] ?></td>
                         <td><?= $rows['updated_at'] ?></td>
-                        <td><a href="?delUser=<?= $rows['id'] ?>" class="text-light"><i class="fa-solid fa-delete-left"></i></a></td>
+                        <td><a onclick="return confirm('Are you sure to delete this user?')" href="?delUser=<?= $rows['id'] ?>" class="text-light"><i class="fa-solid fa-delete-left"></i></a></td>
                     </tr>
             <?php
                     }

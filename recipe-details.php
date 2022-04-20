@@ -42,7 +42,7 @@ include './inc/header.php';
                                 <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
                                 <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>
                             </div>
-                            <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
+                            <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
                         </div>
                 
                         <!-- image -->
@@ -161,11 +161,12 @@ include './inc/header.php';
                                 <h1>Directions</h1>
                                 <?php 
                                     $instructions = json_decode($rows['recipeInstructions']);
+
                                     foreach($instructions as $instruction) {
                                 ?>
                                         <li class="list-group-item">
                                             <input class="form-check-input me-1"type="checkbox">
-                                            <span><?= ucfirst($instruction->text) ?></span>
+                                            <span><?= ucfirst(isset($instruction->text) ? $instruction->text : $instruction) ?></span>
                                         </li>
                                 <?php
                                     }
@@ -174,35 +175,7 @@ include './inc/header.php';
                             <!-- end of direction section -->
                         </div>
                     </div>
-                    <script type="application/ld+json">
-                        {
-                        "@context": "https://schema.org",
-                        "@type": "Recipe",
-                        "author": "<?= $rows['author'] ?>",
-                        "cookTime": "<?= $rows['cookTime'] ?> minutes",
-                        "datePublished": "<?= $rows['datePublished'] ?>",
-                        "description": "<?= $rows['description'] ?>",
-                        "image": "<?= $rows['image'] ?>",
-                        "recipeIngredient": "<?= $rows['recipeIngredient'] ?>",
-                        "name": "<?= $rows['name'] ?>",
-                        "nutrition": {
-                            "@type": "NutritionInformation",
-                            "calories": "<?= $rows['calories'] ?>",
-                            "fatContent": "<?= $rows['fat'] ?>",
-                            "saturatedFatContent": "<?= $rows['saturatedFat'] ?>",
-                            "cholesterolContent": "<?= $rows['cholesterol'] ?>",
-                            "sodiumContent": "<?= $rows['sodium'] ?>",
-                            "carbohydrateContent": "<?= $rows['carbohydrate'] ?>",
-                            "fiberContent": "<?= $rows['fiber'] ?>",
-                            "sugarContent": "<?= $rows['sugar'] ?>",
-                            "proteinContent": "<?= $rows['protein'] ?>"
-                        },
-                        "totalTime": "<?= $rows['totalTime'] ?> minutes",
-                        "recipeInstructions": "<?= $rows['recipeInstructions'] ?>",
-                        "recipeYield": "<?= $rows['recipeYield'] ?>",
-                        "url": "<?= $rows['url'] ?>",
-                        }
-                    </script>
+                    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","author":"<?=$rows['author']?>","cookTime":"<?=$rows['cookTime']?>minutes","datePublished":"<?=$rows['datePublished']?>","description":"<?=$rows['description']?>","image":"<?=$rows['image']?>","recipeIngredient":"<?=$rows['recipeIngredient']?>","name":"<?=$rows['name']?>","nutrition":{"@type":"NutritionInformation","calories":"<?= $rows['calories']?>","fatContent":"<?= $rows['fat']?>","saturatedFatContent":"<?=$rows['saturatedFat']?>","cholesterolContent":"<?=$rows['cholesterol']?>","sodiumContent":"<?=$rows['sodium']?>","carbohydrateContent":"<?=$rows['carbohydrate']?>","fiberContent":"<?=$rows['fiber']?>","sugarContent":"<?=$rows['sugar']?>","proteinContent":"<?=$rows['protein']?>"},"totalTime":"<?=$rows['totalTime']?>minutes","recipeInstructions":"<?=$rows['recipeInstructions']?>","recipeYield":"<?=$rows['recipeYield']?>","url":"<?=$rows['url']?>",}</script>
     <?php
                 }
             }
