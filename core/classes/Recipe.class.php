@@ -101,8 +101,13 @@ class Recipe {
 
     // DELETE RECIPE BY ID
     public function delete_recipe($id) {
-        $query = "DELETE FROM recipes WHERE id = '$id' ";
-        $deletedRecipe = $this->db->delete($query);
+        $recipeQuery = "DELETE FROM recipes WHERE id = '$id' ";
+        $deletedRecipe = $this->db->delete($recipeQuery);
+
+        // then nutriInfo from nutrition table
+        $nutriQuery = "DELETE FROM nutrition WHERE NOT EXISTS (SELECT * FROM recipes WHERE nutritionId=nutrition.id)";
+        $this->db->delete($nutriQuery);
+
         if($deletedRecipe) {
             return $this->class_helper->alertMessage('success', 'Success !', 'Recipe successfully deleted');
         }else {

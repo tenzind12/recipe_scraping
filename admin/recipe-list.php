@@ -5,16 +5,16 @@
 
     ?>
 
-<?php
-    $db = new ConnectionDB();
-    // DELETE RECIPE
+<?php $db = new ConnectionDB();
+
+    // ========= DELETE RECIPE
     if(isset($_GET['delRecipe'])) {
         $deleteId = $format->validation($_GET['delRecipe']);
         $deletedRecipe = $recipes->delete_recipe($deleteId);
     }
 
 
-    // GET ALL RECIPES WITH PAGINATION
+    // =========== GET ALL RECIPES WITH PAGINATION
     $all_recipes = $recipes->getAllRecipes(); //fetch all recipes
     if($all_recipes) {
 
