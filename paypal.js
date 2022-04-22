@@ -20,7 +20,12 @@ paypal
 
     onApprove: function (data, actions) {
       return actions.order.capture().then(function (details) {
-        window.location.href = 'donation.php?paid=true';
+        const paymentId = details.id;
+        const first_name = details.payer.name.given_name;
+        const last_name = details.payer.name.surname;
+        const email = details.payer.email_address;
+        const amount = Math.round(details.purchase_units[0].amount.value);
+        window.location.href = `donation.php?paymentId=${paymentId}&first_name=${first_name}&last_name=${last_name}&email=${email}&amount=${amount}`;
       });
     },
   })

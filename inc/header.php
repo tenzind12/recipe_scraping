@@ -4,6 +4,7 @@
     include __DIR__.'/../core/classes/User.class.php';
     include __DIR__.'/../core/helpers/Format.class.php';
     include __DIR__.'/../core/classes/Bookmark.class.php';
+    include __DIR__.'/../core/classes/Donation.class.php';
 
     // for the page back issue
     // header('Cache-Control: no cache'); //no cache
@@ -25,6 +26,7 @@
     $user = new User();
     $format = new Format();
     $bookmark = new Bookmark();
+    $donation = new Donation();
 
     // L O G O U T   F U N C T I O N
     if(isset($_GET['logoutId'])) {
