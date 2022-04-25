@@ -84,7 +84,7 @@
                     <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe</a>
                     <a href="client-list.php" class="list-group-item list-group-item-action">Client List</a>
                     <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List</a>
-
+                    <a href="../index.php" class="list-group-item list-group-item-action">Go to site</a>
                 </div>
 
             </div>

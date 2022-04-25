@@ -257,7 +257,7 @@ img {
 /* ============================= D O N A T I O N   P A G E ============================= */
 #donation-container {
   min-height: calc(100vh - 92px);
-  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.9);
+  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.6);
   background: url(../images/background/donation.jpg) no-repeat center/cover;
 }
 
@@ -272,4 +272,13 @@ img {
 #donation-container h2 {
   text-decoration: underline solid #e98d1d;
   text-underline-offset: 0.2em;
+}
+
+/* ============================= A B O U T   U S   P A G E ============================= */
+#about-us__container {
+  min-height: calc(100vh - 92px);
+  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.3);
+  background: url(../images/background/about-us.jpg) no-repeat center/cover;
+  display: grid;
+  place-items: center;
 }
