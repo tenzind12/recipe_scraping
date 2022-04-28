@@ -23,4 +23,11 @@
         <!-- end of card -->
 </div>
 <!-- end of main container -->
+<!-- to make theme changer -->
+<div class="form-check form-switch text-light">
+    <input class="form-check-input" type="checkbox" id="themeChanger">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Dark mode</label>
+</div>
+
+
 <?php include './inc/footer.php' ?>

@@ -67,11 +67,11 @@ nav {
 
 /* lists of links */
 .list-group .list-group-item {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
 }
 .list-group-item:hover {
-  transform: scale(1.02);
-  background-color: rgb(250, 237, 162);
+  transform: scale(0.99);
+  /* background-color: rgb(250, 237, 162); */
 }
 
 /* =======================  C L I E N T   L I S T (/admin/client-list.php) ======================= */

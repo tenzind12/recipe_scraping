@@ -19,7 +19,7 @@
                 <th scope="col">Country</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
-                <th scope="col">Action</th>
+                <th scope="col">Delete</th>
             </tr>
             <?php
             $user_list = $users->get_all_users();
@@ -33,7 +33,7 @@
                         <td><?= ucfirst($rows['country']) ?></td>
                         <td><?= $rows['created_at'] ?></td>
                         <td><?= $rows['updated_at'] ?></td>
-                        <td><a onclick="return confirm('Are you sure to delete this user?')" href="?delUser=<?= $rows['id'] ?>" class="text-light"><i class="fa-solid fa-delete-left"></i></a></td>
+                        <td><a onclick="return confirm('Are you sure to delete this user?')" href="?delUser=<?= $rows['id'] ?>" class="text-light"><i class="fa-solid fa-user-xmark ms-2 text-danger"></i></a></td>
                     </tr>
             <?php
                     }

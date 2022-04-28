@@ -5,10 +5,18 @@
   font-family: 'Quicksand', sans-serif;
 }
 
-body {
+body.theme-light {
   background: url(../images/background/bg-subtle.webp) fixed;
   box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
   min-height: 100vh;
+}
+
+body.theme-dark {
+  /* background: url(../images/background/bg-subtle.webp) fixed;
+  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
+  */
+  min-height: 100vh;
+  background-color: black;
 }
 
 a {

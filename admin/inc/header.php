@@ -74,17 +74,11 @@
                 <!-- logout buttn -->
                 <a class="link-danger w-100 ms-3" href="?logout=true">Logout</a>
 
-                <!-- search bar -->
-                <!-- <form method="POST" id="admin-search">
-                    <input type="text" name="search-users" class="form-control mt-2">
-                    <i class="fa-solid fa-magnifying-glass" id="admin-search-magnifying_glass"></i>
-                </form> -->
-
                 <div class="list-group mt-3">
-                    <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe</a>
-                    <a href="client-list.php" class="list-group-item list-group-item-action">Client List</a>
-                    <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List</a>
-                    <a href="../index.php" class="list-group-item list-group-item-action">Go to site</a>
+                    <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe<i class="fa-solid fa-circle-plus float-end pt-1"></i></a>
+                    <a href="client-list.php" class="list-group-item list-group-item-action">Client List<i class="fa-solid fa-list float-end pt-1"></i></a>
+                    <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List<i class="fa-solid fa-folder-tree float-end pt-1"></i></a>
+                    <a href="../index.php" class="list-group-item list-group-item-action">Go to site<i class="fa-solid fa-globe float-end pt-1"></i></a>
                 </div>
 
             </div>

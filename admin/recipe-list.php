@@ -60,7 +60,7 @@
                             <td class="w-25"><?= $rows['name'] ?></td>
                             <td><?= $rows['author'] ?></td>
                             <td style=""><?= $format->generateStars($rows['rating']) ?><?= $format->emptyStars($rows['rating']) ?></td>
-                            <td class="ps-4"><a onclick="return confirm('Are you sure to delete this recipe?')" href="?delRecipe=<?= $rows['id'] ?>"><i class="fa-solid fa-ban text-danger"></i></a></td>
+                            <td class="ps-4"><a onclick="return confirm('Are you sure to delete this recipe?')" href="?delRecipe=<?= $rows['id'] ?>"><i class="fa-solid fa-delete-left text-white"></i></a></td>
                         </tr>
                     </tbody>
 <?php

@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="./assets/fontawesome/css/all.css"/ >
     <title>Recipie</title>
 </head>
-<body class="border" id="bootstrap-overrides">
+<body class="border theme-light" id="bootstrap-overrides">
     <!-- main container -->
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark border-bottom sticky-top p-0">
