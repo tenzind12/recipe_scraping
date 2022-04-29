@@ -125,9 +125,9 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <!-- rating -->
-                                            <div class="d-flex justify-content-between">
+                                            <div class="d-sm-flex justify-content-between">
                                                 <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
-                                                <p class="border-end float-end">READY IN <span class="badge bg-primary fs-3"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                                                <p class="border-end float-sm-end">READY IN <span class="badge bg-primary fs-3"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                                             </div>
                                             <!-- </div> -->
                                             <div class="card-text">

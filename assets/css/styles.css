@@ -251,7 +251,8 @@ img {
   border: none;
   border-bottom: 1px solid grey;
   padding: 10px;
-  width: 80%;
+  margin-right: 10px;
+  width: 100%;
   font-size: 18px;
   background-color: transparent;
   display: block;
@@ -260,6 +261,18 @@ img {
 .contact_form input:focus {
   outline: none;
   border-bottom: 1px solid #1dd4e9;
+}
+
+.contact_form .name_input,
+.contact_form .email_input,
+.contact_form .message_input {
+  position: relative;
+}
+
+.contact_form .fa-solid {
+  position: absolute;
+  top: 22px;
+  right: 10px;
 }
 
 /* ============================= D O N A T I O N   P A G E ============================= */

@@ -37,7 +37,7 @@ include './inc/header.php';
                         <h2 class="p-4 text-light text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
                 
                         <!-- author and rating -->
-                        <div class="d-flex justify-content-between m-4">
+                        <div class="d-sm-flex justify-content-between m-4">
                             <div class="d-flex flex-column">
                                 <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
                                 <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>

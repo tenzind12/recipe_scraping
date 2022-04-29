@@ -29,7 +29,7 @@
                                     </p>
                                     <div class="card-text">
                                         <p><?= $format->shortenText($rows['description'], 100) ?></p>
-                                        <div class="d-flex">
+                                        <div class="d-sm-flex">
                                             <p class="fs-5 badge bg-success mx-1">Calories <?= floatval($rows['calories']) ?></p>
                                             <p class="fs-5 badge bg-warning mx-1">Fats <?= floatval($rows['fat'])?></p>
                                             <p class="fs-5 badge bg-danger mx-1">Protein <?= floatval($rows['protein']) ?></p>
@@ -55,5 +55,6 @@
             }
     }
 
+    include './inc/footer.php'
 
 ?>

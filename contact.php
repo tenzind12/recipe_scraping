@@ -9,9 +9,21 @@
 
             <div class="row m-auto">
                 <form action="" method="POST" class="contact_form col-lg-8">
-                    <input class="text-light" type="text" name="fullname" placeholder="Full Name"/>
-                    <input class="text-light" type="email" name="email" placeholder="E-mail"/>
-                    <input class="text-light" type="text" name="message" placeholder="Message"/>
+
+                    <div class="name_input">
+                        <input class="text-light" type="text" name="fullname" placeholder="Full Name"/>
+                        <i class="fa-solid fa-user text-secondary"></i>
+                    </div>
+
+                    <div class="email_input">
+                        <input class="text-light" type="email" name="email" placeholder="E-mail"/>
+                        <i class="fa-solid fa-at text-secondary"></i>
+                    </div>
+
+                    <div class="message_input">
+                        <input class="text-light" type="text" name="message" placeholder="Message"/>
+                        <i class="fa-solid fa-envelope-open-text text-secondary"></i>
+                    </div>
                     <button type="submit" class="btn btn-outline-primary w-50 mt-5 rounded-pill">Send</button>
                 </form>
 
