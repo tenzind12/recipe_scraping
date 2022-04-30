@@ -52,7 +52,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark border-bottom sticky-top p-0">
             <div class="container-fluid py-4" id="navbar">
-                <a class="navbar-brand ms-3" href="/recipe-php/index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" id="site-logo"/> &nbsp;Recipie</a>
+                <a class="navbar-brand ms-3" href="./index.php"><img src="./assets/images/icons/pie.png" alt="pie icon" id="site-logo"/> &nbsp;Recipie</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
