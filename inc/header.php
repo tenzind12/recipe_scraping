@@ -5,21 +5,6 @@
     include __DIR__.'/../core/helpers/Format.class.php';
     include __DIR__.'/../core/classes/Bookmark.class.php';
     include __DIR__.'/../core/classes/Donation.class.php';
-
-    // for the page back issue
-    // header('Cache-Control: no cache'); //no cache
-    // session_cache_limiter('private_no_expire'); //works
-
-    // header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-    // header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-    // header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    // header("Cache-Control: post-check=0, pre-check=0", false);
-    // header("Pragma: no-cache");
-
-    // header("Expires: Thu, 19 Nov 1981 08:52:00 GMT"); //Date in the past
-    // header("Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); //HTTP/1.1
-    // header("Pragma: no-cache");
-
     
     Session::init();
     $recipes = new Recipe();

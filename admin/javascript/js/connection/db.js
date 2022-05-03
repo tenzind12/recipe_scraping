@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +24,7 @@ mysqlConnection.connect((err) => {
 });
 
 // P O S T   F E T C H   A P I
-app.post('/recipes/store', (req, res, next) => {
+app.post('/api/recipes', (req, res, next) => {
   const dataObj = JSON.parse(req.body.resData); // data content
   const reqData = checkReqData(dataObj);
 

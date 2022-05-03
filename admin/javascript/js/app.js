@@ -18,6 +18,7 @@ const getUrlData = (url) => {
         const domParse = parser.parseFromString(data, 'text/html'); //string to DOM Document
         const allScriptTags = domParse.querySelectorAll('script'); // catch all the scripts in DOM [nodelists]
         const scriptTagsArrs = Array.from(allScriptTags); // convert nodelist to arrays to use loop
+        console.log(scriptTagsArrs);
         const targetScript = scriptTagsArrs.filter(
           (script) => script.type === 'application/ld+json'
         );
@@ -25,7 +26,7 @@ const getUrlData = (url) => {
           const resData = targetScript[0].innerText;
           // console.log(resData);
           const bodyData = JSON.stringify({ resData, inputUrl: url });
-          fetch('http://localhost:7000/recipes/store', {
+          fetch('http://localhost:7000/api/recipes', {
             method: 'POST',
             body: bodyData,
             headers: { 'Content-Type': 'application/json' },
