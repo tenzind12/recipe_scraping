@@ -30,7 +30,6 @@ themeChanger.addEventListener('change', () => {
 });
 
 const currentTheme = localStorage.getItem('theme');
-test(currentTheme);
 if (currentTheme === 'dark') {
   document.getElementsByTagName('body')[0].classList.add('theme-dark');
   document.getElementsByTagName('body')[0].classList.remove('theme-light');

@@ -3,11 +3,13 @@ const button = document.getElementById('submit');
 
 const parser = new DOMParser();
 
-if (button)
+// Add recipe Handler
+if (window.location.href === 'http://localhost/recipe-php/admin/add-recipe.php') {
   button.addEventListener('click', () => {
     getUrlData(input.value);
     input.value = '';
   });
+}
 
 // getting jsonld data and saving them in database mysql
 const getUrlData = (url) => {
