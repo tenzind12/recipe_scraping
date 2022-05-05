@@ -12,7 +12,6 @@ if (eyeBtn) {
     }
   });
 }
-
 // T H E M E   C H A N G E R
 
 const themeChanger = document.getElementById('themeChanger');

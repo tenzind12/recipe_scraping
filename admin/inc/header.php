@@ -76,8 +76,8 @@
 
                 <div class="list-group mt-3">
                     <a href="add-recipe.php" class="list-group-item list-group-item-action">Add new recipe<i class="fa-solid fa-circle-plus float-end pt-1"></i></a>
-                    <a href="client-list.php" class="list-group-item list-group-item-action">Client List<i class="fa-solid fa-list float-end pt-1"></i></a>
-                    <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List<i class="fa-solid fa-folder-tree float-end pt-1"></i></a>
+                    <a href="client-list.php" class="list-group-item list-group-item-action">Client List<i class="fa-solid fa-users float-end pt-1"></i></a>
+                    <a href="recipe-list.php" class="list-group-item list-group-item-action">Recipes List<i class="fa-solid fa-burger float-end pt-1"></i></a>
                     <a href="../index.php" class="list-group-item list-group-item-action">Go to site<i class="fa-solid fa-globe float-end pt-1"></i></a>
                 </div>
 
