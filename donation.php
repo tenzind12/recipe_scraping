@@ -37,5 +37,7 @@
 
 
     <?php echo "<script src='https://www.paypal.com/sdk/js?client-id=ATaeMt6FnUUNYFISn5oAYg8K0HJk28cVQhovqEpVF1EhcQysnSI--6T_ghblgeumOpX8WXMENaXYhUry&disable-funding=credit,card'></script>
-<script src='paypal.js'></script>"; ?>
+                <script src='./assets/js/paypal.js'></script>"; 
+    ?>
+
 <?php include './inc/footer.php' ?>

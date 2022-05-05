@@ -38,6 +38,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark border-bottom sticky-top p-0">
             <div class="container-fluid py-4" id="navbar">
                 <a class="navbar-brand ms-3" href="./index.php"><img src="./assets/images/icons/pie.png" alt="pie icon" id="site-logo"/> &nbsp;Recipie</a>
+                   
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,6 +73,12 @@
                             <a class="nav-link" href="./about-us.php">About Us</a>
                         </li>
                     </ul>
+                </div>
+
+                 <!-- to make theme changer -->
+                <div class="form-check form-switch text-light" id="themeBtnContainer">
+                    <input class="form-check-input" type="checkbox" id="themeChanger">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Dark mode</label>
                 </div>
             </div>
         </nav>

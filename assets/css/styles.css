@@ -55,6 +55,13 @@ img {
   }
 }
 
+/* theme changing button */
+#themeBtnContainer {
+  position: absolute;
+  top: 120%;
+  left: 20px;
+}
+
 #site-logo {
   width: 35px;
   border-radius: 50%;

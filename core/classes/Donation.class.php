@@ -21,7 +21,7 @@
             
             $donation_saved = $this->db->insert($query);
             if($donation_saved) {
-                $msg = $this->class_helper->alertMessage('Thank you', 'Success !', 'We received your donation of ' . $amount . ' euros');
+                $msg = $this->class_helper->alertMessage('warning', 'Success !', 'We received your donation of ' . $amount . ' €');
                 return $msg;
             }
         }
