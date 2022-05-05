@@ -58,7 +58,7 @@ img {
 /* theme changing button */
 #themeBtnContainer {
   position: absolute;
-  top: 120%;
+  top: 100px;
   left: 20px;
 }
 
