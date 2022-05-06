@@ -59,14 +59,8 @@ img {
 #themeBtnContainer {
   position: absolute;
   top: 130%;
-  left: 20px;
+  left: 5px;
   transform: rotate(90deg);
-}
-
-#themeChanger {
-  /* width: 20px;
-  height: 20px; */
-  position: relative;
 }
 
 .bulb-icon {
@@ -82,7 +76,6 @@ img {
 #profile_icon {
   width: 40px;
   height: 40px;
-  /* border-radius: 50%; */
   object-fit: cover;
 }
 
@@ -337,4 +330,22 @@ img {
   background: url(../images/background/about-us.jpg) no-repeat center/cover;
   display: grid;
   place-items: center;
+}
+
+#rest-api {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #rest-api {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+  }
 }

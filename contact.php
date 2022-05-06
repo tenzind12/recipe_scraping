@@ -5,7 +5,7 @@
             <img src="./assets/images/gifs/contact.gif" alt="contact us gif" id="contact-gif" />
         </div>
         <div class="col-sm-7">
-            <h2 class="text-light display-3 mt-4">Contact Us</h2>
+            <h2 class="text-light display-3 mt-4 text-center">Contact Us</h2>
 
             <div class="row m-auto">
                 <form action="" method="POST" class="contact_form col-lg-8">
