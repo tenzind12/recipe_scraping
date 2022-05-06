@@ -79,7 +79,7 @@
                  <!-- to make theme changer -->
                 <div class="form-check form-switch text-light" id="themeBtnContainer">
                     <input class="form-check-input" type="checkbox" id="themeChanger">
-                    <label class="form-check-label" for="flexSwitchCheckChecked"><i class="fa-solid fa-moon text-warning"></i></label>
+                    <label class="form-check-label" for="flexSwitchCheckChecked"><i class="fa-regular fa-lightbulb text-warning bulb-icon"></i></label>
                 </div>
             </div>
         </nav>

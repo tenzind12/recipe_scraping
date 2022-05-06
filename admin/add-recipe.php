@@ -2,7 +2,7 @@
 
 <!-- message from server side EXPRESS JS -->
 
-  <h2 class="text-light my-5 text-center">Upload a new recipe?</h2>
+  <h2 class="text-light my-5 display-4 text-center"><i class="fa-solid fa-cloud-arrow-up"></i>&nbsp; Upload recipe</h2>
 
   <div id="server-message"></div>
 

@@ -14,12 +14,12 @@
     <div id="donation-container">
         <div id="donation-body">
             <?= isset($donation_message) ? $donation_message : '' ?>
-            <p>RAISE YOUR HELPING HANDS FOR POOR PEOPLE</p>
+            <h3>RAISE YOUR HELPING HANDS FOR POOR PEOPLE</h3>
             <h2 class="display-6 mt-4">DONATE FOR THE POOR CHILDREN</h2>
             <p class="text-center my-4 text-light">Hundreds of thousands of children experiencing or witnessing assault and other gender-based violence.</p>
     
             <!-- donation dropdown input -->
-            <select class="form-select w-25 mb-3" aria-label="Default select example" onchange="donationHandler();" id="test1">
+            <select class="form-select w-25 mb-3" aria-label="Default select example" onchange="donationHandler();" id="donation-amount">
                 <option selected disabled>Select a donation amount</option>
                 <option value="5">5€</option>
                 <option value="10">10€</option>
@@ -30,7 +30,7 @@
             <input type="hidden" id="amount">
 
             <!-- container to render the paypal button -->
-            <div id="paypal-button"></div>
+            <div id="paypal-button" class="btn btn-sm"></div>
 
         </div>
     </div>

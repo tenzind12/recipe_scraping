@@ -35,7 +35,7 @@
         $pagination_result = $db->query($query);
         // END PAGINATION
         ?>
-            <h2 class="text-light text-center my-4">The recipe list</h2>
+            <h2 class="text-light text-center my-4"><i class="fa-solid fa-burger pt-1"></i>&nbsp; The recipe list</h2>
             <?= isset($deletedRecipe) ? $deletedRecipe : '' ?>
             <div class="table-responsive">
                 <table class="table table-dark table-hover">
@@ -60,7 +60,7 @@
                             <td class="w-25"><?= $rows['name'] ?></td>
                             <td><?= $rows['author'] ?></td>
                             <td style=""><?= $format->generateStars($rows['rating']) ?><?= $format->emptyStars($rows['rating']) ?></td>
-                            <td class="ps-4"><a onclick="return confirm('Are you sure to delete this recipe?')" href="?delRecipe=<?= $rows['id'] ?>"><i class="fa-solid fa-delete-left text-white"></i></a></td>
+                            <td class="ps-4"><a onclick="return confirm('Are you sure to delete this recipe?')" href="?delRecipe=<?= $rows['id'] ?>"><i class="fa-solid fa-delete-left text-danger "></i></a></td>
                         </tr>
                     </tbody>
 <?php

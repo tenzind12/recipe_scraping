@@ -59,8 +59,18 @@ img {
 #themeBtnContainer {
   position: absolute;
   top: 130%;
-  left: 0px;
+  left: 20px;
   transform: rotate(90deg);
+}
+
+#themeChanger {
+  /* width: 20px;
+  height: 20px; */
+  position: relative;
+}
+
+.bulb-icon {
+  transform: rotate(-90deg);
 }
 
 #site-logo {
@@ -255,6 +265,13 @@ img {
 }
 
 /* ============================= C O N T A C T   P A G E ============================= */
+
+#contact-gif {
+  max-height: 500px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .contact_form input {
   border: none;
   border-bottom: 1px solid grey;
@@ -288,19 +305,29 @@ img {
   min-height: calc(100vh - 92px);
   box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.6);
   background: url(../images/background/donation.jpg) no-repeat center/cover;
-}
-
-#donation-body {
-  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#donation-body {
+  text-align: center;
   color: aliceblue;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.36);
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: rgb(85, 85, 85) 1px solid;
 }
 
 #donation-container h2 {
   text-decoration: underline solid #e98d1d;
   text-underline-offset: 0.2em;
+}
+
+#donation-amount {
+  margin: auto;
 }
 
 /* ============================= A B O U T   U S   P A G E ============================= */

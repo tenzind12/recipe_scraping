@@ -8,7 +8,7 @@
     }
 ?>
 
-    <h2 class="text-light text-center my-5">Clients lists</h2>
+    <h2 class="text-light text-center my-5"><i class="fa-solid fa-users pt-1"></i>&nbsp; Clients lists</h2>
     <?= isset($user_deleted) ? $user_deleted : '' ?>
     <div class="table-responsive">
         <table class="table table-dark table-hover">

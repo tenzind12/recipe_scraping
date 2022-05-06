@@ -33,6 +33,6 @@ paypal
 
 // onChange value of the amount input
 function donationHandler() {
-  const value = document.getElementById('test1').value;
+  const value = document.getElementById('donation-amount').value;
   document.getElementById('amount').textContent = value;
 }

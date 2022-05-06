@@ -65,6 +65,8 @@ app.post('/api/recipes', (req, res, next) => {
   );
 });
 
+app.get('/', (req, res) => res.send('Hello World!'));
+
 // A P P  <--> L I S T E N
 app.listen(7000, () => {
   console.log(`Express listening at localhost:7000`);
