@@ -1,5 +1,6 @@
 <?php 
     include_once __DIR__.'/../../core/connection/Session.php';
+    Session::init();
     include_once __DIR__.'/../../core/helpers/Format.class.php';
 
 
@@ -12,7 +13,6 @@
     $users = new User();
     $format = new Format();
     $recipes = new Recipe();
-    Session::init();
 ?>
 <?php 
     if(isset($_GET['logout'])) Session::destroy(); 

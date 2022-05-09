@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="./assets/fontawesome/css/all.css"/ >
     <title>Recipie</title>
 </head>
-<body class="border theme-light" id="bootstrap-overrides">
+<body class="border <?php if(isset($_COOKIE['light'])) echo $_COOKIE['light'] === '1' ? 'theme-light' : 'theme-dark' ?>  " id="bootstrap-overrides" >
     <!-- main container -->
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark border-bottom sticky-top p-0">
@@ -73,12 +73,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./about-us.php">About Us</a>
                         </li>
+
+                        <a href="#" onclick="setLanguage('en')">English</a>
+                        <a href="#" onclick="setLanguage('fr')">French</a>
                     </ul>
                 </div>
 
                  <!-- to make theme changer -->
                 <div class="form-check form-switch text-light" id="themeBtnContainer">
-                    <input class="form-check-input" type="checkbox" id="themeChanger">
+                    <input class="form-check-input" type="checkbox" id="themeChanger" <?php if(isset($_COOKIE['light'])) echo $_COOKIE['light'] === '1' ? 'checked' : '' ?>>
                     <label class="form-check-label" for="flexSwitchCheckChecked"><i class="fa-regular fa-lightbulb text-warning bulb-icon"></i></label>
                 </div>
             </div>
