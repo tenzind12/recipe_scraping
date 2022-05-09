@@ -5,7 +5,15 @@
                 <div class="img-container py-2">
                     <img src="./assets/images/gifs/garlic.gif" id="garlic" alt="garlic"/>
                 </div>
-                <h5 class="card-title text-center display-5 my-3 text-white">Search for Recipe <i class="fas fa-utensils"></i></h5>
+                <h5 class="card-title text-center display-5 my-3 text-light">
+                    <span class="noodle blue">N</span>
+                    <span class="noodle red">o</span>
+                    <span class="noodle yellow">o</span>
+                    <span class="noodle blue">d</span>
+                    <span class="noodle green">l</span>
+                    <span class="noodle red">e</span>
+                    <i class="fas fa-utensils"></i>
+                </h5>
 
                 <!-- form start -->
                 <form method="GET" action="recipeLists.php">

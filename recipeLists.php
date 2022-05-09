@@ -10,30 +10,30 @@
 
                 if($result) {
     ?>
-                    <h1 class="text-light text-center py-5"><i class="fa-solid fa-kitchen-set text-warning"></i>&nbsp; 
-                        Recipe results for <b class="text-warning"><?= $name ?></b> 
-                        <span class="badge bg-danger"><?= mysqli_num_rows($result) ?> results</span>
+                    <h1 class="text-center py-5 text-white" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp; 
+                        Recipe results for <b class="text-orange"><?= $name ?></b> 
+                        <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
                     </h1>
                     
                     <div class="card-container">
     <?php
                     while($rows = $result->fetch_assoc()) {
     ?>
-                        <div class="position-relative bg-white row rounded each-card" id="">
+                        <div class="position-relative row rounded each-card">
                             <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
                                 <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                             </a>
                             <div class="card-body col-sm-8">
                                 <!-- <div class="d-flex"> -->
                                 <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null"><h2 class="card-title"><?= $rows['name'] ?></h2></a>
-                                <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?>     <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
+                                <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?><span class="text-white">&nbsp;<?= $rows['reviewCount'] ?></span></p>
                                 <!-- </div> -->
                                 <div class="card-text">
                                     <p><?= $format->shortenText($rows['description'], 150) ?></p>
                                 </div>
                                 <!-- test --> <input type="hidden" name="refresh">
-                                <p class="position-absolute end-0 bottom-0 m-3">By 
-                                    <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="fw-bold"><?= ucfirst($rows['author']) ?></a>
+                                <p class="position-absolute end-0 bottom-0 m-3 text-warning">By 
+                                    <a href="recipe-by-author.php?author=<?= $rows['author']  ?>" class="fw-bold" id="recipe-list__author"><?= ucfirst($rows['author']) ?></a>
                                 </p>
                             </div>
                         </div>

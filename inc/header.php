@@ -74,8 +74,8 @@
                             <a class="nav-link" href="./about-us.php">About Us</a>
                         </li>
 
-                        <a href="#" onclick="setLanguage('en')">English</a>
-                        <a href="#" onclick="setLanguage('fr')">French</a>
+                        <!-- <a href="#" onclick="setLanguage('en')">English</a>
+                        <a href="#" onclick="setLanguage('fr')">French</a> -->
                     </ul>
                 </div>
 
