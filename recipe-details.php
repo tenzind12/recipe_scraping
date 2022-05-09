@@ -34,12 +34,12 @@ include './inc/header.php';
     ?>
                     <div class="m-auto my-5" style="max-width: 800px" id="recipe-details">
                         <!-- recipe name -->
-                        <h2 class="p-4 text-light text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
+                        <h2 class="p-4 text-warning text-center display-3 fw-bold"><?= $rows['name'] ?></h2>
                 
                         <!-- author and rating -->
                         <div class="d-sm-flex justify-content-between m-4">
                             <div class="d-flex flex-column">
-                                <h3 class=" text-light">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-warning"><?= ucfirst($rows['author']) ?></a></h3>
+                                <h3 class=" text-success">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-light"><?= ucfirst($rows['author']) ?></a></h3>
                                 <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>
                             </div>
                             <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
@@ -51,10 +51,10 @@ include './inc/header.php';
                         <!-- time and bookmark -->
                         <?= isset($bookmarkSaved) ? $bookmarkSaved : ''  ?>
                         <div class="row m-0 p-3" id="recipe-details__timecontainer">
-                            <p class="col border-end text-light">READY IN <span class="badge bg-secondary"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                            <p class="col border-end text-light">READY IN <span class="badge bg-success"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                             <div class="col pe-0">
                                 <p class=" text-light ms-3">
-                                    SERVES <span class="badge bg-secondary"><?= (int)$rows['recipeYield'] ?></span>
+                                    SERVES <span class="badge bg-success"><?= (int)$rows['recipeYield'] ?></span>
                                     <!-- bookmark -->
                                     <span class="float-end">
                                         <?php 
@@ -88,6 +88,7 @@ include './inc/header.php';
                         <!-- print icon -->
                         <div id="recipe-details__printContainer">
                             <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
+                            <a href="https://www.facebook.com/share.php?u=https://google.com" target="_blank"><img style="width: 32px;" src="./assets/images/icons/facebook.png" /></a>
                         </div>
                 
                         <!-- two cols for ingredients and directions -->
