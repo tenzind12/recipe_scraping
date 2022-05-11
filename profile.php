@@ -67,16 +67,16 @@
            ?>
                 <table>
                     <tr class="text-light">
-                        <th class="px-3">Name: </th>
-                        <td class="fs-3"><?= ucfirst(Session::get('userName')) ?></td>
+                        <th class="px-3 text-danger">Name: </th>
+                        <td class="fs-3 text-grey"><?= ucfirst(Session::get('userName')) ?></td>
                     </tr>
                     <tr class="text-light">
-                        <th class="px-3">Email: </th>
-                        <td class="fs-3 text-break"><?= Session::get('userEmail') ?></td>
+                        <th class="px-3 text-danger">Email: </th>
+                        <td class="fs-5 text-break text-grey"><?= Session::get('userEmail') ?></td>
                     </tr>
                     <tr class="text-light">
-                        <th class="px-3">Country: </th>
-                        <td class="fs-3"><?= ucfirst(Session::get('userCountry')) ?></td>
+                        <th class="px-3 text-danger">Country: </th>
+                        <td class="fs-3 text-grey"><?= ucfirst(Session::get('userCountry')) ?></td>
                     </tr>
                 </table>
                 <!-- buttons -->
@@ -94,7 +94,7 @@
 
     <!-- recipe list section -->
     <div class="col-lg-8">
-        <h2 class="text-light display-4 mb-4"><i class="fa-solid fa-folder-closed text-secondary"></i> Your saved recipes </h2>
+        <h2 class=" display-4 mb-4 text-orange" id="profile-title"><i class="fa-solid fa-folder-closed text-secondary"></i> Your saved recipes </h2>
         <?= isset($delete_bookmark) ? $delete_bookmark : '' ?>
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -131,7 +131,7 @@
                                             </div>
                                             <!-- </div> -->
                                             <div class="card-text">
-                                                <p><?= $format->shortenText($rows['description'], 200) ?></p>
+                                                <p class="text-dark"><?= $format->shortenText($rows['description'], 200) ?></p>
                                             </div>
 
                                             <!-- nutrition modal button  -->

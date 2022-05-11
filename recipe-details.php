@@ -88,7 +88,7 @@ include './inc/header.php';
                         <!-- print icon -->
                         <div id="recipe-details__printContainer">
                             <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
-                            <a href="https://www.facebook.com/share.php?u=https://google.com" target="_blank"><img style="width: 32px;" src="./assets/images/icons/facebook.png" /></a>
+                            <a href="https://www.facebook.com/share.php?u=https://test.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" target="_blank"><img style="width: 32px;" src="./assets/images/icons/facebook.png" /></a>
                         </div>
                 
                         <!-- two cols for ingredients and directions -->
@@ -105,7 +105,7 @@ include './inc/header.php';
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: cadetblue;">
-                                                    <h5 class="modal-title text-uppercase text-grey" id="exampleModalLabel">Nutrition Info</h5>
+                                                    <h5 class="modal-title text-uppercase text-light" id="exampleModalLabel">Nutrition Info</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
