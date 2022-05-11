@@ -11,8 +11,9 @@
 }
 
 body.theme-light {
-  background: url(../images/background/bg-subtle.webp) fixed;
-  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
+  /* background: url(../images/background/bg-subtle.webp) fixed;
+  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5); */
+  background-color: beige;
   min-height: 100vh;
 }
 
@@ -37,25 +38,40 @@ p {
   color: #f5af19;
 }
 
+.text-grey {
+  color: #777;
+}
+
 img {
   width: 100%;
 }
 
 #navbar {
   height: 100%;
-  background-color: rgba(16, 16, 16, 0.5);
+  /* background-color: rgba(16, 16, 16, 0.5); */
+  background-color: #db4437;
   position: relative;
 }
 
 .navbar-brand {
+  font-style: italic;
+  /* letter-spacing: 5px; */
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.nav-link {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgb(72, 72, 72) !important;
 }
 
 .nav-link:hover {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  color: beige !important;
 }
+
 /* move nav to the right */
 @media (min-width: 992px) {
   #navbarSupportedContent {
@@ -95,6 +111,7 @@ img {
   width: 100%;
   background-color: #e7eaed;
   border-radius: 300px;
+  border-bottom: 4px solid #fd350b;
 }
 
 #garlic {
@@ -159,6 +176,10 @@ img {
   max-width: 600px;
 }
 
+#advanced-search-container form .range-slider {
+  background-color: rgb(30, 30, 30);
+}
+
 #name-input__adv {
   position: relative;
 }
@@ -175,6 +196,13 @@ img {
   background-color: #537895;
   padding: 10px;
   transition: 0.1s;
+}
+
+/* ADVANCED SEARCH RESULTS */
+#filtered-result h2 {
+  font-family: butterChicken;
+  font-size: 3.5rem;
+  margin-top: 60px !important;
 }
 
 /* new list style */
@@ -264,13 +292,17 @@ img {
 #recipe-details__image {
   max-height: 400px;
   object-fit: cover;
-  border: 2px solid white;
+  border: 2px solid #777;
   padding: 5px;
 }
 
 #recipe-details__timecontainer {
-  border-bottom: 1px dashed white;
+  border-bottom: 1px dashed #777;
   font-size: 26px;
+}
+
+#recipe-details__timecontainer:first-child {
+  border-right: 1px solid #777;
 }
 
 #recipe-details__printContainer {
@@ -300,12 +332,23 @@ img {
   text-indent: -1.5em;
 }
 
+#recipe-details__ingredient_direction ol li:hover {
+  /* background-color: #537895; */
+  background-color: #d34032;
+  color: white;
+}
+
 /* ============================= C O N T A C T   P A G E ============================= */
 
 #contact-gif {
   max-height: 500px;
   max-width: 500px;
   margin: 0 auto;
+}
+
+#contact-title {
+  font-family: butterChicken;
+  margin-top: 61px !important;
 }
 
 .contact_form input {

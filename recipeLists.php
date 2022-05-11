@@ -10,7 +10,7 @@
 
                 if($result) {
     ?>
-                    <h1 class="text-center py-5 text-white" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp; 
+                    <h1 class="text-center py-5 text-danger" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp; 
                         Recipe results for <b class="text-orange"><?= $name ?></b> 
                         <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
                     </h1>

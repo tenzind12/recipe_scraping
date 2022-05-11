@@ -6,7 +6,7 @@
 
         <!-- ingredient name input -->
         <div id="name-input__adv">
-            <input type="text" class="form-control" placeholder="Enter an ingredient, name ..." name="name_input" required />
+            <input type="text" class="form-control shadow" placeholder="Enter an ingredient, name ..." name="name_input" required />
             <i class="fa fa-utensils" id="fork-icon__adv"></i>
         </div>
         
@@ -45,7 +45,7 @@
 
         <!-- time dropdown -->
         <div class="row">
-            <label for="timetaken" class="col-sm-4 text-light">Total time to finish</label>
+            <label for="timetaken" class="col-sm-4 text-grey">Total time to finish</label>
 
             <select name="time-input" id="timetaken" class="col-sm-7 rounded">
                 <option value="30">Less than 30 mins</option>
@@ -54,7 +54,7 @@
             </select>
         </div>
 
-        <input type="submit" value="Submit" name="submit" class="btn btn-outline-info mt-3 w-100">
+        <input type="submit" value="Submit" name="submit" class="btn btn-outline-danger mt-3 w-100">
     </form>
     <!-- form ends -->
 </div>

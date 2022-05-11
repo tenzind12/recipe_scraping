@@ -39,10 +39,10 @@ include './inc/header.php';
                         <!-- author and rating -->
                         <div class="d-sm-flex justify-content-between m-4">
                             <div class="d-flex flex-column">
-                                <h3 class=" text-success">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-light"><?= ucfirst($rows['author']) ?></a></h3>
+                                <h3 class=" text-success">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-grey"><?= ucfirst($rows['author']) ?></a></h3>
                                 <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>
                             </div>
-                            <div class="text-light" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> (<?= $rows['reviewCount'] ?>)</div>
+                            <div class="text-grey" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> <span class="text-grey">(<?= $rows['reviewCount'] ?>)</span></div>
                         </div>
                 
                         <!-- image -->
@@ -51,9 +51,9 @@ include './inc/header.php';
                         <!-- time and bookmark -->
                         <?= isset($bookmarkSaved) ? $bookmarkSaved : ''  ?>
                         <div class="row m-0 p-3" id="recipe-details__timecontainer">
-                            <p class="col border-end text-light">READY IN <span class="badge bg-success"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                            <p class="col text-grey">READY IN <span class="badge bg-success"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                             <div class="col pe-0">
-                                <p class=" text-light ms-3">
+                                <p class=" text-grey ms-3">
                                     SERVES <span class="badge bg-success"><?= (int)$rows['recipeYield'] ?></span>
                                     <!-- bookmark -->
                                     <span class="float-end">
@@ -64,13 +64,13 @@ include './inc/header.php';
                                             $already_bookmarked = $bookmark->check_if_bookmarked($check_recipe_id, Session::get('userId'));
                                             if($already_bookmarked && Session::get('userId')) {
                                         ?>
-                                            <a href="?delRecipeId=<?= $_GET['id'] ?>" class="text-white">
+                                            <a href="?delRecipeId=<?= $_GET['id'] ?>" class="text-grey">
                                                 <span style="font-size: 16px;">Delete bookmark </span><i class="fa-solid fa-bookmark text-warning"></i>
                                             </a>
                                         <?php
                                             } else {
                                         ?>
-                                            <a href="?recipeId=<?= $_GET['id'] ?>" class="text-white">
+                                            <a href="?recipeId=<?= $_GET['id'] ?>" class="text-grey">
                                                 <span style="font-size: 16px;">Bookmark recipe </span><i class="fa-regular fa-bookmark text-warning"></i>
                                             </a>
                                         <?php
@@ -83,7 +83,7 @@ include './inc/header.php';
                         </div>
                         
                         <!-- description -->
-                        <p class="text-light p-3" id="recipe-details__description"><?= $rows['description'] ?></p>
+                        <p class="text-grey p-3" id="recipe-details__description"><?= $rows['description'] ?></p>
 
                         <!-- print icon -->
                         <div id="recipe-details__printContainer">
@@ -94,7 +94,7 @@ include './inc/header.php';
                         <!-- two cols for ingredients and directions -->
                         <div class="row m-0" id="recipe-details__ingredient_direction">
                             <!-- ingredients section -->
-                            <div class="col-md-6 border">
+                            <div class="col-md-6">
                                 <div class="d-flex justify-content-between">
                                     <h1 class="text-warning">Ingredients</h1>
 
@@ -105,11 +105,11 @@ include './inc/header.php';
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: cadetblue;">
-                                                    <h5 class="modal-title text-uppercase text-light" id="exampleModalLabel">Nutrition Info</h5>
+                                                    <h5 class="modal-title text-uppercase text-grey" id="exampleModalLabel">Nutrition Info</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <table class="w-100">
+                                                    <table class="w-100 table table-hover">
                                                         <tbody id="nutrition_table">
                                                             <tr>
                                                                 <th>Calories</th>
@@ -144,7 +144,7 @@ include './inc/header.php';
                                     </div>
                                     <!-- end of modal window -->
                                 </div>
-                                <ol class="list-group list-group-numbered  pb-3">
+                                <ol class="list-group list-group-numbered pb-3">
                                     <?php 
                                         $ingredients = json_decode($rows['recipeIngredient']);
                                         foreach($ingredients as $value) {

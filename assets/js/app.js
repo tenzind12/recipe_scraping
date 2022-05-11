@@ -14,6 +14,7 @@ if (eyeBtn) {
 }
 
 // T H E M E   C H A N G E R (cookies)
+const hTags = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
 
 const changeClass = (val) => {
   if (!val) {
