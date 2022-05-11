@@ -24,7 +24,7 @@
         $search_result = $admin->admin_search($search_value);
 ?>
         <p id="test"></p>
-        <h2 class="text-light text-center my-2">Search Result</h2>
+        <h2 class="text-center my-5 admin-pages__title display-4 text-red">Search Result</h2>
         <div class="table-responsive">
             <table class="table table-dark table-hover">
 <?php

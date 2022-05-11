@@ -1,3 +1,8 @@
+:root {
+  --red: #ff0505;
+  --brown: #a52a2a;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +10,20 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+.text-red {
+  color: var(--red);
+}
+
 body {
   min-height: 100vh;
-  background: url(../images/adminImages/background.jpg) no-repeat center/cover;
+  background: url(../images/adminImages/admin-bg.jpg) no-repeat center/cover;
   /* box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5); */
 }
 
 /* =======================  A D M I N   N A V B A R ======================= */
 nav {
   /* background-color: rgba(13, 36, 66, 0.5); */
+  background: url(../images/adminImages/nav.jpg) no-repeat top/cover;
 }
 
 /* move nav to the right */
@@ -31,31 +41,53 @@ nav {
   position: relative;
 }
 
+#admin__search--bar input:focus {
+  background-color: #000;
+  color: var(--red);
+}
+
 #admin__search-btn {
   position: absolute;
   right: 2%;
+  color: var(--red);
 }
 
 #admin__login-form {
   max-width: 400px;
 }
+#admin__login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid rgb(212, 33, 33);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: var(--brown);
+}
+
+#admin__login-form input:focus {
+  background-color: black;
+}
 
 /* end of header */
 
+/* global styles */
+.admin-pages__title {
+  font-family: 'Macondo', cursive;
+  text-transform: uppercase;
+}
+
 /* =======================  A D M I N   S I D E B A R ======================= */
+#admin-sidebar {
+  background: url(../images/adminImages/sidebar.jpg);
+}
+
+#admin-sidebar div:first-of-type {
+  background: url(../images/adminImages/admin-name.jfif) center/cover;
+}
 #admin-profile-icon {
   width: 50px;
   border-radius: 50%;
-}
-
-#admin-search {
-  position: relative;
-}
-
-#admin-search-magnifying_glass {
-  position: absolute;
-  right: 2%;
-  top: 30%;
 }
 
 @media (min-width: 770px) {
@@ -72,6 +104,14 @@ nav {
 .list-group-item:hover {
   transform: scale(0.99);
   /* background-color: rgb(250, 237, 162); */
+  color: var(--red);
+  background-color: #000;
+}
+
+/* =======================  A D D   R E C I P E S (/admin/client-list.php) ======================= */
+#linkInput:focus {
+  background-color: black;
+  color: var(--red);
 }
 
 /* =======================  C L I E N T   L I S T (/admin/client-list.php) ======================= */
