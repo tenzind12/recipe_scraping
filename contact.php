@@ -28,10 +28,10 @@
                 </form>
 
                 <div class="col-lg-4 mt-3">
-                    <h4 class="text-grey">Email</h4> 
+                    <h4 class="text-danger">Email</h4> 
                     <p class="text-secondary"><a href="mailto:someone@bourges.com" class="link-secondary"> <i class="fa-solid fa-envelope"></i> someone@bourges.com</a></p>
 
-                    <h4 class="text-grey">Based in</h4>
+                    <h4 class="text-danger">Based in</h4>
                     <p class="text-secondary"><i class="fa-solid fa-map-location-dot"></i> Bourges, Centre-Val-De-Loire</p>
                 </div>
             </div>

@@ -12,7 +12,7 @@
         <div class="card-container" id="filtered-result">
             <h2 class="text-grey mt-2 text-center">Filtered result</h2>
 <?php
-            if($result && gettype($result) !== 'string') {
+            if($result && $result[0] !== null) {
                 foreach($result as $res) {
                     if($res) {
                         while($rows = $res->fetch_assoc()) {
@@ -48,8 +48,8 @@
             } else {
                 echo "
                 <div class=\"d-flex flex-column pt-4 pb-5\">
-                    <p class=\"text-center text-light\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
-                    <img src=\"./assets/images/gifs/error.gif\" alt=\"nothing found\" id='nothing_image' class='rounded'/>
+                    <p class=\"text-center text-grey\">We couldn't find any match? Let's<a href=\"index.php\" class=\"text-warning\">&nbsp;go back</a> :)</p>
+                    <img src=\"./assets/images/gifs/error.gif\" alt=\"nothing found\" id='nothing_image' class='shadow rounded-pill'/>
                 </div>
                 ";
             }

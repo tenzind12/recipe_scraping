@@ -7,13 +7,13 @@
 
         if($recipesByCategory) {
 ?>
-             <h1 class="text-light text-center py-5"><i class="fa-solid fa-bowl-rice"></i>&nbsp; 
+             <h1 class="text-grey text-center py-5"><i class="fa-solid fa-bowl-rice"></i>&nbsp; 
                 All recipes in category  <b class="text-warning"><?= $category ?></b> <span class="badge bg-secondary"><?= mysqli_num_rows($recipesByCategory) ?> results</span>
             </h1>
 <?php
             while($rows = $recipesByCategory->fetch_assoc()) {
 ?>
-                <div class="position-relative bg-white row rounded each-card" id="">
+                <div class="position-relative row rounded each-card" id="">
                     <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
                         <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
                     </a>
@@ -25,7 +25,7 @@
                         <div class="card-text">
                             <p><?= $format->shortenText($rows['description'], 200) ?></p>
                         </div>
-                        <p class="position-absolute end-0 bottom-0 m-4">By <span class="fw-bold"><?= ucfirst($rows['author']) ?></span></p>
+                        <p class="position-absolute end-0 bottom-0 m-4 text-warning">By <span class="fw-bold text-light"><?= ucfirst($rows['author']) ?></span></p>
                         <!-- test --> <input type="hidden" name="refresh">
                     </div>
                 </div>

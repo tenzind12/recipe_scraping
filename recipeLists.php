@@ -45,7 +45,7 @@
                 } else {
                     echo '
                     <div class="d-flex flex-column pt-4 pb-5">
-                        <p class="text-center text-light">We couldn\'t find any matching recipe. Let\'s<a href="index.php" class="text-warning">&nbsp;go back</a> :)</p>
+                        <p class="text-center text-grey">We couldn\'t find any matching recipe. Let\'s<a href="index.php" class="text-warning">&nbsp;go back</a> :)</p>
                         <img src="./assets/images/found_nothing.png" alt="nothing found" id=\'nothing_image\'/>
                     </div>
                     ';
@@ -55,7 +55,7 @@
             else {
     ?>
                 <div class="d-flex flex-column pt-4 pb-5">
-                    <p class="text-center text-light">Please enter something. Let's<a href="index.php" class="text-warning">&nbsp;try again</a> :)</p>
+                    <p class="text-center text-grey">Please enter something. Let's<a href="index.php" class="text-warning">&nbsp;try again</a> :)</p>
                     <img src="./assets/images/found_nothing.png" alt="nothing found" id='nothing_image'/>
                 </div>
     <?php

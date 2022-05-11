@@ -12,7 +12,8 @@
                     <span class="noodle blue">d</span>
                     <span class="noodle green">l</span>
                     <span class="noodle red">e</span>
-                    <i class="fas fa-utensils text-secondary"></i>
+                    <!-- <i class="fas fa-utensils text-secondary"></i> -->
+                    <img src="./assets/images/gifs/noodles.gif" alt="noodles gif" style="width: 90px">
                 </h5>
 
                 <!-- form start -->

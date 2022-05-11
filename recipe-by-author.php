@@ -7,7 +7,7 @@
 
         if($recipes_by_author) {
 ?>
-            <h1 class="text-grey text-center py-5"><i class="fa-solid fa-pen-fancy text-warning"></i>&nbsp; 
+            <h1 class="text-grey text-center py-5" style="font-family: butterChicken;"><i class="fa-solid fa-pen-fancy text-warning"></i>&nbsp; 
                 Recipe results for the Author <span class="text-warning"><?= $author ?></span> <span class="badge bg-secondary"><?= mysqli_num_rows($recipes_by_author) ?> results</span>
             </h1>
 <?php

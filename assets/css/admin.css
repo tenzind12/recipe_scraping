@@ -16,7 +16,7 @@
 
 body {
   min-height: 100vh;
-  background: url(../images/adminImages/admin-bg.jpg) no-repeat center/cover;
+  background: url(../images/adminImages/admin-bg.jpg) center/contain;
   /* box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5); */
 }
 
@@ -73,8 +73,15 @@ nav {
 
 /* global styles */
 .admin-pages__title {
-  font-family: 'Macondo', cursive;
+  font-family: 'Quicksand', cursive;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.671);
+  width: fit-content;
+  margin: auto;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border-bottom: 1px white solid;
+  border-right: 1px white solid;
 }
 
 /* =======================  A D M I N   S I D E B A R ======================= */
