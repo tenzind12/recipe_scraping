@@ -20,6 +20,13 @@ class Recipe {
         return $result;
     }
 
+    // get 5 latest recipes
+    public function getLatestRecipes() {
+        $query = "SELECT * FROM recipes ORDER BY id DESC LIMIT 5";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
     // get recipes by name like
     public function getByName($name) {
         $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' OR recipeCategory LIKE '%$name%' GROUP BY name ORDER BY id DESC";

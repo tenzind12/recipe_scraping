@@ -1,6 +1,7 @@
 :root {
   --red: #ff0505;
   --brown: #a52a2a;
+  --slightgreen: #c3dac9;
 }
 
 * {
@@ -14,10 +15,14 @@
   color: var(--red);
 }
 
+.text-slightgreen {
+  color: var(--slightgreen);
+}
+
 body {
-  min-height: 100vh;
-  background: url(../images/adminImages/admin-bg.jpg) center/contain;
-  /* box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5); */
+  /* min-height: 100vh; */
+  background: url(../images/adminImages/admin-bg.jpg) no-repeat center/cover;
+  /* box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); */
 }
 
 /* =======================  A D M I N   N A V B A R ======================= */
@@ -73,9 +78,9 @@ nav {
 
 /* global styles */
 .admin-pages__title {
-  font-family: 'Quicksand', cursive;
+  font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.671);
+  /* background: rgba(0, 0, 0, 0.671); */
   width: fit-content;
   margin: auto;
   padding: 10px 30px;
@@ -126,4 +131,36 @@ nav {
   width: 45px;
   height: 45px;
   object-fit: cover;
+}
+
+/* =======================  D A S H B O A R D (/admin/index.php) ======================= */
+
+.dashboard-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--red);
+  background-color: rgba(0, 0, 0, 0.764);
+  margin: 0;
+  text-align: right;
+  padding: 10px;
+  border-top: 1px white solid;
+  border-right: 1px white solid;
+}
+
+#latest-recipes__slides img {
+  max-height: 20rem;
+  object-fit: cover;
+}
+
+#latest-recipes__slides .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+}
+#latest-recipes__slides button {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
 }

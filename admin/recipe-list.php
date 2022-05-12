@@ -35,7 +35,7 @@
         $pagination_result = $db->query($query);
         // END PAGINATION
         ?>
-            <h2 class="text-center my-5 admin-pages__title display-4 text-red"><i class="fa-solid fa-burger pt-1 text-white"></i>&nbsp; The recipe list</h2>
+            <h2 class="text-center my-5 admin-pages__title display-4 text-slightgreen"><img src="../assets/images/icons/recipe.png" alt="recipe-list icon" style="width: 70px;">&nbsp; The recipe list</h2>
             <?= isset($deletedRecipe) ? $deletedRecipe : '' ?>
             <div class="table-responsive">
                 <table class="table table-dark table-hover">

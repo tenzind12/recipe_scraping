@@ -82,7 +82,7 @@
                  <!-- to make theme changer -->
                 <div class="form-check form-switch text-light" id="themeBtnContainer">
                     <input class="form-check-input" type="checkbox" id="themeChanger" <?php if(isset($_COOKIE['light'])) echo $_COOKIE['light'] === '1' ? 'checked' : '' ?>>
-                    <label class="form-check-label" for="flexSwitchCheckChecked"><i class="fa-regular fa-lightbulb text-warning bulb-icon"></i></label>
+                    <label class="form-check-label" for="flexSwitchCheckChecked"><i class="fa-solid fa-lightbulb bulb-icon"></i></label>
                 </div>
             </div>
         </nav>

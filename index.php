@@ -24,7 +24,7 @@
                     </div>
 
                     <input type="submit" value="Submit" name="submit" id="submitBtn" class="btn shadow border w-100 text-light">
-                    <p class=" float-end border border-1 border-secondary px-2 mt-4 rounded"><a href="./advancedSearch.php" class="text-primary">Or try our advanced search here</a></p>
+                    <p class=" float-end border border-1 border-secondary px-2 mt-4 rounded" id="advance-search__link"><a href="./advancedSearch.php" class="text-grey">Or try our advanced search here</a></p>
                 </form>
                 <!-- form ends -->
             </div>

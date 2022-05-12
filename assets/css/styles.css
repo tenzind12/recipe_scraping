@@ -3,6 +3,11 @@
   src: url('../font/Butter-Chicken.otf') format('truetype'),
     url('../font/Butter-Chicken.otp') format('opentype');
 }
+
+:root {
+  --green-primary: #019875;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +16,17 @@
 }
 
 body.theme-light {
-  /* background: url(../images/background/bg-subtle.webp) fixed;
-  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5); */
-  background-color: #d8d8d86e;
+  /* background: url(../images/background/test.webp) no-repeat fixed; */
+  box-shadow: inset 0 0 0 1000px #ffffe0b4;
+  background-color: #ebe5e5;
+
   min-height: 100vh;
 }
 
 body.theme-dark {
-  /* background: url(../images/background/bg-subtle.webp) fixed;
-  box-shadow: inset 0 0 0 1000px rgba(1, 29, 81, 0.5);
-  */
+  background: url(../images/background/bg-subtle.webp) fixed;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
+
   min-height: 100vh;
   background-color: rgb(30, 30, 30);
 }
@@ -49,7 +55,7 @@ img {
 #navbar {
   height: 100%;
   /* background-color: rgba(16, 16, 16, 0.5); */
-  background-color: #db6037;
+  background-color: var(--green-primary);
   position: relative;
 }
 
@@ -63,7 +69,7 @@ img {
 .nav-link {
   font-weight: 800;
   text-transform: uppercase;
-  color: rgb(72, 72, 72) !important;
+  color: rgb(234, 195, 23) !important;
 }
 
 .nav-link:hover {
@@ -90,12 +96,15 @@ img {
 
 .bulb-icon {
   transform: rotate(-90deg);
+  color: var(--green-primary);
 }
 
 #site-logo {
-  width: 35px;
+  width: 40px;
   border-radius: 50%;
-  background-color: white;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
 }
 
 #profile_icon {
@@ -112,7 +121,7 @@ img {
   width: 100%;
   background-color: #e7eaed;
   border-radius: 300px;
-  border-bottom: 4px solid #fd350b;
+  border-bottom: 4px solid var(--green-primary);
 }
 
 #garlic {
@@ -139,6 +148,22 @@ img {
   top: 30%;
   left: 2%;
   color: grey;
+}
+
+#submitBtn {
+  background-color: var(--green-primary);
+  padding: 10px;
+  transition: 0.1s;
+}
+
+#submitBtn:hover {
+  background-color: rgb(47, 182, 144);
+}
+
+#advance-search__link:hover,
+#advance-search__link a:hover {
+  background-color: var(--green-primary);
+  color: white;
 }
 
 /* end of index.php  (first search card) */
@@ -194,12 +219,6 @@ img {
   right: 2%;
   transform: translateY(-50%);
   /* color: grey; */
-}
-
-#submitBtn {
-  background-color: #537895;
-  padding: 10px;
-  transition: 0.1s;
 }
 
 /* ADVANCED SEARCH RESULTS */
