@@ -172,3 +172,8 @@ nav {
   border-radius: 50%;
   margin: auto;
 }
+
+#no-search--result {
+  max-height: 20rem;
+  object-fit: cover;
+}

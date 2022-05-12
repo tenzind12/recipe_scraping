@@ -71,6 +71,13 @@
                 </tbody>
 <?php
                 }
+            } else {
+                echo '
+                <div class="row m-0">
+                    <p class="col text-light fs-5">Sorry, we couldn\'t find what you are looking for. Please try another keyword.</p>
+                    <img src="../assets/images/gifs/no-results.gif" class="col " alt="no results found" id="no-search--result"/>
+                </div>
+                ';
             }
         }
 ?>
