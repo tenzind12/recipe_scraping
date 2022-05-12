@@ -13,7 +13,7 @@
     <div class="row">
       <!-- L A T E S T   R E C I P E S -->
       <div id="latest-recipes__slides" class="carousel slide col-lg-7" data-bs-ride="carousel">
-        <h3 class="dashboard-subtitle">Recently added</h3>
+        <h3 class="dashboard-subtitle">Latest recipes</h3>
         <div class="carousel-inner">
           <?php
             $i=0;

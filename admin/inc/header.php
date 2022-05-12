@@ -37,7 +37,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light border-bottom p-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" style="width:25px" class="bg-white rounded"/> <span class="text-red">Recipie</span></a>
+            <a class="navbar-brand" href="index.php"><img src="/recipe-php/assets/images/icons/pie.png" alt="pie icon" id="site-logo" class="bg-white"/> <span class="text-red">Recipie</span></a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,14 +59,14 @@
         <?php if(Session::get('adminLogin')) { ?>
             <div class="col-md-3" id="admin-sidebar">
                 <!-- admin icon and name -->
-                <div class="row mt-3">
+                <div class="row mt-3 p-3">
                     <div class="col-3 m-auto">
                         <img class="bg-light" src="../assets/images/adminImages/admin.png" id="admin-profile-icon" alt="admin photo">
                     </div>
                     <div class="col-8 text-center">
                         <h4 class="text-light"><?= Session::get('adminName') ?></h4>
                         <p class="text-light"><span id="online-symbol">&#128994;</span> Online</p>
-                        <a class="link-danger btn-sm btn-dark w-100 ms-3" href="?logout=true">Logout</a>
+                        <a class="link-white btn btn-danger ms-3" href="?logout=true">Logout</a>
                     </div>
                 </div>
 
@@ -81,6 +81,8 @@
 
             </div>
         <?php } ?> 
+
+        <!-- admin main page container -->
             <div class="col-md-9">
 
         

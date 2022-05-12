@@ -21,7 +21,7 @@ class User {
 
         $emailQuery = "SELECT email FROM users WHERE email = '$email'";
         $emailResult = $this->db->query($emailQuery);
-        if(mysqli_num_rows($emailResult) > 0) {
+        if($emailResult != null) {
             $msg = $this->class_helper->alertMessage('danger','Sign up failed !', 'Email already exists');
             return $msg;
         }
