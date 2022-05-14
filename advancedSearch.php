@@ -54,7 +54,7 @@
             </select>
         </div>
 
-        <input type="submit" value="Submit" name="submit" class="btn btn-outline-danger mt-3 w-100">
+        <input type="submit" value="Submit" name="submit" class="btn btn-outline-success mt-3 w-100">
     </form>
     <!-- form ends -->
 </div>

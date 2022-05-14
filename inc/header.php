@@ -1,12 +1,12 @@
 <?php 
     include __DIR__.'/../core/connection/Session.php';
+    Session::init();
     include __DIR__.'/../core/classes/Recipe.class.php';
     include __DIR__.'/../core/classes/User.class.php';
     include __DIR__.'/../core/helpers/Format.class.php';
     include __DIR__.'/../core/classes/Bookmark.class.php';
     include __DIR__.'/../core/classes/Donation.class.php';
     
-    Session::init();
     $recipes = new Recipe();
     $user = new User();
     $format = new Format();

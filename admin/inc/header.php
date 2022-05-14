@@ -14,12 +14,7 @@
     $format = new Format();
     $recipes = new Recipe();
 ?>
-<?php 
-    if(isset($_GET['logout'])) Session::destroy(); 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
-        header('Location: search.php?search='.$_POST['search']);
-    }
-?>
+<?php if(isset($_GET['logout'])) Session::destroy(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +39,7 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form method="POST" class="d-flex" id="admin__search--bar">
+                <form method="GET" action="search.php" class="d-flex" id="admin__search--bar">
                     <input name="search" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
                     <button class="btn" id="admin__search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>

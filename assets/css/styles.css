@@ -19,14 +19,12 @@ body.theme-light {
   /* background: url(../images/background/test.webp) no-repeat fixed; */
   box-shadow: inset 0 0 0 1000px #ffffe0b4;
   background-color: #ebe5e5;
-
   min-height: 100vh;
 }
 
 body.theme-dark {
   background: url(../images/background/bg-subtle.webp) fixed;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
-
   min-height: 100vh;
   background-color: rgb(30, 30, 30);
 }
@@ -69,7 +67,7 @@ img {
 .nav-link {
   font-weight: 800;
   text-transform: uppercase;
-  color: rgb(234, 195, 23) !important;
+  /* color: rgb(234, 195, 23) !important; */
 }
 
 .nav-link:hover {
@@ -152,7 +150,7 @@ img {
 
 #submitBtn {
   background-color: var(--green-primary);
-  padding: 10px;
+  /* padding: 10px; */
   transition: 0.1s;
 }
 

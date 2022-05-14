@@ -55,7 +55,9 @@
                   <div class="fw-bold"><?= $rows['name'] ?></div>
                   Account created at: <?= $rows['created_at'] ?>
                 </div>
-                <span><img src="../assets/images/users/<?= $rows['image'] ?>" alt="<?= $rows['name']?>" style="width:50px;" ></span>
+                <span>
+                  <img src="../assets/images/users/<?= isset($rows['image']) ? $rows['image'] : 'guest-profile.jpg' ?>" alt="<?= $rows['name']?>" style="width:50px;" >
+                </span>
               </li>
           <?php
             }
