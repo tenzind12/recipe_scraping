@@ -6,12 +6,14 @@
     include __DIR__.'/../core/helpers/Format.class.php';
     include __DIR__.'/../core/classes/Bookmark.class.php';
     include __DIR__.'/../core/classes/Donation.class.php';
+    include __DIR__.'/../core/classes/Email.class.php';
     
     $recipes = new Recipe();
     $user = new User();
     $format = new Format();
     $bookmark = new Bookmark();
     $donation = new Donation();
+    $emailForm = new EmailForm();
 
     // L O G O U T   F U N C T I O N
     if(isset($_GET['logoutId'])) {
