@@ -440,6 +440,11 @@ img {
   place-items: center;
 }
 
+#about-us__image_container {
+  display: grid;
+  place-items: center;
+}
+
 #rest-api {
   position: absolute;
   top: 109px;
