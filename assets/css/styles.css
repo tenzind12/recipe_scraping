@@ -45,6 +45,9 @@ p {
 .text-grey {
   color: #777;
 }
+.text-green {
+  color: var(--green-primary);
+}
 
 img {
   width: 100%;

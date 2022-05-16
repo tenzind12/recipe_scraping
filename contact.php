@@ -48,6 +48,11 @@
 
                     <h4 class="text-success">Based in</h4>
                     <p class="text-secondary"><i class="fa-solid fa-map-location-dot"></i> Bourges, Centre-Val-De-Loire</p>
+
+                    <a href="#">
+                        <img src="./assets/images/icons/android.png" alt="android icon" style="width: 32px">
+                        <span class="text-green">Get our app</span>
+                    </a>
                 </div>
             </div>
         </div>

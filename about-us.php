@@ -3,8 +3,13 @@
 <div id="about-us__container">
     <div class="row m-0">
         <div class="col-sm-6 mt-5">
-            <h2 class="text-grey">About us</h2>
+            <h2 class="text-green">About us</h2>
             <p class="text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+            <a href="#">
+                <img src="./assets/images/icons/android.png" alt="android icon" style="width: 32px">
+                <span class="text-green">Get our app</span>
+            </a>
         </div>
         <div class="col-sm-6" id="about-us__image_container">
             <img src="./assets/images/about-us.png" alt="cartoon group employees" style="max-width: 500px; ">
