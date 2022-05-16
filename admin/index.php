@@ -10,12 +10,12 @@
   $donations = $donation->getDonation();
 ?>
 
-    <h1 class="text-center my-5 admin-pages__title display-4 text-slightgreen">dashboard</h1>
+    <h1 class="text-center my-5 admin-pages__title display-4 text-darkblue">dashboard</h1>
 
     <!-- chart -->
-    <div class="">
+    <div class="row">
       <h2 class="text-light">Donation stats</h2>
-      <script type="text/javascript" class="col-12">
+      <script type="text/javascript" class="col-sm-8">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawVisualization);
 
@@ -38,7 +38,7 @@
           var options = {
             title : 'Daily Donation Amounts',
             vAxis: {title: 'Amount in €'},
-            hAxis: {title: 'Date'},
+            hAxis: {title: 'Y - M - D'},
             seriesType: 'column',
             series: {5: {type: 'line'}},
           };
@@ -47,7 +47,7 @@
           chart.draw(data, options);
         }
       </script>
-      <div id="chart_div" style="width: auto; height: 500px;"></div>
+      <div id="chart_div"></div>
     </div>
     <!-- end chart -->
 

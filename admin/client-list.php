@@ -8,7 +8,7 @@
     }
 ?>
 
-    <h2 class="text-center my-5 admin-pages__title display-4 text-slightgreen"><img src="../assets/images/icons/client.png" alt="client-list icon" style="width: 70px;">&nbsp; Clients lists</h2>
+    <h2 class="text-center my-5 admin-pages__title display-4 text-darkblue"><img src="../assets/images/icons/client.png" alt="client-list icon" style="width: 70px;">&nbsp; Clients lists</h2>
     <?= isset($user_deleted) ? $user_deleted : '' ?>
     <div class="table-responsive">
         <table class="table table-dark table-hover">
