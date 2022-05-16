@@ -6,8 +6,10 @@
         $last_name = $format->validation($_GET['last_name']);
         $email = $format->validation($_GET['email']);
         $amount = $format->validation($_GET['amount']);
+        $date = date("Y-m-d");
 
-        $donation_message = $donation->storeDonation($paymentId, $first_name, $last_name, $email, $amount);
+
+        $donation_message = $donation->storeDonation($paymentId, $first_name, $last_name, $email, $amount, $date);
     }
 
 ?>

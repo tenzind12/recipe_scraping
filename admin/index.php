@@ -6,11 +6,52 @@
   $latest_recipes = $recipes->getLatestRecipes();
   $users = new User();
   $latest_users = $users->get_all_users();
+  $donation = new Donation();
+  $donations = $donation->getDonation();
 ?>
 
     <h1 class="text-center my-5 admin-pages__title display-4 text-slightgreen">dashboard</h1>
 
-    <div class="row">
+    <!-- chart -->
+    <div class="">
+      <h2 class="text-light">Donation stats</h2>
+      <script type="text/javascript" class="col-12">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+          // Some raw data (not necessarily accurate)
+          var data = google.visualization.arrayToDataTable([
+            ['Day', 'Donation', {role : 'annotation'}],
+            <?php
+              while($rows = $donations->fetch_assoc()) {
+                $date = $rows['date'];
+                $amount = $rows['amount'];
+                if($date == date('Y-m-d')) $date = 'Today';
+                else if ($date == date('Y-m-d', strtotime('-1 days'))) $date = 'Yesterday';
+                else $date = $date;
+                echo "['".$date."', ".$amount.", " . $amount . "],";
+              }
+            ?>
+          ]);
+
+          var options = {
+            title : 'Daily Donation Amounts',
+            vAxis: {title: 'Amount in €'},
+            hAxis: {title: 'Date'},
+            seriesType: 'column',
+            series: {5: {type: 'line'}},
+          };
+
+          var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+      </script>
+      <div id="chart_div" style="width: auto; height: 500px;"></div>
+    </div>
+    <!-- end chart -->
+
+    <div class="row my-5">
       <!-- L A T E S T   R E C I P E S -->
       <div id="latest-recipes__slides" class="carousel slide col-lg-7" data-bs-ride="carousel">
         <h3 class="dashboard-subtitle">Latest recipes</h3>

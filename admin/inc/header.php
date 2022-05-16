@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.css"/ >
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Recipie ---Admin</title>
 </head>
 <body>
