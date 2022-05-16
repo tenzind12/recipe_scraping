@@ -369,12 +369,6 @@ img {
 
 /* ============================= C O N T A C T   P A G E ============================= */
 
-#contact-gif {
-  max-height: 500px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
 #contact-title {
   font-family: butterChicken;
   margin-top: 61px !important;
@@ -442,25 +436,24 @@ img {
 /* ============================= A B O U T   U S   P A G E ============================= */
 #about-us__container {
   min-height: calc(100vh - 92px);
-  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.3);
   display: grid;
   place-items: center;
 }
 
 #rest-api {
-  color: white;
   position: absolute;
-  bottom: 0;
-  right: 10px;
+  top: 109px;
+  right: 0;
   width: 20%;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
+  background-color: rgba(0, 0, 0);
+  /* text-align: center; */
+  color: #777;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 560px) {
   #rest-api {
     width: 100%;
-    background-color: transparent;
+    /* background-color: transparent; */
     text-align: center;
   }
 }

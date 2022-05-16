@@ -104,9 +104,6 @@ nav {
   /* background: url(../images/adminImages/sidebar.jpg); */
 }
 
-#admin-sidebar div:first-of-type {
-  /* background: url(../images/adminImages/admin-name.jfif) center/cover; */
-}
 #admin-profile-icon {
   width: 50px;
   border-radius: 50%;
