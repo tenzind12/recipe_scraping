@@ -39,7 +39,12 @@ include './inc/header.php';
                         <!-- author and rating -->
                         <div class="d-sm-flex justify-content-between m-4">
                             <div class="d-flex flex-column">
-                                <h3 class=" text-success">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-grey"><?= ucfirst($rows['author']) ?></a></h3>
+                                <h3 class=" text-grey">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-success"><?= ucfirst($rows['author']) ?></a></h3>
+                                <small class="text-grey">Category : 
+                                    <a class="link-success" href="recipe-by-category.php?category=<?= $format->extractCategory($rows['recipeCategory']) ?>" >
+                                        <u><?= $format->extractCategory($rows['recipeCategory'])?></u> 
+                                    </a>
+                                </small>
                                 <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small style="word-wrap: break-word;"><?= $rows['url'] ?></small></a></u>
                             </div>
                             <div class="text-grey" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> <span class="text-grey">(<?= $rows['reviewCount'] ?>)</span></div>

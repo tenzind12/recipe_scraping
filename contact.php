@@ -23,24 +23,26 @@
             <p class="text-danger"><?=  isset($emailSend) ? $emailSend : '' ?></p>
 
             <div class="row m-auto">
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="contact_form col-lg-8">
+                <div class="col-lg-8">
+                    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="contact_form">
 
-                    <div class="name_input">
-                        <input class="text-grey" type="text" name="fullname" placeholder="Full Name"/>
-                        <i class="fa-solid fa-user text-secondary"></i>
-                    </div>
+                        <div class="name_input">
+                            <input class="text-grey" type="text" name="fullname" placeholder="Full Name"/>
+                            <i class="fa-solid fa-user text-secondary"></i>
+                        </div>
 
-                    <div class="email_input">
-                        <input class="text-grey" name="email" placeholder="E-mail"/>
-                        <i class="fa-solid fa-at text-secondary"></i>
-                    </div>
+                        <div class="email_input">
+                            <input class="text-grey" name="email" placeholder="E-mail"/>
+                            <i class="fa-solid fa-at text-secondary"></i>
+                        </div>
 
-                    <div class="message_input">
-                        <input class="text-grey" type="text" name="message" placeholder="Message"/>
-                        <i class="fa-solid fa-envelope-open-text text-secondary"></i>
-                    </div>
-                    <button name="send" type="submit" class="btn btn-outline-success w-50 mt-5 rounded-pill">Send</button>
-                </form>
+                        <div class="message_input">
+                            <input class="text-grey" type="text" name="message" placeholder="Message"/>
+                            <i class="fa-solid fa-envelope-open-text text-secondary"></i>
+                        </div>
+                        <button name="send" type="submit" class="btn btn-outline-success w-50 mt-5 rounded-pill">Send</button>
+                    </form>
+                </div>
 
                 <div class="col-lg-4 mt-3">
                     <h4 class="text-success">Email</h4> 
@@ -48,15 +50,11 @@
 
                     <h4 class="text-success">Based in</h4>
                     <p class="text-secondary"><i class="fa-solid fa-map-location-dot"></i> Bourges, Centre-Val-De-Loire</p>
-
-                    <!-- android ilnk -->
-                    <a href="#">
-                        <img src="./assets/images/icons/android.png" alt="android icon" style="width: 32px">
-                        <span class="text-green">Get our app</span>
-                    </a>
                 </div>
             </div>
         </div>
+
+        
     </div>
 
 <?php include './inc/footer.php'; ?>

@@ -82,7 +82,7 @@
                 <!-- buttons -->
                 <div class="d-flex mt-3">
                     <a href="?edit=<?= Session::get('userId') ?>" class="btn btn-sm btn-success border w-50">Edit Information</a>
-                    <a href="?delete-user=<?= Session::get('userId') ?>" class="btn btn-sm btn-danger border w-50">Delete Account</a>
+                    <a onclick="return confirm('Are you sure?')" href="?delete-user=<?= Session::get('userId') ?>" class="btn btn-sm btn-danger border w-50">Delete Account</a>
                 </div>
             <?php
                 }
@@ -199,6 +199,4 @@
     </div>
 
 </div>
-
-
 <?php include './inc/footer.php'; ?>
