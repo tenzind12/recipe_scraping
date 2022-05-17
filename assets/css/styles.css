@@ -337,17 +337,26 @@ img {
   border-right: 1px solid #777;
 }
 
-#recipe-details__printContainer {
+#recipe-details__linkContainer {
   padding: 10px;
 }
 
-#recipe-details__printContainer a {
+#recipe-details__linkContainer a {
   color: white;
 }
 
-#recipe-details__printContainer a:hover {
+#recipe-details__linkContainer a:hover {
   color: #537895;
   text-decoration: underline;
+}
+
+#recipe-details__linkContainer #fb-link {
+  margin: 0 20px;
+}
+
+.recipe-details__icons {
+  width: 22px;
+  margin-left: 12px;
 }
 
 #recipe-details__description {
@@ -448,6 +457,11 @@ img {
   place-items: center;
 }
 
+.about-us__icons {
+  width: 22px;
+  margin-left: 12px;
+}
+
 #rest-api {
   position: absolute;
   top: 109px;
@@ -466,6 +480,7 @@ img {
   }
 }
 
+/* ============================== S E A R C H   P A G E ============================== */
 .noodle {
   font-family: sans-serif;
   font-size: 56px;

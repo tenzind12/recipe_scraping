@@ -40,7 +40,7 @@ include './inc/header.php';
                         <div class="d-sm-flex justify-content-between m-4">
                             <div class="d-flex flex-column">
                                 <h3 class=" text-success">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-grey"><?= ucfirst($rows['author']) ?></a></h3>
-                                <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small><?= $rows['url'] ?></small></a></u>
+                                <u><a href="<?= $rows['url'] ?>" target="_blank" class="link-secondary"> <small style="word-wrap: break-word;"><?= $rows['url'] ?></small></a></u>
                             </div>
                             <div class="text-grey" id="star-container"><?= $format->generateStars($rows['rating']),$format->emptyStars($rows['rating']) ?> <span class="text-grey">(<?= $rows['reviewCount'] ?>)</span></div>
                         </div>
@@ -86,10 +86,23 @@ include './inc/header.php';
                         <p class="text-grey p-3" id="recipe-details__description"><?= $rows['description'] ?></p>
 
                         <!-- print icon -->
-                        <div id="recipe-details__printContainer">
+                        <div id="recipe-details__linkContainer">
                             <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
-                            <a href="https://www.facebook.com/share.php?u=https://test.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" target="_blank"><img style="width: 32px;" src="./assets/images/icons/facebook.png" /></a>
+                            <a href="https://www.facebook.com/share.php?u=https://recipie.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" target="_blank" id="fb-link"><img class="recipe-details__icons" src="./assets/images/icons/facebook.png" /></a>
+                            
+                            <!-- android ilnk -->
+                            <a href="#">
+                                <img src="./assets/images/icons/android.png" alt="android icon" class="recipe-details__icons">
+                                <span class="text-green">Download App</span>
+                            </a>
+
+                            <!-- Whatsapp share -->
+                            <a href="whatsapp://send?text=https://www.facebook.com/share.php?u=https://recipie.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" data-action="share/whatsapp/share">
+                                <img src="./assets/images/icons/whatsapp.png" alt="whatsapp icon" class="recipe-details__icons">
+                            </a>
+
                         </div>
+
                 
                         <!-- two cols for ingredients and directions -->
                         <div class="row m-0" id="recipe-details__ingredient_direction">

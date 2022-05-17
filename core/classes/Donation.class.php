@@ -23,6 +23,9 @@
             if($donation_saved) {
                 $msg = $this->class_helper->alertMessage('warning', 'Success !', 'We received your donation of ' . $amount . ' €');
                 return $msg;
+            } else {
+                $msg = $this->class_helper->alertMessage('danger', 'Failed !', 'Donation failed. Please try again !');
+                return $msg;
             }
         }
 
