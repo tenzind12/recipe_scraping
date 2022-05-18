@@ -94,8 +94,8 @@ nav {
   margin: auto;
   padding: 10px 30px;
   border-radius: 10px;
-  border-bottom: 1px white solid;
-  border-right: 1px white solid;
+  border-bottom: 1px #002e36 solid;
+  border-right: 1px #002e36 solid;
 }
 
 /* =======================  A D M I N   S I D E B A R ======================= */
@@ -150,8 +150,6 @@ nav {
   margin: 0;
   text-align: right;
   padding: 10px;
-  border-top: 1px white solid;
-  border-right: 1px white solid;
 }
 
 #latest-recipes__slides img {
