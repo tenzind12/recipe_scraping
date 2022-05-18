@@ -1,68 +1,67 @@
-<?php 
-    include './inc/header.php';
+<?php
+include './inc/header.php';
 ?>
 
-    <?php
-        if($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
-            if(!empty($_GET['ingredient'])) {
-                $name = $format->validation($_GET['ingredient']);
-                $result = $recipes->getByName($name);
+<?php
+if ($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
+    if (!empty($_GET['ingredient'])) {
+        $userInput = $format->validation($_GET['ingredient']);
+        $result = $recipes->getByNameOrCategory($userInput);
 
-                if($result) {
-    ?>
-                    <h1 class="text-center py-5 text-danger" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp; 
-                        Recipe results for <b class="text-orange"><?= $name ?></b> 
-                        <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
-                    </h1>
-                    
-                    <div class="card-container">
-    <?php
-                    while($rows = $result->fetch_assoc()) {
-    ?>
-                        <div class="position-relative row rounded each-card">
-                            <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
-                                <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
+        if ($result) {
+?>
+            <h1 class="text-center py-5 text-danger" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp;
+                Recipe results for <b class="text-orange"><?= $userInput ?></b>
+                <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
+            </h1>
+
+            <div class="card-container">
+                <?php
+                while ($rows = $result->fetch_assoc()) {
+                ?>
+                    <div class="position-relative row rounded each-card">
+                        <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
+                            <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
+                        </a>
+                        <div class="card-body col-sm-8">
+                            <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null">
+                                <h2 class="card-title"><?= $rows['name'] ?></h2>
                             </a>
-                            <div class="card-body col-sm-8">
-                                <!-- <div class="d-flex"> -->
-                                <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null"><h2 class="card-title"><?= $rows['name'] ?></h2></a>
-                                <p><?php $format->generateStars($rows['rating']); $format->emptyStars($rows['rating']); ?><span class="text-white">&nbsp;<?= $rows['reviewCount'] ?></span></p>
-                                <!-- </div> -->
-                                <div class="card-text">
-                                    <p><?= $format->shortenText($rows['description'], 150) ?></p>
-                                </div>
-                                <!-- test --> <input type="hidden" name="refresh">
-                                <p class="position-absolute end-0 bottom-0 m-3 text-warning">By 
-                                    <a href="recipe-by-author.php?author=<?= $rows['author']  ?>" class="fw-bold" id="recipe-list__author"><?= ucfirst($rows['author']) ?></a>
-                                </p>
+                            <p><?php $format->generateStars($rows['rating']);
+                                $format->emptyStars($rows['rating']); ?><span class="text-white">&nbsp;<?= $rows['reviewCount'] ?></span></p>
+                            <div class="card-text">
+                                <p><?= $format->shortenText($rows['description'], 150) ?></p>
                             </div>
+                            <!-- test --> <input type="hidden" name="refresh">
+                            <p class="position-absolute end-0 bottom-0 m-3 text-warning">By
+                                <a href="recipe-by-author.php?author=<?= $rows['author']  ?>" class="fw-bold" id="recipe-list__author"><?= ucfirst($rows['author']) ?></a>
+                            </p>
                         </div>
-    <?php
-                    }
-    ?>
                     </div>
-    <?php
-                } else {
-                    echo '
+                <?php
+                }
+                ?>
+            </div>
+        <?php
+        } else {
+            echo '
                     <div class="d-flex flex-column pt-4 pb-5">
                         <p class="text-center text-grey">We couldn\'t find any matching recipe. Let\'s<a href="index.php" class="text-warning">&nbsp;go back</a> :)</p>
                         <img src="./assets/images/found_nothing.png" alt="nothing found" id=\'nothing_image\'/>
                     </div>
                     ';
-
-                }
-            }
-            else {
-    ?>
-                <div class="d-flex flex-column pt-4 pb-5">
-                    <p class="text-center text-grey">Please enter something. Let's<a href="index.php" class="text-warning">&nbsp;try again</a> :)</p>
-                    <img src="./assets/images/found_nothing.png" alt="nothing found" id='nothing_image'/>
-                </div>
-    <?php
-            };
         }
+    } else {
+        ?>
+        <div class="d-flex flex-column pt-4 pb-5">
+            <p class="text-center text-grey">Please enter something. Let's<a href="index.php" class="text-warning">&nbsp;try again</a> :)</p>
+            <img src="./assets/images/found_nothing.png" alt="nothing found" id='nothing_image' />
+        </div>
+<?php
+    };
+}
 
-    ?>
+?>
 
 
 
