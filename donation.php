@@ -12,16 +12,17 @@
     }
 
 ?>
-    <div id="donation-container">
-        <div id="donation-body">
+    <div id="donation-container" class="row m-0">
+        <!-- paypal section -->
+        <div class="col-sm-6" id="donation-body">
             <?= isset($donation_message) ? $donation_message : '' ?>
-            <h3>RAISE YOUR HELPING HANDS FOR POOR PEOPLE</h3>
-            <h2 class="display-6 mt-4">DONATE FOR THE POOR CHILDREN</h2>
-            <p class="text-center my-4 text-light">Hundreds of thousands of children experiencing or witnessing assault and other gender-based violence.</p>
-    
             <!-- donation dropdown input -->
-            <select class="form-select w-25 mb-3" aria-label="Default select example" onchange="donationHandler();" id="donation-amount">
-                <option selected disabled>Select a donation amount</option>
+            <div class="coffee-image mb-5" id="donate-icon__container">
+                <img src="./assets/images/donate.png" alt="big coffee"/>
+            </div>
+
+            <select class="form-select w-50 mb-3" aria-label="Default select example" onchange="donationHandler();" id="donation-amount">
+                <option selected disabled>Buy me a COFFEE?</option>
                 <option value="5">5€</option>
                 <option value="10">10€</option>
                 <option value="20">20€</option>
@@ -31,8 +32,24 @@
             <input type="hidden" id="amount">
 
             <!-- container to render the paypal button -->
-            <div id="paypal-button" class="btn btn-sm"></div>
+            <div id="paypal-btn__container">
+                <div id="paypal-button" class="btn btn-sm"></div>
+            </div>
 
+        </div>
+
+        <!-- donation image section -->
+        <div class="col-sm-6" id="donation-image__container">
+            <div class="h-50 first-column">
+                <h2>Are you enjoying the content<br> on RECIPIE.TENZIN.EU?</h2>
+                <img src="./assets/images/donation.png" alt="donation icon" />
+            </div>
+            <div class="row second-column">
+                <h2 class="col-sm-6 my-auto ">
+                    Please show your support by buying me a cup of coffee or two...  :)
+                </h2>
+                <img class="col-sm-6 d-none d-sm-block" src="./assets/images/cup.png" alt="big coffee" />
+            </div>
         </div>
     </div>
 

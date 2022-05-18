@@ -420,27 +420,63 @@ img {
 /* ============================= D O N A T I O N   P A G E ============================= */
 #donation-container {
   min-height: calc(100vh - 92px);
-  box-shadow: inset 0 0 0 1000px rgba(28, 28, 54, 0.6);
-  background: url(../images/background/donation.jpg) no-repeat center/cover;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  justify-content: center;
 }
 
 #donation-body {
-  text-align: center;
-  color: aliceblue;
-  width: fit-content;
-  background-color: rgba(0, 0, 0, 0.36);
+  /* background-color: rgba(0, 0, 0, 0.36); */
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  border: rgb(85, 85, 85) 1px solid;
+  /* border: rgb(85, 85, 85) 1px solid; */
+}
+
+#donate-icon__container {
+  display: grid;
+  place-items: center;
+}
+
+#donate-icon__container img {
+  max-width: 200px;
+}
+
+#paypal-btn__container {
+  display: grid;
+  place-items: center;
+}
+
+#donation-image__container {
+  background-color: #8bc34a;
+}
+
+#donation-image__container .first-column {
+  display: flex;
+  align-items: center;
+}
+
+#donation-image__container .first-column h2 {
+  font-family: Shadows Into Light;
+  transform: rotate(-20deg);
+}
+
+#donation-image__container .first-column img {
+  max-width: 64px;
+  transform: rotate(45deg);
+  margin-left: 20px;
+}
+
+#donation-image__container .second-column h2 {
+  font-family: Shadows Into Light, cursive;
+}
+
+#donation-image__container .second-column img {
+  max-width: 200px;
+  object-fit: contain;
 }
 
 #donation-container h2 {
-  text-decoration: underline solid #e98d1d;
-  text-underline-offset: 0.2em;
 }
 
 #donation-amount {
