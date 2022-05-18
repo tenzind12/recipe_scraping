@@ -20,7 +20,6 @@ const getUrlData = (url) => {
         const domParse = parser.parseFromString(data, 'text/html'); //string to DOM Document
         const allScriptTags = domParse.querySelectorAll('script'); // catch all the scripts in DOM [nodelists]
         const scriptTagsArrs = Array.from(allScriptTags); // convert nodelist to arrays to use loop
-        console.log(scriptTagsArrs);
         const targetScript = scriptTagsArrs.filter(
           (script) => script.type === 'application/ld+json'
         );

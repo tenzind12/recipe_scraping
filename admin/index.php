@@ -28,7 +28,7 @@
                 $date = $rows['date'];
                 $amount = $rows['amount'];
                 if($date == date('Y-m-d')) $date = 'Today';
-                else if ($date == date('Y-m-d', strtotime('-1 days'))) $date = 'Yesterday';
+                // else if ($date == date('Y-m-d', strtotime('-1 days'))) $date = 'Yesterday';
                 else $date = $date;
                 echo "['".$date."', ".$amount.", " . $amount . "],";
               }
@@ -39,7 +39,7 @@
             title : 'Daily Donation Amounts',
             vAxis: {title: 'Amount in €'},
             hAxis: {title: 'Y - M - D'},
-            seriesType: 'column',
+            seriesType: 'bars',
             series: {5: {type: 'line'}},
           };
 
