@@ -3,10 +3,11 @@ include './inc/header.php';
 ?>
 
 <?php
-if ($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
-    if (!empty($_GET['ingredient'])) {
+if ($_SERVER['REQUEST_METHOD']  == "GET") {
+    if (!empty($_GET['ingredient']) && isset($_GET['submit'])) {
         $userInput = $format->validation($_GET['ingredient']);
         $result = $recipes->getByNameOrCategory($userInput);
+        $catList = $recipes->getByNameOrCategory($userInput);
 
         if ($result) {
 ?>
@@ -14,6 +15,19 @@ if ($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
                 Recipe results for <b class="text-orange"><?= $userInput ?></b>
                 <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
             </h1>
+
+            <?php
+            $allCategories = array();
+            while ($rows = $catList->fetch_array()) {
+                array_push($allCategories, $rows['recipeCategory']);
+            }
+
+            foreach (array_unique($allCategories) as $category) {
+            ?>
+                <a href="?name=<?= $userInput ?>&category=<?= $category ?>" class="badge bg-primary" type="button"><?= $format->extractCategory($category) ?></a>
+            <?php
+            }
+            ?>
 
             <div class="card-container">
                 <?php
@@ -50,6 +64,62 @@ if ($_SERVER['REQUEST_METHOD']  == "GET" && isset($_GET['submit'])) {
                         <img src="./assets/images/found_nothing.png" alt="nothing found" id=\'nothing_image\'/>
                     </div>
                     ';
+        }
+    } elseif (isset($_GET['name']) && isset($_GET['category'])) {
+        $userInput = $format->validation($_GET['name']);
+        $category = $format->validation($_GET['category']);
+        $result = $recipes->filteredRecipesByCategory($userInput, $category);
+
+        if ($result) {
+        ?>
+            <h1 class="text-center py-5 text-danger" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp;
+                Recipe results for <b class="text-orange"><?= $userInput ?></b>
+                <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
+            </h1>
+
+            <?php
+            if (isset($catList)) {
+                $allCategories = array();
+                while ($rows = $catList->fetch_array()) {
+                    array_push($allCategories, $rows['recipeCategory']);
+                }
+
+                foreach (array_unique($allCategories) as $category) {
+            ?>
+                    <a href="?name=<?= $userInput ?>&category=<?= $category ?>" class="badge bg-primary" type="button"><?= $format->extractCategory($category) ?></a>
+            <?php
+                }
+            }
+            ?>
+
+            <div class="card-container">
+                <?php
+                while ($rows = $result->fetch_assoc()) {
+                ?>
+                    <div class="position-relative row rounded each-card">
+                        <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null" class="col-sm-4 p-0">
+                            <img class="card-image" src="<?= $format->extractImage($rows['image']) ?>" alt="<?= $rows['name'] ?>">
+                        </a>
+                        <div class="card-body col-sm-8">
+                            <a href="recipe-details.php?id=<?= $rows['id'] ?>&name=null">
+                                <h2 class="card-title"><?= $rows['name'] ?></h2>
+                            </a>
+                            <p><?php $format->generateStars($rows['rating']);
+                                $format->emptyStars($rows['rating']); ?><span class="text-white">&nbsp;<?= $rows['reviewCount'] ?></span></p>
+                            <div class="card-text">
+                                <p><?= $format->shortenText($rows['description'], 150) ?></p>
+                            </div>
+                            <!-- test --> <input type="hidden" name="refresh">
+                            <p class="position-absolute end-0 bottom-0 m-3 text-warning">By
+                                <a href="recipe-by-author.php?author=<?= $rows['author']  ?>" class="fw-bold" id="recipe-list__author"><?= ucfirst($rows['author']) ?></a>
+                            </p>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+        <?php
         }
     } else {
         ?>

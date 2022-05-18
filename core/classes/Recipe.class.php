@@ -39,6 +39,14 @@ class Recipe
         return $result;
     }
 
+    // get recipes where name like chicken and category specific
+    public function filteredRecipesByCategory($name, $category)
+    {
+        $query = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND recipeCategory LIKE '%$category%' GROUP BY name ORDER BY id DESC";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
     // get recipes by id (recipe details.php)
     public function getByIdOrName($id, $name)
     {
