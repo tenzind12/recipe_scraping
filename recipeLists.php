@@ -4,7 +4,7 @@ include './inc/header.php';
 
 <?php
 if ($_SERVER['REQUEST_METHOD']  == "GET") {
-    if (!empty($_GET['ingredient']) && isset($_GET['submit'])) {
+    if (!empty($_GET['ingredient']) && isset($_GET['submit'])) { // 
         $userInput = $format->validation($_GET['ingredient']);
         $result = $recipes->getByNameOrCategory($userInput);
         $catList = $recipes->getByNameOrCategory($userInput);
@@ -16,18 +16,26 @@ if ($_SERVER['REQUEST_METHOD']  == "GET") {
                 <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
             </h1>
 
-            <?php
-            $allCategories = array();
-            while ($rows = $catList->fetch_array()) {
-                array_push($allCategories, $rows['recipeCategory']);
-            }
+            <!-- display unique list of categories as clickable badges -->
+            <div class="text-center">
+                <p class="text-grey ms-3 mb-0 fw-bold">FILTER BY</p>
+                <?php
+                // storing all the categories
+                $allCategories = array();
+                while ($rows = $catList->fetch_array()) {
+                    $category = $rows['recipeCategory'];
+                    if ($category[0] != '<') array_push($allCategories, $rows['recipeCategory']);
+                }
 
-            foreach (array_unique($allCategories) as $category) {
-            ?>
-                <a href="?name=<?= $userInput ?>&category=<?= $category ?>" class="badge bg-primary" type="button"><?= $format->extractCategory($category) ?></a>
-            <?php
-            }
-            ?>
+                foreach (array_unique($allCategories) as $category) {
+                ?>
+                    <a href="?name=<?= $userInput ?>&category=<?= $category ?>" class="badge bg-primary" type="button">
+                        <?= $format->extractCategory($category) ?>
+                    </a>
+                <?php
+                }
+                ?>
+            </div>
 
             <div class="card-container">
                 <?php
@@ -65,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD']  == "GET") {
                     </div>
                     ';
         }
-    } elseif (isset($_GET['name']) && isset($_GET['category'])) {
+    } elseif (isset($_GET['name']) && isset($_GET['category'])) { // Re-rendering the page with new filtered result
         $userInput = $format->validation($_GET['name']);
         $category = $format->validation($_GET['category']);
         $result = $recipes->filteredRecipesByCategory($userInput, $category);
@@ -76,21 +84,6 @@ if ($_SERVER['REQUEST_METHOD']  == "GET") {
                 Recipe results for <b class="text-orange"><?= $userInput ?></b>
                 <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
             </h1>
-
-            <?php
-            if (isset($catList)) {
-                $allCategories = array();
-                while ($rows = $catList->fetch_array()) {
-                    array_push($allCategories, $rows['recipeCategory']);
-                }
-
-                foreach (array_unique($allCategories) as $category) {
-            ?>
-                    <a href="?name=<?= $userInput ?>&category=<?= $category ?>" class="badge bg-primary" type="button"><?= $format->extractCategory($category) ?></a>
-            <?php
-                }
-            }
-            ?>
 
             <div class="card-container">
                 <?php
