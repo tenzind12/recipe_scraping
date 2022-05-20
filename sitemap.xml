@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://recipie.tenzin.eu/</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/index.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/profile.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/donation.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/contact.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/about-us.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/advancedSearch.php</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/profile.php?edit=</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://recipie.tenzin.eu/profile.php?delete-user=</loc>
+  <lastmod>2022-05-20T14:24:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
