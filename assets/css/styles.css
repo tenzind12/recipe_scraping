@@ -448,7 +448,8 @@ img {
 }
 
 #donation-image__container {
-  background-color: #8bc34a;
+  background-color: #3bb78f;
+  background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
 }
 
 #donation-image__container .first-column {
@@ -461,7 +462,8 @@ img {
   transform: rotate(-20deg);
 }
 
-#donation-image__container .first-column img {
+#donation-image__container .first-column img,
+.coffee-beans {
   max-width: 64px;
   transform: rotate(45deg);
   margin-left: 20px;
