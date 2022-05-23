@@ -10,7 +10,7 @@ $donation = new Donation();
 $donations = $donation->getDonation();
 ?>
 
-<h1 class="text-center mt-5 admin-pages__title display-4 text-darkblue">dashboard</h1>
+<h1 class="text-center mt-5 admin-pages__title display-4 text-darkblue"><img src="../assets/images/icons/dashboard.png" alt="client-list icon" style="width: 70px;">&nbsp;dashboard</h1>
 
 <!-- chart -->
 <div class="row">

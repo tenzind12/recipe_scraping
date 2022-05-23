@@ -33,13 +33,12 @@ const getUrlData = (url) => {
             headers: { 'Content-Type': 'application/json' },
           })
             .then((response) => {
-              console.log(response);
+              // console.log(response);
               if (response.ok) {
                 document.getElementById('server-message').innerHTML = messageGenerate(
                   'success',
                   'New recipe added successfully'
                 );
-                ('New recipe added successfuly');
               } else {
                 document.getElementById('server-message').innerHTML = messageGenerate(
                   'danger',
