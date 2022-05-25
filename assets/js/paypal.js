@@ -10,7 +10,7 @@ paypal
         purchase_units: [
           {
             amount: {
-              // change id to the id of the amount input
+              // id of the amount input
               value: parseFloat(document.getElementById('amount').textContent).toFixed(2),
             },
           },
@@ -20,6 +20,7 @@ paypal
 
     onApprove: function (data, actions) {
       return actions.order.capture().then(function (details) {
+        console.log(details);
         const paymentId = details.id;
         const first_name = details.payer.name.given_name;
         const last_name = details.payer.name.surname;

@@ -22,7 +22,7 @@ if (isset($_GET['paymentId']) && isset($_GET['first_name']) && isset($_GET['last
         </div>
 
         <select class="form-select w-50 mb-3" aria-label="Default select example" onchange="donationHandler();" id="donation-amount">
-            <option selected disabled>Buy me a COFFEE?</option>
+            <option selected disabled class="text-primary bg-dark">Buy me a COFFEE?</option>
             <option value="5">5€</option>
             <option value="10">10€</option>
             <option value="20">20€</option>

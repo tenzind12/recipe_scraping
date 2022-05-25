@@ -480,6 +480,8 @@ img {
 
 #donation-amount {
   margin: auto;
+  font-family: Shadows Into Light, cursive;
+  font-size: 3vh;
 }
 
 /* ============================= A B O U T   U S   P A G E ============================= */
