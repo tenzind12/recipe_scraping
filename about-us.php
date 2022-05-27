@@ -15,7 +15,7 @@
             </a>
 
             <!-- App download -->
-            <a href="#">
+            <a href="https://drive.google.com/file/d/10DIVtroPepUew4FJeROo3N7KHApXTJ_a/view?usp=sharing">
                 <img src="./assets/images/icons/android.png" alt="android icon" class="about-us__icons">
                 <span class="text-green">Download App</span>
             </a>

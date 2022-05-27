@@ -96,7 +96,7 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                     <a href="https://www.facebook.com/share.php?u=https://recipie.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" target="_blank" id="fb-link"><img class="recipe-details__icons" src="./assets/images/icons/facebook.png" /></a>
 
                     <!-- android ilnk -->
-                    <a href="#">
+                    <a href="https://drive.google.com/file/d/10DIVtroPepUew4FJeROo3N7KHApXTJ_a/view?usp=sharing">
                         <img src="./assets/images/icons/android.png" alt="android icon" class="recipe-details__icons">
                         <span class="text-green">Download App</span>
                     </a>

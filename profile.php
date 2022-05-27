@@ -1,7 +1,7 @@
 <?php include './inc/header.php' ?>
 <?php
 $is_login = Session::get('userLogin');
-if (!$is_login) header('Location: login.php');
+if (!$is_login) echo '<script>location.href="login.php"</script>';
 
 // D E L E T E   B O O K M A R K 
 if (isset($_GET['userId']) && isset($_GET['delRecipe'])) {
