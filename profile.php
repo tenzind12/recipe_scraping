@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['delete-user'])) {
     $userId = $format->validation($_GET['delete-user']);
     $user->delete_user($userId);
 }
+
+// Edit errors url messages
+if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
+
 ?>
 
 <div class="row mx-0 mt-5">
@@ -53,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['delete-user'])) {
                                 <option selected value="<?= Session::get('userCountry') ?>"><?= ucfirst(Session::get('userCountry')) ?></option>
                                 <option value="france">France</option>
                                 <option value="germany">Germany</option>
-                                <option value="switwerland">Switzerland</option>
+                                <option value="switzerland">Switzerland</option>
                                 <option value="other">Other</option>
                             </select>
                         </td>
@@ -68,15 +72,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['delete-user'])) {
             <table>
                 <tr class="text-light">
                     <th class="px-3 text-danger">Name: </th>
-                    <td class="fs-3 text-grey"><?= ucfirst(Session::get('userName')) ?></td>
+                    <td class="fs-3 text-grey"><?= ucfirst(Session::get('userName')) ?>
+                        <?php
+                        if (isset($_GET['error']) && $_GET['error'] == 'empty_fields') echo "<small class='text-danger fs-6'><i class='fa-solid fa-ellipsis'></i> Name cannot be empty</small>";
+                        ?>
+                    </td>
                 </tr>
                 <tr class="text-light">
                     <th class="px-3 text-danger">Email: </th>
-                    <td class="fs-5 text-break text-grey"><?= Session::get('userEmail') ?></td>
+                    <td class="fs-5 text-break text-grey"><?= Session::get('userEmail') ?>
+                        <?= isset($_GET['error']) && $_GET['error'] == 'email_error' ?  " <small class='text-danger fs-6'><i class='fa-solid fa-at'></i> Email format error</small>"  : '' ?>
+                    </td>
                 </tr>
                 <tr class="text-light">
                     <th class="px-3 text-danger">Country: </th>
-                    <td class="fs-3 text-grey"><?= ucfirst(Session::get('userCountry')) ?></td>
+                    <td class="fs-3 text-grey"><?= ucfirst(Session::get('userCountry')) ?>
+                        <?= isset($_GET['error']) && $_GET['error'] == 'country_error' ?  "<small class='text-danger fs-6'><i class='fa-solid fa-earth-africa'></i> Country name error</small>"  : '' ?>
+                    </td>
                 </tr>
             </table>
             <!-- buttons -->

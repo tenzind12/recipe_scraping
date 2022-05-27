@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
                                 <option selected>Country</option>
                                 <option value="france">France</option>
                                 <option value="germany">Germany</option>
-                                <option value="switwerland">Switzerland</option>
+                                <option value="switzerland">Switzerland</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
