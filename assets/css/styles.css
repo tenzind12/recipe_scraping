@@ -122,6 +122,7 @@ img {
   width: 100%;
   background-color: #e7eaed;
   border-radius: 300px;
+  border-top: 1px solid var(--green-primary);
   border-bottom: 4px solid var(--green-primary);
   display: grid;
   place-items: center;

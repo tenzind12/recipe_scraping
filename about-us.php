@@ -10,7 +10,7 @@
             <a href="https://www.facebook.com/share.php?u=https://recipie.tenzin.eu" target="_blank" id="fb-link"><img class="about-us__icons" src="./assets/images/icons/facebook.png" /></a>
 
             <!-- Whatsapp share -->
-            <a href="whatsapp://send?text=https://www.facebook.com/share.php?u=https://recipie.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" data-action="share/whatsapp/share">
+            <a href="whatsapp://send?text=https://recipie.tenzin.eu" data-action="share/whatsapp/share">
                 <img src="./assets/images/icons/whatsapp.png" alt="whatsapp icon" class="about-us__icons">
             </a>
 

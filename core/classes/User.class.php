@@ -17,8 +17,21 @@ class User
     // ========== R E G I S T E R   U S E R ================ //
     public function register($name, $email, $password, $country, $file)
     {
+        // if any field is empty
         if (empty($name) || empty($email) || empty($password) || empty($country)) {
             $msg = $this->class_helper->alertMessage('danger', 'Sign up failed !', 'Only image field is optional');
+            return $msg;
+        }
+
+        // if email format is not correct
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $msg = $this->class_helper->alertMessage('danger', 'Error !', 'Email format not supported');
+            return $msg;
+        }
+
+        // if password less than 6 characters
+        if (strlen($password)) {
+            $msg = $this->class_helper->alertMessage('danger', 'Error !', 'Password should be atleast 6 characters long');
             return $msg;
         }
 
