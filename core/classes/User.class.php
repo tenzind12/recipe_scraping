@@ -145,17 +145,20 @@ class User
 
         if (empty($userName) || empty($email) || empty($country)) {
             echo '<script>location.href="profile.php?error=empty_fields"</script>';
+            return false;
         }
 
         // if email format is not correct
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo '<script>location.href="profile.php?error=email_error"</script>';
+            return false;
         }
 
         // country condition
         $countries = ['france', 'germany', 'switzerland', 'other'];
         if (!in_array($country, $countries)) {
             echo '<script>location.href="profile.php?error=country_error"</script>';
+            return false;
         }
 
         // getting image details

@@ -6,7 +6,10 @@
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-Scrapes JSON+LD from the recipe sites with URLs and saves the data in MySQL database. And creates a Rest API for expo - React Native scanning app.  
+**Back end** - Scrapes JSON+LD from the recipe sites with their URLs and saves the data in MySQL database.  
+**Front end** - Users can find recipes either with the site's search engine or with an android app called ScanAndCook.
+
+It also creates a Rest API for an EXPO - React Native scanning app. The app scans food product's barcode and searches recipes from this site.  
 <a href="https://drive.google.com/file/d/10DIVtroPepUew4FJeROo3N7KHApXTJ_a/view?usp=sharing">
 ![Android](https://img.shields.io/badge/ScanAndCook.apk-32b86d?style=for-the-badge&logo=android&logoColor=white)
 </a>
