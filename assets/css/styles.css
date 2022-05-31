@@ -164,6 +164,10 @@ img {
   background-color: rgb(47, 182, 144);
 }
 
+.shadow-romain {
+  box-shadow: 0 1rem 1rem -11px rgb(0 0 0 / 15%);
+}
+
 #advance-search__link:hover,
 #advance-search__link a:hover {
   background-color: var(--green-primary);

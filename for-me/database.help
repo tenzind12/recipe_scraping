@@ -1,0 +1,14 @@
+Looking for duplicate rows
+
+    SELECT name, COUNT(name) FROM recipes GROUP BY name HAVING COUNT(name) > 1;
+
+
+
+delete unmatching foreign id :
+
+            DELETE FROM nutrition
+            WHERE NOT EXISTS (
+                SELECT *
+                FROM recipes
+                WHERE recipes.nutritionId=nutrition.id
+            )

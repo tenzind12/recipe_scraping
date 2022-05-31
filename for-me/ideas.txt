@@ -1,0 +1,3 @@
+1. button to change theme of site
+2. sort by most popular recipe (rating count) => admin
+3. sort by alphabet => admin
