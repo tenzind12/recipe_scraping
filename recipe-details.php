@@ -39,8 +39,8 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                 <!-- author and rating -->
                 <div class="d-sm-flex justify-content-between m-4">
                     <div class="d-flex flex-column">
-                        <h3 class=" text-grey">Recipe By: <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-success"><?= ucfirst($rows['author']) ?></a></h3>
-                        <small class="text-grey">Category :
+                        <h3 class=" text-grey"><?= $lang['rd_recipeby'] ?> <a href="recipe-by-author.php?author=<?= $rows['author'] ?>" class="text-success"><?= ucfirst($rows['author']) ?></a></h3>
+                        <small class="text-grey"><?= $lang['rd_category'] ?>
                             <a class="link-success" href="recipe-by-category.php?category=<?= $format->extractCategory($rows['recipeCategory']) ?>">
                                 <u><?= $format->extractCategory($rows['recipeCategory']) ?></u>
                             </a>
@@ -56,10 +56,10 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                 <!-- time and bookmark -->
                 <?= isset($bookmarkSaved) ? $bookmarkSaved : ''  ?>
                 <div class="row m-0 p-3" id="recipe-details__timecontainer">
-                    <p class="col text-grey">READY IN <span class="badge bg-success"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                    <p class="col text-grey"><?= $lang['rd_ready'] ?> <span class="badge bg-success"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                     <div class="col pe-0">
                         <p class=" text-grey ms-3">
-                            SERVES <span class="badge bg-success"><?= (int)$rows['recipeYield'] ?></span>
+                            <?= $lang['rd_serves'] ?> <span class="badge bg-success"><?= (int)$rows['recipeYield'] ?></span>
                             <!-- bookmark -->
                             <span class="float-end">
                                 <?php
@@ -70,13 +70,13 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                                     if ($already_bookmarked && Session::get('userId')) {
                                 ?>
                                         <a href="?delRecipeId=<?= $_GET['id'] ?>" class="text-grey">
-                                            <span style="font-size: 16px;">Delete bookmark </span><i class="fa-solid fa-bookmark text-warning"></i>
+                                            <span style="font-size: 16px;"><?= $lang['rd_delbookmark'] ?> </span><i class="fa-solid fa-bookmark text-warning"></i>
                                         </a>
                                     <?php
                                     } else {
                                     ?>
                                         <a href="?recipeId=<?= $_GET['id'] ?>" class="text-grey">
-                                            <span style="font-size: 16px;">Bookmark recipe </span><i class="fa-regular fa-bookmark text-warning"></i>
+                                            <span style="font-size: 16px;"><?= $lang['rd_bookmark'] ?> </span><i class="fa-regular fa-bookmark text-warning"></i>
                                         </a>
                                 <?php
                                     }
@@ -92,13 +92,13 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
 
                 <!-- print icon -->
                 <div id="recipe-details__linkContainer">
-                    <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> Print Recipe</button>
+                    <button onclick="window.print()" class="badge bg-secondary btn"><i class="fa-solid fa-print"></i> <?= $lang['rd_print'] ?></button>
                     <a href="https://www.facebook.com/share.php?u=https://recipie.tenzin.eu<?= $_SERVER['REQUEST_URI'] ?>" target="_blank" id="fb-link"><img class="recipe-details__icons" src="./assets/images/icons/facebook.png" /></a>
 
                     <!-- android ilnk -->
                     <a href="https://drive.google.com/file/d/10DIVtroPepUew4FJeROo3N7KHApXTJ_a/view?usp=sharing">
                         <img src="./assets/images/icons/android.png" alt="android icon" class="recipe-details__icons">
-                        <span class="text-green">Download App</span>
+                        <span class="text-green"><?= $lang['rd_download'] ?></span>
                     </a>
 
                     <!-- Whatsapp share -->
@@ -114,9 +114,9 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                     <!-- ingredients section -->
                     <div class="col-md-6">
                         <div class="d-flex justify-content-between">
-                            <h1 class="text-warning">Ingredients</h1>
+                            <h1 class="text-warning"><?= $lang['rd_ingredient'] ?></h1>
 
-                            <a href="#" class="link-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal"><u>Nutrition</u></a>
+                            <a href="#" class="link-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal"><u><?= $lang['rd_nutrition'] ?></u></a>
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -177,7 +177,7 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
 
                     <!-- direction section -->
                     <div class="col-md-6 bg-warning" id="recipe-details__direction">
-                        <h1>Directions</h1>
+                        <h1><?= $lang['rd_direction'] ?></h1>
                         <?php
                         $instructions = json_decode($rows['recipeInstructions']);
 

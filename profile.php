@@ -71,7 +71,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
         ?>
             <table>
                 <tr class="text-light">
-                    <th class="px-3 text-danger">Name: </th>
+                    <th class="px-3 text-danger"><?= $lang['profile_name'] ?>: </th>
                     <td class="fs-3 text-grey"><?= ucfirst(Session::get('userName')) ?>
                         <?php
                         if (isset($_GET['error']) && $_GET['error'] == 'empty_fields') echo "<small class='text-danger fs-6'><i class='fa-solid fa-ellipsis'></i> Name cannot be empty</small>";
@@ -79,13 +79,13 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
                     </td>
                 </tr>
                 <tr class="text-light">
-                    <th class="px-3 text-danger">Email: </th>
+                    <th class="px-3 text-danger"><?= $lang['profile_email'] ?>: </th>
                     <td class="fs-5 text-break text-grey"><?= Session::get('userEmail') ?>
                         <?= isset($_GET['error']) && $_GET['error'] == 'email_error' ?  " <small class='text-danger fs-6'><i class='fa-solid fa-at'></i> Email format error</small>"  : '' ?>
                     </td>
                 </tr>
                 <tr class="text-light">
-                    <th class="px-3 text-danger">Country: </th>
+                    <th class="px-3 text-danger"><?= $lang['profile_country'] ?>: </th>
                     <td class="fs-3 text-grey"><?= ucfirst(Session::get('userCountry')) ?>
                         <?= isset($_GET['error']) && $_GET['error'] == 'country_error' ?  "<small class='text-danger fs-6'><i class='fa-solid fa-earth-africa'></i> Country name error</small>"  : '' ?>
                     </td>
@@ -93,8 +93,8 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
             </table>
             <!-- buttons -->
             <div class="d-flex mt-3">
-                <a href="?edit=<?= Session::get('userId') ?>" class="btn btn-sm btn-success border w-50">Edit Information</a>
-                <a onclick="return confirm('Are you sure?')" href="?delete-user=<?= Session::get('userId') ?>" class="btn btn-sm btn-danger border w-50">Delete Account</a>
+                <a href="?edit=<?= Session::get('userId') ?>" class="btn btn-sm btn-success border w-50"><?= $lang['profile_edit'] ?></a>
+                <a onclick="return confirm('Are you sure?')" href="?delete-user=<?= Session::get('userId') ?>" class="btn btn-sm btn-danger border w-50"><?= $lang['profile_delete'] ?></a>
             </div>
         <?php
         }
@@ -106,7 +106,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
 
     <!-- recipe list section -->
     <div class="col-lg-8">
-        <h2 class=" display-4 mb-4 text-orange" id="profile-title"><i class="fa-solid fa-folder-closed text-secondary"></i> Your saved recipes </h2>
+        <h2 class=" display-4 mb-4 text-orange" id="profile-title"><i class="fa-solid fa-folder-closed text-secondary"></i> <?= $lang['profile_title'] ?></h2>
         <?= isset($delete_bookmark) ? $delete_bookmark : '' ?>
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -140,7 +140,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
                                         <div class="d-sm-flex justify-content-between">
                                             <p><?php $format->generateStars($rows['rating']);
                                                 $format->emptyStars($rows['rating']); ?> <span>&nbsp;<?= $rows['reviewCount'] ?></span></p>
-                                            <p class="border-end float-sm-end">READY IN <span class="badge bg-primary fs-3"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
+                                            <p class="border-end float-sm-end"><?= $lang['profile_ready'] ?> <span class="badge bg-primary fs-3"> <?= ltrim($format->minToHour($rows['totalTime']), '0') ?></span></p>
                                         </div>
                                         <!-- </div> -->
                                         <div class="card-text">
@@ -193,7 +193,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
                                         </div>
                                         <!-- end of nutrition modal -->
 
-                                        <p class="mt-3">Category :
+                                        <p class="mt-3"><?= $lang['profile_category'] ?> :
                                             <a class="link-primary" href="recipe-by-category.php?category=<?= $format->extractCategory($rows['recipeCategory']) ?>">
                                                 <u><?= $format->extractCategory($rows['recipeCategory']) ?></u>
                                             </a>

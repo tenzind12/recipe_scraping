@@ -21,7 +21,6 @@ if (isset($_GET['logoutId'])) {
     echo "<script>window.location='login.php';</script>";
 }
 
-
 // C H A N G E   L A N G U A G E
 if (!isset($_COOKIE['language'])) $language = "en";
 else if (isset($_COOKIE['language'])) $language = $_COOKIE['language'];
@@ -67,7 +66,7 @@ include './assets/languages/' .  $language . '.php';
                         <!-- connection / logout -->
                         <li class="nav-item">
                             <?php
-                            echo Session::get('userLogin') ? '<a class="nav-link" href="?logoutId="' . Session::get('userId') . '">Logout</a>' : '';
+                            echo Session::get('userLogin') ? '<a class="nav-link text-decoration-underline" href="?logoutId="' . Session::get('userId') . '">' . $lang['logout'] . '</a>' : '';
                             ?>
                         </li>
 
@@ -89,7 +88,7 @@ include './assets/languages/' .  $language . '.php';
                         <!-- language change ==> hide the button when there is another query -->
                         <?php if (count($_GET) <= 0 || isset($_GET['lang'])) {
                         ?>
-                            <li class=" align-self-center ms-1 ">
+                            <li class="mt-2 ms-1 ">
                                 <select class="text-light rounded border-0" style="background-color: #0198DD ;" name="language" id="language" onchange="location = '?lang=' + this.value">
                                     <option <?= (isset($_COOKIE['language']) && $_COOKIE['language'] == 'en' ? 'selected' : '') ?> value="en">EN</option>
                                     <option <?= (isset($_COOKIE['language']) && $_COOKIE['language'] == 'fr' ? 'selected' : '') ?> value="fr">FR</option>

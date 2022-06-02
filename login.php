@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header bg-dark text-light">
-                        <h5 class="modal-title" id="exampleModalLabel">Register with you email</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?= $lang['signup_formtitle'] ?></h5>
                         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- sign up form -->
@@ -69,29 +69,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
                         <div class="modal-body" id="signup--form">
                             <!-- name input -->
                             <div class="mb-3">
-                                <input type="text" name="username" class="form-control" placeholder="Enter name">
+                                <input type="text" name="username" class="form-control" placeholder="<?= $lang['signup_formname'] ?>">
                             </div>
 
                             <!-- email input -->
                             <div class="mb-3">
-                                <input type="email" name="email" class="form-control" placeholder="Enter your email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="email" name="email" class="form-control" placeholder="<?= $lang['signup_formemail'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text text-dark">We'll never share your email with anyone else.</div>
                             </div>
 
                             <!-- password input -->
                             <div class="mb-3">
-                                <input type="password" name="password" minlength="6" class="form-control" placeholder="Enter password" id="exampleInputPassword1">
+                                <input type="password" name="password" minlength="6" class="form-control" placeholder="<?= $lang['signup_formpassword'] ?>" id="exampleInputPassword1">
                             </div>
 
                             <!-- image upload -->
                             <div class="mb-3">
-                                <label for="formFile" class="form-label text-dark fs-3">Profile Picture (optional)</label>
+                                <label for="formFile" class="form-label text-dark fs-3"><?= $lang['signup_formpictitle'] ?></label>
                                 <input class="form-control" name="image" type="file" id="formFile">
                             </div>
 
                             <!-- country section -->
                             <select class="form-select" name="country" aria-label="Default select example">
-                                <option selected>Country</option>
+                                <option selected><?= $lang['signup_formcountry'] ?></option>
                                 <option value="france">France</option>
                                 <option value="germany">Germany</option>
                                 <option value="switzerland">Switzerland</option>
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button name="signup-btn" type="submit" class="btn btn-success rounded-pill">Sign up</button>
+                            <button name="signup-btn" type="submit" class="btn btn-success rounded-pill"><?= $lang['signup_formbutton'] ?></button>
                         </div>
                     </form>
                     <!-- end of sign up form -->
