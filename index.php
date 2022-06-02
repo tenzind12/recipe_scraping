@@ -19,12 +19,12 @@
         <!-- form start -->
         <form method="GET" action="recipeLists.php">
             <div class="mb-4" id="input-ingredient">
-                <input name="ingredient" type="text" placeholder="Enter an ingredient" class="form-control px-5 shadow-romain" />
+                <input name="ingredient" type="text" placeholder="<?= $lang['Enter an ingredient'] ?>" class="form-control px-5 shadow-romain" />
                 <i class="fas fa-search" id="fa-magnifying-glass"></i>
             </div>
 
-            <input type="submit" value="Submit" name="submit" id="submitBtn" class="btn shadow-romain border w-100 text-light">
-            <p class=" float-end border border-1 border-secondary px-2 mt-4 rounded" id="advance-search__link"><a href="./advancedSearch.php" class="text-grey">Or try our advanced search here</a></p>
+            <input type="submit" value="<?= $lang['submit'] ?>" name="submit" id="submitBtn" class="btn shadow-romain border w-100 text-light">
+            <p class=" float-end border border-1 border-secondary px-2 mt-4 rounded" id="advance-search__link"><a href="./advancedSearch.php" class="text-grey"><?= $lang['advanced-search'] ?></a></p>
         </form>
         <!-- form ends -->
     </div>

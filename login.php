@@ -23,21 +23,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
 <div class="row m-0 " id="login-image__container">
     <!-- form column L O G I N  -->
     <div class="col-md-7 justify-content-center">
-        <h2 class="text-light text-center mt-5">Login to your Account</h2>
+        <h2 class="text-light text-center mt-5"><?= $lang['login_title'] ?></h2>
 
         <!-- error message if any -->
         <?= isset($login) ? $login : '' ?>
         <div class="m-auto my-5" id="login-form">
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
                 <div class="form-group">
-                    <input type="text" name="email" placeholder="Enter your email" class="form-control rounded-pill my-3">
+                    <input type="text" name="email" placeholder="<?= $lang['login_email'] ?>" class="form-control rounded-pill my-3">
                 </div>
                 <div class="form-group" id="password__container">
                     <input type="password" name="password" placeholder="*********" class="form-control rounded-pill my-3">
                     <i class="fa-solid fa-eye-slash" id="password-eye__icon"></i>
                 </div>
 
-                <button name="login-btn" type="submit" class="btn btn-success rounded-pill w-50">Sign In</button>
+                <button name="login-btn" type="submit" class="btn btn-success rounded-pill w-50"><?= $lang['login_button'] ?></button>
             </form>
         </div>
     </div>
@@ -46,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
     <!-- SIGN UP column -->
     <div class="col-md-5" id="signup-image__container">
         <div>
-            <h2 class="text-white display-5">New here?</h2>
-            <p class="text-white">Sign up and unlock more features</p>
+            <h2 class="text-white display-5"><?= $lang['login_title'] ?><h2>
+                    <p class="text-white fs-5"><?= $lang['signup_subtitle'] ?></p>
 
-            <!-- Button trigger modal -->
-            <?= isset($signup) ? $signup : '' ?>
-            <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Sign Up
-            </button>
+                    <!-- Button trigger modal -->
+                    <?= isset($signup) ? $signup : '' ?>
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <?= $lang['signup_button'] ?>
+                    </button>
         </div>
 
         <!-- S I G N   U P  Modal -->

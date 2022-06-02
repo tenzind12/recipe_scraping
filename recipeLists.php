@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD']  == "GET") {
         if ($result) {
 ?>
             <h1 class="text-center py-5 text-danger" id="recipe-list__title"><i class="fa-solid fa-kitchen-set text-orange"></i>&nbsp;
-                Recipe results for <b class="text-orange"><?= $userInput ?></b>
-                <span class="badge bg-success"><?= mysqli_num_rows($result) ?> results</span>
+                <?= $lang['rl_title'] ?> <b class="text-orange"><?= $userInput ?></b>
+                <span class="badge bg-success"><?= mysqli_num_rows($result) ?> <?= $lang['rl_count'] ?></span>
             </h1>
 
             <!-- display unique list of categories as clickable badges -->

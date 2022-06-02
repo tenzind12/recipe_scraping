@@ -41,7 +41,7 @@ if (isset($_GET['paymentId']) && isset($_GET['first_name']) && isset($_GET['last
     <!-- donation image section -->
     <div class="col-sm-6" id="donation-image__container">
         <div class="h-50 first-column">
-            <h2 class="text-light">Are you enjoying the content<br> on RECIPIE.TENZIN.EU?</h2>
+            <h2 class="text-light"><?= $lang['donation_question0'] ?><br><?= $lang['donation_question1'] ?></h2>
             <img src="./assets/images/donation.png" alt="donation icon" />
         </div>
         <div class="row second-column">

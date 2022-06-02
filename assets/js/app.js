@@ -14,8 +14,6 @@ if (eyeBtn) {
 }
 
 // T H E M E   C H A N G E R (cookies)
-const hTags = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-
 const changeClass = (val) => {
   if (!val) {
     document.getElementsByTagName('body')[0].classList.add('theme-dark');
@@ -30,12 +28,15 @@ const themeChanger = document.getElementById('themeChanger');
 
 themeChanger.addEventListener('change', (e) => {
   const val = e.target.checked;
-  document.cookie = [
-    'light=',
-    val ? '1' : '0',
-    '; expires=',
-    new Date(Date.now() + 604800000),
-    '; path=/',
-  ].join('');
+  // prettier-ignore
+  document.cookie = ['light=', val ? '1' : '0', '; expires=',new Date(Date.now() + 604800000),'; path=/',].join('');
   changeClass(val);
+});
+
+// language changer
+const langChanger = document.querySelector('#language');
+
+langChanger.addEventListener('click', (e) => {
+  const lang = e.target.value;
+  document.cookie = ['language=', lang, '; expires=', new Date(Date.now() + 6000000)].join('');
 });
