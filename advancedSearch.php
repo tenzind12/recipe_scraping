@@ -6,10 +6,10 @@
 
         <!-- ingredient name input -->
         <div id="name-input__adv">
-            <input type="text" class="form-control shadow" placeholder="Enter an ingredient, name ..." name="name_input" required />
+            <input type="text" class="form-control shadow" placeholder="<?= $lang['as_placeholder'] ?>" name="name_input" required />
             <i class="fa fa-utensils" id="fork-icon__adv"></i>
         </div>
-        
+
         <!-- calorie slider -->
         <div class="range-slider my-3 shadow shadow-lg p-3">
             <label for="customRange2" class="form-label text-light">Calorie&nbsp; &#x3389;</label>
@@ -27,8 +27,8 @@
             <output class="badge bg-danger">45</output>&nbsp;
             <input name="fat-input" type="range" class="form-range" min="10" max="80" step="5" oninput="this.previousElementSibling.value = this.value" />
             <div class="d-flex justify-content-between">
-               <i class="fa-solid fa-apple-whole text-light">&nbsp;10</i>
-               <i class="fa-solid fa-bacon text-light">&nbsp; 80</i>
+                <i class="fa-solid fa-apple-whole text-light">&nbsp;10</i>
+                <i class="fa-solid fa-bacon text-light">&nbsp; 80</i>
             </div>
         </div>
 
@@ -45,19 +45,18 @@
 
         <!-- time dropdown -->
         <div class="row">
-            <label for="timetaken" class="col-sm-4 text-grey">Total time to finish</label>
+            <label for="timetaken" class="col-sm-4 text-grey"><?= $lang['as_totaltime'] ?></label>
 
             <select name="time-input" id="timetaken" class="col-sm-7 rounded">
-                <option value="30">Less than 30 mins</option>
-                <option value="60">Less than 60 mins</option>
-                <option value="1000">More than 1 hour</option>
+                <option value="30"><?= $lang['as_30mins'] ?></option>
+                <option value="60"><?= $lang['as_60mins'] ?></option>
+                <option value="1000"><?= $lang['as_60+mins'] ?></option>
             </select>
         </div>
 
-        <input type="submit" value="Submit" name="submit" class="btn btn-outline-success mt-3 w-100">
+        <input type="submit" value="<?= $lang['as_button'] ?>" name="submit" class="btn btn-outline-success mt-3 w-100">
     </form>
     <!-- form ends -->
 </div>
 
 <?php include './inc/footer.php'; ?>
- 

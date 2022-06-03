@@ -5,6 +5,7 @@ $lang = array(
     "donate" => "Donate",
     "contact" => "Contact",
     "about us" =>  "About Us",
+    "index_image" => "garlic",
     "Enter an ingredient" => "Enter an ingredient",
     "submit" => "Submit",
     "advanced-search" => "Or try out advanced search here",
@@ -57,6 +58,7 @@ $lang = array(
     "rd_ingredient" => "Ingredients",
     "rd_nutrition" => "Nutrition",
     "rd_direction" => "Directions",
+    "rd_nutriinfo" => "Nutrition Info",
 
     // recipe-by-category.php
     "rc_title" => "Recipe by category",
@@ -71,4 +73,14 @@ $lang = array(
     "profile_title" => "Your saved recipes",
     "profile_ready" => "READY IN",
     "profile_category" => "Category",
+    "profile_recipeby" => "by",
+
+    // advancedSearch.php
+    "as_placeholder" => "Enter an ingredient or a name of a dish",
+    "as_totaltime" => "Total time to finish",
+    "as_30mins" => "Less than 30 mins",
+    "as_60mins" => "Less than 60 mins",
+    "as_60+mins" => "More than 1 hour",
+    "as_button" => "Submit",
+
 );

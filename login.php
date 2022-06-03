@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup-btn'])) {
 
                             <!-- country section -->
                             <select class="form-select" name="country" aria-label="Default select example">
-                                <option selected><?= $lang['signup_formcountry'] ?></option>
+                                <option value=""><?= $lang['signup_formcountry'] ?></option>
                                 <option value="france">France</option>
                                 <option value="germany">Germany</option>
                                 <option value="switzerland">Switzerland</option>

@@ -121,7 +121,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'country_fields') echo "hi";
                         <h2 class="accordion-header" id="flush-heading<?= $i ?>">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $i ?>" aria-expanded="false" aria-controls="flush-collapse<?= $i ?>">
                                 <div class="d-flex justify-content-between py-1 w-100">
-                                    <h5><?= $rows['name'] ?> - by <b><?= ucfirst($rows['author']) ?></b></h5>
+                                    <h5><?= $rows['name'] ?> - <?= $lang['profile_recipeby'] ?> <b><?= ucfirst($rows['author']) ?></b></h5>
 
                                     <!-- delete bookmark from profile -->
                                     <h5 class="me-5"><a onclick="return confirm('Are you sure to delete?')" href="?userId=<?= $rows['userId'] ?>&delRecipe=<?= $rows['recipeId'] ?>"><i class="fa-solid fa-square-xmark text-secondary"></a></i> </h5>

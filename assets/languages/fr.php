@@ -5,7 +5,8 @@ $lang = array(
     "logout" => "Se déconnecter",
     "donate" => "Faire un don",
     "contact" => "Nous contacter",
-    "about us" =>  "À propos de nous",
+    "about us" =>  "Qui somme nous?",
+    "index_image" => "food-ingredients",
     "Enter an ingredient" => "Je cherche une recette",
     "submit" => "Chercher",
     "advanced-search" => "Moteur de recherche avancé",
@@ -35,7 +36,7 @@ $lang = array(
     "contact_button" => "Envoyer",
 
     // about-us.php
-    "about_title" => "Qui somme nous?",
+    "about_title" => "À propos de nous",
     "about_download" => "Télécharger l'application",
 
     // recipeList.php
@@ -58,6 +59,7 @@ $lang = array(
     "rd_ingredient" => "Ingrédients",
     "rd_nutrition" => "Nutrition",
     "rd_direction" => "Directions",
+    "rd_nutriinfo" => "Info nutritionnelle",
 
     // recipe-by-category.php
     "rc_title" => "Recette par catégorie",
@@ -72,6 +74,14 @@ $lang = array(
     "profile_title" => "Vos recettes enregistrées",
     "profile_ready" => "PRÊT DANS",
     "profile_category" => "Catégorie",
+    "profile_recipeby" => "par",
 
+    // advancedSearch.php
+    "as_placeholder" => "Entrer un ingrédient ou un nom de plat",
+    "as_totaltime" => "Durée de préparation",
+    "as_30mins" => "Moins de 30 minutes",
+    "as_60mins" => "Moins de 60 minutes",
+    "as_60+mins" => "Plus d'1 heure",
+    "as_button" => "Chercher",
 
 );

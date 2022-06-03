@@ -123,7 +123,7 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color: cadetblue;">
-                                            <h5 class="modal-title text-uppercase text-light" id="exampleModalLabel">Nutrition Info</h5>
+                                            <h5 class="modal-title text-uppercase text-light" id="exampleModalLabel"><?= $lang['rd_nutriinfo'] ?></h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -134,7 +134,7 @@ if (isset($_GET['id']) && isset($_GET['name'])) {
                                                         <td><?= floatval($rows['calories']) ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Choleserol</th>
+                                                        <th>Cholesterol</th>
                                                         <td><?= floatval($rows['cholesterol']) ?> mg</td>
                                                     </tr>
                                                     <tr>

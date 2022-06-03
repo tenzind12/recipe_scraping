@@ -3,7 +3,7 @@
 <div class="card mx-auto mt-3 px-5 col-lg-4" id="search_card">
     <div class="card-body">
         <div class="img-container py-2 shadow ">
-            <img src="./assets/images/gifs/garlic.gif" id="garlic" alt="garlic" />
+            <img src="./assets/images/gifs/<?= $lang['index_image'] ?>.gif" id="garlic" alt="<?= $lang['index_image'] ?>" />
         </div>
         <h5 class="card-title text-center display-5 my-3 text-light">
             <span class="noodle blue">N</span>

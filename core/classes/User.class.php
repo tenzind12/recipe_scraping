@@ -37,7 +37,7 @@ class User
 
         $countries = ['france', 'germany', 'switzerland', 'other'];
         if (!in_array($country, $countries)) {
-            $msg = $this->class_helper->alertMessage('danger', 'Error !', 'Please do not try to change any values from developer\'s tool');
+            $msg = $this->class_helper->alertMessage('danger', 'Error !', 'Please select country from the list');
             return $msg;
         }
 
