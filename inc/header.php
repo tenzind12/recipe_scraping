@@ -89,6 +89,7 @@ include './assets/languages/' .  $language . '.php';
                         <?php if (count($_GET) <= 0 || isset($_GET['lang'])) {
                         ?>
                             <li class="mt-2 ms-1 ">
+                                <?= $language == "fr" ? "<img src='./assets/images/icons/fr.png' alt='french' class='flag-images'/>" : "<img src='./assets/images/icons/en.png'  alt='english' class='flag-images'/>" ?>
                                 <select class="text-light rounded border-0" style="background-color: #0198DD ;" name="language" id="language" onchange="location = '?lang=' + this.value">
                                     <option <?= (isset($_COOKIE['language']) && $_COOKIE['language'] == 'en' ? 'selected' : '') ?> value="en">EN</option>
                                     <option <?= (isset($_COOKIE['language']) && $_COOKIE['language'] == 'fr' ? 'selected' : '') ?> value="fr">FR</option>

@@ -1,6 +1,6 @@
 Looking for duplicate rows
 
-    SELECT name, COUNT(name) FROM recipes GROUP BY name HAVING COUNT(name) > 1;
+    SELECT name, COUNT(name), id FROM recipes GROUP BY name HAVING COUNT(name) > 1;
 
 
 

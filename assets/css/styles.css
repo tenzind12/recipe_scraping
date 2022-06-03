@@ -115,6 +115,13 @@ img {
   object-fit: cover;
 }
 
+.flag-images {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* ====== end of global styles ===== */
 
 /* index.php  (first search card) */
