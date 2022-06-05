@@ -39,6 +39,7 @@ $lang = array(
     "about_download" => "Download App",
 
     // recipeList.php
+    "rl_filtertitle" => "FILTER BY",
     "rl_title" => "Recipe result for ",
     "rl_count" => "results",
 

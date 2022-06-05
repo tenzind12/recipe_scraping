@@ -206,6 +206,9 @@ class User
 
             if ($updateUser) {
                 Session::set('userPhoto', $image_new_name);
+                Session::set('userName', $userName);
+                Session::set('userEmail', $email);
+                Session::set('userCountry', $country);
                 return true;
             } else {
                 $msg = $this->class_helper->alertMessage('danger', 'Update failed !', 'Something went wrong.');
@@ -221,8 +224,12 @@ class User
                     WHERE id='$userId' ";
         $updateUser = $this->db->insert($query);
 
-        if ($updateUser) return true;
-        else {
+        if ($updateUser) {
+            Session::set('userName', $userName);
+            Session::set('userEmail', $email);
+            Session::set('userCountry', $country);
+            return true;
+        } else {
             $msg = $this->class_helper->alertMessage('danger', 'Update failed !', 'Something went wrong.');
             return $msg;
         }

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD']  == "GET") {
 
             <!-- display unique list of categories as clickable badges -->
             <div class="text-center">
-                <p class="text-grey ms-3 mb-0 fw-bold">FILTER BY</p>
+                <p class="text-grey ms-3 mb-0 fw-bold text-center"><?= $lang['rl_filtertitle'] ?> : </p>
                 <?php
                 // storing all the categories
                 $allCategories = array();

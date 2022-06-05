@@ -1,5 +1,4 @@
 <?php
-
 $lang = array(
     "connection" => "Connexion",
     "logout" => "Se déconnecter",
@@ -40,6 +39,7 @@ $lang = array(
     "about_download" => "Télécharger l'application",
 
     // recipeList.php
+    "rl_filtertitle" => "FILTRER PAR",
     "rl_title" => "Résultats de la recette pour ",
     "rl_count" => "résultats",
 
