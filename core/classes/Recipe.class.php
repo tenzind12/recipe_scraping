@@ -81,10 +81,9 @@ class Recipe
         // fetch all recipe matching name and time to get nutritionId
         $query1 = "SELECT * FROM recipes WHERE name LIKE '%$name%' AND totalTime <= $time";
         $recipes = $this->db->query($query1);
-        // if (!$recipes) {
-        //     $msg = '';
-        //     return $msg;
-        // }
+        if (!$recipes) return false;
+
+        // getting all the nutritionIDs
         $id = [];
         while ($rows = $recipes->fetch_assoc()) {
             $id[] = $rows['nutritionId'];

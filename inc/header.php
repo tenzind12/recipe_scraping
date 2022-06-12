@@ -24,7 +24,7 @@ if (isset($_GET['logoutId'])) {
 // C H A N G E   L A N G U A G E
 if (!isset($_COOKIE['language'])) $language = "en";
 else if (isset($_COOKIE['language'])) $language = $_COOKIE['language'];
-include './assets/languages/' .  $language . '.php';
+include './assets/languages/' .  $language . '.php'; // dynamic import of language file --en/fr + '.php' ($lang--array)
 
 ?>
 
